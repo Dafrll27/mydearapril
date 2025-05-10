@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js"></script>
+
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dear April</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            background-color: #fef6fb;
+            color: #6d3a76;
+        }
+
+        header {
+            background: linear-gradient(to right, #fcd3e1, #e1c4f2);
+            text-align: center;
+            padding: 30px 20px;
+            border-bottom: 4px solid #e5b17c;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #b267a6;
+        }
+
+        .intro-arabic {
+            font-size: 1.5em;
+            color: #9b4d96;
+            margin-top: 10px;
+        }
+
+        .datetime {
+            text-align: center;
+            font-size: 1em;
+            color: #f5a6c0;
+            margin: 10px 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        article h2 {
+            color: #b267a6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #fbe5ec;
+            font-size: 0.9em;
+            color: #a3746e;
+        }
+
+        .farewell-arabic {
+            text-align: center;
+            font-size: 1.3em;
+            margin: 30px 0 10px;
+            color: #9b4d96;
+        }
+  .navbar {
+  background-color: #fcd3e1;
+  padding: 10px 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center; /* Ini yang menengahkan isi */
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* Jarak antar item */
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #b267a6;
+  font-weight: bold;
+  font-family: 'Quicksand', sans-serif;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #9b4d96;
+}
+ body {
+    -webkit-user-select: none; /* Chrome, Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE/Edge */
+    user-select: none;         /* Standard */
+  }
+
+    <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #fff8f9;
+      color: #4c2b33;
+      margin: 0;
+      padding: 0 1rem;
+      line-height: 1.8;
+      text-align: justify;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: linear-gradient(to right, #f9e2e7, #f6e0f0);
+    }
+    header h1 {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 2.5rem;
+      margin: 0;
+      color: #d63384;
+    }
+    header p {
+      font-style: italic;
+      margin-top: 0.5rem;
+      color: #aa3f72;
+    }
+    article {
+      max-width: 800px;
+      margin: auto;
+      background-color: #fff;
+      padding: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      border-radius: 10px;
+    }
+    h2, h3 {
+      color: #b8326b;
+    }
+    a {
+      color: #d63384;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #aaa;
+      margin: 3rem 0 1rem;
+    }
+    .footnotes {
+      font-size: 0.9rem;
+      color: #555;
+      border-top: 1px solid #ddd;
+      margin-top: 2rem;
+      padding-top: 1rem;
+    }
+    .footnote-ref {
+      vertical-align: super;
+      font-size: 0.8rem;
+    }
+    .footnote-ref a {
+      color: #8d3c65;
+    }
+    @media (max-width: 600px) {
+      body {
+        padding: 0 0.5rem;
+      }
+    }   
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Dear April</h1>
+    <div class="datetime">
+        <span id="date"></span> | <span id="time"></span>
+    </div>
+
+
+</header>
+  <nav class="navbar">
+  <div class="nav-container">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="list.html">Blog</a></li>
+    </ul>
+  </div>
+</nav>
+<div id="google_translate_element" style="text-align: right; padding: 10px;"></div>
+<div class="container">
+    <article>
+           <script>
+    // Auto-update Date and Time
+    function updateTime() {
+        const now = new Date();
+        const jakartaTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Jakarta" }));
+        const date = jakartaTime.toLocaleDateString("en-GB");
+        const time = jakartaTime.toLocaleTimeString("en-GB");
+        document.getElementById("date").textContent = date;
+        document.getElementById("time").textContent = time;
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+
+     // Mencegah Ctrl+C, klik kanan, dan drag
+  document.addEventListener("copy", function(e) {
+    e.preventDefault();
+    alert("Jangan disalin yaa 😊");
+  });
+
+  document.addEventListener("contextmenu", function(e) {
+    e.preventDefault();
+    alert("Jangan disalin yaa 😊");
+  });
+
+  document.addEventListener("selectstart", function(e) {
+    e.preventDefault();
+  });
+</script>
+        <div class="farewell-arabic">
+        وَالسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ
+    </div>
+        
+    <article>
+    <p>Hi Kindreader,</p>
+    <p>How are you doing? I hope life’s treating you kindly—whether you're riding a high, navigating a low, or just coasting through the middle.</p>
+
+    <p>I’m Dinda, the voice behind <em>Dear April</em>. I started this blog with one simple intention: to capture, reflect on and share little pieces of life’s journey. I truly believe every second, minute and hour we live holds meaning. Sometimes it’s joy that fills us with gratitude. Sometimes it’s heartbreak that pushes us to grow. Then there’s everything in between—that weird emotional gradient we all experience but struggle to label.</p>
+
+    <p>We all carry stories that don’t always fit into neat boxes of “happy” or “sad.” That’s okay. Life’s not black and white—it’s made up of blurry moments, awkward transitions and small joys we don’t always notice. That’s the beauty of it.</p>
+
+    <h2>Why Writing?</h2>
+
+    <p>So why a blog? Why writing?</p>
+
+    <p>Well, for one, I’m one of those people who finds it easier to express thoughts through words on a page rather than words out loud. If you relate, we’re already on the same wavelength.</p>
+
+    <p>Interestingly, a study by the University of Texas found that expressive writing can actually boost your mental health, improve memory and help you make better decisions<sup class="footnote-ref"><a href="#footnote1">1</a></sup>. Writing gives shape to our thoughts and emotions. It stores them—permanently. Words spoken might fade away, but writing sticks. You can return to it, revisit who you were, and see how far you’ve come.</p>
+
+    <p>Writing is like cleaning out your mental closet. It helps untangle the mess in your head and turns vague feelings into clear reflections. For me, that process feels grounding—like giving myself room to breathe.</p>
+
+    <h2>A New Age, A New Awareness</h2>
+    <p>Just last month, I turned a year older. (Cue existential crisis.)</p>
+    <p>Kidding—kind of.<br>
+    There’s something about birthdays that make you stop and ask, <em>“Am I where I’m supposed to be?”</em> And to be honest, I’m not sure I have an answer yet. I still feel like I haven’t <em>become</em> anything, or anyone, really. Maybe that’s exactly why this blog feels important. This is the starting point of becoming something more.</p>
+
+    <p>According to <em>Harvard Business Review</em>, people who regularly reflect on their lives are more likely to develop a growth mindset and stay productive in the long run<sup class="footnote-ref"><a href="#footnote2">2</a></sup>. So here’s me, taking a small but intentional step: to write, reflect and share.</p>
+
+    <h2>So, What’s <em>Dear April</em> All About?</h2>
+    <p>Why <em>Dear April</em>?<br>
+    Well, April’s always been kind of special to me. It’s the month where things tend to shift—beginnings, endings, surprises, transitions. I see this blog as an open letter, a place to write down all the little things that often slip through the cracks but actually matter the most.</p>
+
+    <p>My hope is that <em>Dear April</em> becomes a safe corner of the internet—for anyone looking for meaning, going through a rough patch, or just needing to know they’re not alone.</p>
+
+    <p>If any of this resonates with you, I’m so glad you’re here.</p>
+
+    <p>See you in the next post,<br> —Dinda</p>
+
+    <div class="footnotes">
+      <p id="footnote1"><strong>1.</strong> Pennebaker, J. W., & Smyth, J. M. (2016). <em>Opening Up by Writing It Down: How Expressive Writing Improves Health and Eases Emotional Pain</em>. The Guilford Press.</p>
+      <p id="footnote2"><strong>2.</strong> Harvard Business Review (2014). <em>The Business Case for Reflection</em>. Retrieved from <a href="https://hbr.org">hbr.org</a></p>
+    </div>
+  </article>
+
+       <div class="farewell-arabic">
+        وَالسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ
+    </div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',
+      includedLanguages: 'id,en',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    },
+    'google_translate_element'
+  );
+}
+</script>
+<script type="text/javascript" 
+  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+
+
+<footer>
+    <p>&copy; 2025 Dear April. All rights reserved.</p>
+</footer>
+
+
+
+</body>
+</html>
