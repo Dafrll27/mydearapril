@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js"></script>
+
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dear April</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            background-color: #fef6fb;
+            color: #6d3a76;
+        }
+
+        header {
+            background: linear-gradient(to right, #fcd3e1, #e1c4f2);
+            text-align: center;
+            padding: 30px 20px;
+            border-bottom: 4px solid #e5b17c;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #b267a6;
+        }
+
+        .intro-arabic {
+            font-size: 1.5em;
+            color: #9b4d96;
+            margin-top: 10px;
+        }
+
+        .datetime {
+            text-align: center;
+            font-size: 1em;
+            color: #f5a6c0;
+            margin: 10px 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        article h2 {
+            color: #b267a6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #fbe5ec;
+            font-size: 0.9em;
+            color: #a3746e;
+        }
+
+        .farewell-arabic {
+            text-align: center;
+            font-size: 1.3em;
+            margin: 30px 0 10px;
+            color: #9b4d96;
+        }
+  .navbar {
+  background-color: #fcd3e1;
+  padding: 10px 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center; /* Ini yang menengahkan isi */
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* Jarak antar item */
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #b267a6;
+  font-weight: bold;
+  font-family: 'Quicksand', sans-serif;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #9b4d96;
+}
+ body {
+    -webkit-user-select: none; /* Chrome, Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE/Edge */
+    user-select: none;         /* Standard */
+  }
+
+    <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #fff8f9;
+      color: #4c2b33;
+      margin: 0;
+      padding: 0 1rem;
+      line-height: 1.8;
+      text-align: justify;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: linear-gradient(to right, #f9e2e7, #f6e0f0);
+    }
+    header h1 {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 2.5rem;
+      margin: 0;
+      color: #d63384;
+    }
+    header p {
+      font-style: italic;
+      margin-top: 0.5rem;
+      color: #aa3f72;
+    }
+    article {
+      max-width: 800px;
+      margin: auto;
+      background-color: #fff;
+      padding: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      border-radius: 10px;
+    }
+    h2, h3 {
+      color: #b8326b;
+    }
+    a {
+      color: #d63384;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #aaa;
+      margin: 3rem 0 1rem;
+    }
+    .footnotes {
+      font-size: 0.9rem;
+      color: #555;
+      border-top: 1px solid #ddd;
+      margin-top: 2rem;
+      padding-top: 1rem;
+    }
+    .footnote-ref {
+      vertical-align: super;
+      font-size: 0.8rem;
+    }
+    .footnote-ref a {
+      color: #8d3c65;
+    }
+    @media (max-width: 600px) {
+      body {
+        padding: 0 0.5rem;
+      }
+    }   
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Dear April</h1>
+    <div class="datetime">
+        <span id="date"></span> | <span id="time"></span>
+        <p style="margin-top: 10px; font-size: 0.9em; color: #9b4d96;">
+  This post was written on <strong>May 16, 2025</strong>
+</p>
+    </div>
+
+
+</header>
+  <nav class="navbar">
+  <div class="nav-container">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="list.html">Blog</a></li>
+    </ul>
+  </div>
+</nav>
+<div id="google_translate_element" style="text-align: right; padding: 10px;"></div>
+<div class="container">
+    <article>
+           <script>
+    // Auto-update Date and Time
+    function updateTime() {
+        const now = new Date();
+        const jakartaTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Jakarta" }));
+        const date = jakartaTime.toLocaleDateString("en-GB");
+        const time = jakartaTime.toLocaleTimeString("en-GB");
+        document.getElementById("date").textContent = date;
+        document.getElementById("time").textContent = time;
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+
+     // Mencegah Ctrl+C, klik kanan, dan drag
+  document.addEventListener("copy", function(e) {
+    e.preventDefault();
+    alert("Jangan disalin yaa 😊");
+  });
+
+  document.addEventListener("contextmenu", function(e) {
+    e.preventDefault();
+    alert("Jangan disalin yaa 😊");
+  });
+
+  document.addEventListener("selectstart", function(e) {
+    e.preventDefault();
+  });
+</script>
+        <div class="farewell-arabic">
+    السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُه
+    </div>
+    <article>
+    <h1>From Chaos to Confidence: My Third Booth Experience</h1>
+
+  <p>Today, my four friends and I had the chance to run a booth at a campus event. As usual, it was a golden opportunity to showcase our business — hijabs that we’ve thoughtfully selected and designed ourselves. But this time felt different. It wasn’t just about selling. It was about realizing how far we’ve come.</p>
+
+  <p>For context, this was our third time running a booth. And with each booth comes a fresh set of lessons: team readiness, product availability, our ability to connect with customers, and how customer behavior shifts from one event to another.</p>
+
+  <h2>Booth One: Beautiful Chaos</h2>
+
+  <p>Our first booth? A bit of a mess. Our products weren’t available until four hours after the event started because of last-minute vendor coordination. And honestly, we were all too shy to even speak to strangers passing by. At the time, I thought, “This is a terrible start.”</p>
+
+  <p>But I’ve learned: there’s no such thing as a bad start when you’re willing to grow. Like John C. Maxwell said, <em>“Sometimes you win, sometimes you learn.”</em><sup>1</sup> Failure isn’t the opposite of success—it’s part of the process.</p>
+
+  <h2>Booth Two: Spending More, Learning More</h2>
+
+  <p>With our second booth, we actually spent more on transportation than we earned. Was I disappointed? Surprisingly, no. The insights we gained were worth so much more. That’s when I realized that profit isn’t always about money. Sometimes, the experience itself is priceless.</p>
+
+  <p>This is what business experts call <strong>intangible gains</strong> — the benefits that aren’t financial, but have long-term impact.<sup>2</sup> Think: confidence, communication skills, or building trust with your team.</p>
+
+  <h2>Booth Three: A Quiet Milestone</h2>
+
+  <p>Today, on our third booth day, I could feel a shift. We weren’t perfect, but we were way more prepared. We showed up on time, our products were ready from the start, and most of all—I noticed I had changed.</p>
+
+  <p>Back then, I wanted to approach customers. Now? I actually did. I called out to people walking by, invited them to check out our booth, and smiled through it all. And it felt... amazing. That shy girl from the first booth? She’s learning to show up.</p>
+
+  <p>According to a Harvard study, engaging in public-facing roles like this can boost interpersonal confidence and build resilience—especially in young people figuring out their path.<sup>3</sup></p>
+
+  <h2>More Than Just Sales</h2>
+
+  <p>This journey taught me that every step—every awkward pitch, failed sale, or quiet booth—shapes us. Each time we show up, we’re not just showcasing a product; we’re revealing parts of ourselves: our dreams, our courage, our growth.</p>
+
+  <div class="quote">
+    <p><strong>Quote of the Day:</strong> On my way home, I saw a post that said: “Faking a smile in front of customers is a real skill.” It made me pause. Do I agree? Not entirely. Because today, my smile was real. Not because of our sales, but because I felt at ease in my skin. That, to me, is something to celebrate—even if it’s just the beginning.</p>
+  </div>
+
+  <h2>So, What Did I Learn?</h2>
+
+  <p>Every difficult moment in booth one and two led me to this third one. Maybe the same is true for you. The things you struggle with today? One day, you’ll handle them with ease. Just keep going, keep learning, and don’t stop showing up.</p>
+
+  <p>— Dinda</p>
+
+  <footer>
+    <h2>References</h2>
+    <ol class="footnotes">
+      <li>Maxwell, J. C. (2011). <em>Sometimes You Win, Sometimes You Learn: Life's Greatest Lessons Are Gained from Our Losses</em>. Center Street.</li>
+      <li>Harvard Business Review. (2016). <em>Measuring What Matters: The Hidden Value of Intangible Gains</em>. Retrieved from <a href="https://hbr.org">hbr.org</a></li>
+      <li>Harvard University. (2018). <em>Developing Confidence Through Experience: Why Exposure to Public-Facing Roles Matters in Youth</em>. Retrieved from <a href="https://www.harvard.edu">harvard.edu</a></li>
+    </ol>
+  </footer>
+  </article>
+
+       <div class="farewell-arabic">
+        وَالسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ
+    </div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',
+      includedLanguages: 'id,en',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    },
+    'google_translate_element'
+  );
+}
+</script>
+<script type="text/javascript" 
+  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+
+<div style="margin: 30px auto; max-width: 700px; background-color: #ffe6f0; border: 1px solid #f7b6c2; padding: 15px 20px; border-radius: 10px; color: #b24574; text-align: center; font-size: 0.95em;">
+  ✋ Please kindly respect the content — copying is disabled to preserve originality 😊
+</div>
+
+<footer>
+    <p>&copy; 2025 Dear April. All rights reserved.</p>
+</footer>
+
+
+
+</body>
+</html>
