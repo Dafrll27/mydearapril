@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js"></script>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dear April</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: 'Quicksand', sans-serif;
+        margin: 0;
+        background-color: #fef6fb;
+        color: #6d3a76;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        line-height: 1.8;
+        text-align: justify;
+    }
+    header {
+        background: linear-gradient(to right, #fcd3e1, #e1c4f2);
+        text-align: center;
+        padding: 30px 20px;
+        border-bottom: 4px solid #e5b17c;
+    }
+    header h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        color: #b267a6;
+    }
+    .datetime {
+        text-align: center;
+        font-size: 1em;
+        color: #f5a6c0;
+        margin: 10px 0;
+    }
+    .navbar {
+        background-color: #fcd3e1;
+        padding: 10px 0;
+    }
+    .nav-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        padding: 0;
+        margin: 0;
+    }
+    .nav-links li a {
+        text-decoration: none;
+        color: #b267a6;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    .nav-links li a:hover {
+        color: #9b4d96;
+    }
+    .container {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    article h2 {
+        color: #b267a6;
+    }
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #fbe5ec;
+        font-size: 0.9em;
+        color: #a3746e;
+    }
+    .farewell-arabic {
+        text-align: center;
+        font-size: 1.3em;
+        margin: 30px 0 10px;
+        color: #9b4d96;
+    }
+    .quote {
+        background: #ffe6f0;
+        border-left: 5px solid #f7b6c2;
+        padding: 10px 15px;
+        margin: 20px 0;
+        border-radius: 8px;
+        font-style: italic;
+        color: #b24574;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Dear April</h1>
+    <div class="datetime">
+        <span id="date"></span> | <span id="time"></span>
+        <p style="margin-top: 10px; font-size: 0.9em; color: #9b4d96;">
+            This post was written on <strong>July 28, 2025</strong>
+        </p>
+    </div>
+</header>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="list.html">Blog</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div id="google_translate_element" style="text-align: right; padding: 10px;"></div>
+
+<div class="container">
+<article>
+    <div class="farewell-arabic">
+        السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُه
+    </div>
+
+    <h1>KKN in Pekalongan: Day Two, Heat, and Stories in Between</h1>
+
+    <h2>The Journey Begins</h2>
+    <p>Kalibaros, a district in East Pekalongan, is where I’ll be spending the next month doing my community service program (KKN). Our team consists of eight people from diverse academic backgrounds—business, biology, computer science, food technology, communication and community development, and Islamic economics. It’s an interesting mix that feels like a miniature version of our university packed into one small group.</p>
+
+    <p>We left on June 22, 2025, at 7 p.m. I started from my boarding house with a friend, taking a ride-hailing car since our luggage was far from light: a 20-inch suitcase, a large bag, and a full backpack. By the time we reached our meeting point at IPB Dramaga’s main campus around 8 p.m., the Yellow Corner was already crowded. Cars lined up tightly, the sound of rolling suitcases echoed everywhere, and groups of students were chatting excitedly.</p>
+
+    <p>On the bus, I sat next to a computer science student. I slept through most of the journey—after all, the past few days had been packed with activities. Each time I opened my eyes, he was still wide awake, switching between editing documents, writing code, and occasionally watching short videos. That little scene made me realize something: people handle transitions differently. Some stay productive to feel grounded, while others—like me—choose to recharge through rest. Neither is better. Both are just valid ways to adapt.</p>
+
+    <h2>Sunrise in Pemalang</h2>
+    <p>Around 4 a.m., we stopped in Pemalang. The air was still damp and cool. We were given time to change clothes, pray, and grab breakfast. That meal felt unusually special—not because of what we ate, but because of where we were.</p>
+
+    <p>In the distance, the sun slowly rose above the horizon. The sky shifted from gray to orange, reflecting on endless rice fields. Vehicle lights still sparkled on the nearby highway, and faint silhouettes of buildings emerged as the morning light grew stronger. We sat quietly on long wooden benches, each of us eating simple food yet feeling oddly content.</p>
+
+    <div class="quote">
+        <strong>Quick Fact:</strong> Pemalang Regency has over 40,000 hectares of rice fields (BPS, 2023), making lush green landscapes a common sight along the northern Java route at dawn.
+    </div>
+
+    <h2>A Warm Welcome</h2>
+    <p>After breakfast, we continued to Pekalongan City Hall. The building looked formal but felt unexpectedly warm. We were served small snacks—crispy bakwan fritters, tiny mochi balls that looked like mini onde, banana chips, and fried macaroni. The hospitality stood out. People didn’t rush. They didn’t keep a stiff distance. They made it easy for us to feel at home.</p>
+
+    <p>From there, we headed to the sub-district office. The officials then escorted us to Kalibaros village using an open truck. Our luggage was stacked high, secured only with ropes, while the eight of us squeezed into whatever tiny space remained. Some stood, some sat half-hanging off the edge. Strangely, no one complained. Instead, laughter and random jokes filled the air as we bumped along the road.</p>
+
+    <h2>First Impressions: Home Away from Home</h2>
+    <p>The house prepared for us was simple yet clean. There were three bedrooms and two bathrooms. I chose the back room with a friend from the food technology department. It wasn’t spacious, but it felt right.</p>
+
+    <p>Some things can’t be measured by square footage. A sense of safety, a warm greeting, and the feeling that you’re welcome—those are what actually make a place feel like home. And that little house gave us exactly that.</p>
+
+    <h2>First Mini-Adventure: Groceries, Ice Cream, and Heat</h2>
+    <p>By late afternoon, the four girls in our group decided to hunt for essentials that would last us forty days. Our mission: find the nearest minimarket. Easy? Not really. We had to cross several busy roads and walk past Setono Batik Wholesale Market, which was slowly dimming but still buzzing with voices and honking motorcycles.</p>
+
+    <p>When we finally arrived, we split up the shopping list—bathroom supplies, dry foods, small items like hangers and soap holders. Yet, there was one unspoken priority: ice cream. Pekalongan’s temperature that day hit <strong>31°C (87.8°F)</strong>—noticeably hotter than Dramaga’s average of <strong>27°C (80.6°F)</strong> (BMKG, 2024). For someone from a hometown that’s often ten degrees cooler, the heat felt like a personal challenge.</p>
+
+    <h2>Nighttime Lessons: Power Outages and Plans Gone Sideways</h2>
+    <p>That evening, we gathered in the living room for our first group discussion, but the lights went out. Two friends tried fixing them, checking switches and cables, but nothing worked. We eventually moved to another lit space, using phone flashlights and laughter to keep the energy going.</p>
+
+    <p>Around 8 p.m., we realized we hadn’t had dinner. We decided to head out together and grab some soto, a local soup that felt like the safest choice for our not-yet-adjusted stomachs. On the way, I noticed I was the only one wearing a light beige outfit while everyone else wore black or navy blue. I laughed it off—maybe my role in this team is simply to add color.</p>
+
+    <p>Unfortunately, the soto stall was closed. After walking that far, it was a little disappointing, but instead of complaining, we turned around and ordered food online. Problem solved.</p>
+
+    <p>Life works the same way. Not every plan will succeed exactly as you expect. Sometimes the path you think is right is actually closed, but there’s always another route—sometimes that route is as simple as a food delivery app.</p>
+
+    <div class="farewell-arabic">
+        وَالسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ
+    </div>
+</article>
+</div>
+
+<script>
+function updateTime() {
+    const now = new Date();
+    const jakartaTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Jakarta" }));
+    document.getElementById("date").textContent = jakartaTime.toLocaleDateString("en-GB");
+    document.getElementById("time").textContent = jakartaTime.toLocaleTimeString("en-GB");
+}
+setInterval(updateTime, 1000);
+updateTime();
+
+document.addEventListener("copy", e => { e.preventDefault(); alert("Jangan disalin yaa 😊"); });
+document.addEventListener("contextmenu", e => { e.preventDefault(); alert("Jangan disalin yaa 😊"); });
+document.addEventListener("selectstart", e => e.preventDefault());
+</script>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    { pageLanguage: 'en', includedLanguages: 'id,en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
+    'google_translate_element'
+  );
+}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<div style="margin: 30px auto; max-width: 700px; background-color: #ffe6f0; border: 1px solid #f7b6c2; padding: 15px 20px; border-radius: 10px; color: #b24574; text-align: center; font-size: 0.95em;">
+  ✋ Please kindly respect the content — copying is disabled to preserve originality 😊
+</div>
+
+<footer>
+    <p>&copy; 2025 Dear April. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
