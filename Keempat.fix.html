@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js"></script>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dear April</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: 'Quicksand', sans-serif;
+        margin: 0;
+        background-color: #fef6fb;
+        color: #6d3a76;
+        user-select: none;
+        line-height: 1.8;
+        text-align: justify;
+    }
+    header {
+        background: linear-gradient(to right, #fcd3e1, #e1c4f2);
+        text-align: center;
+        padding: 30px 20px;
+        border-bottom: 4px solid #e5b17c;
+    }
+    header h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        color: #b267a6;
+    }
+    .datetime {
+        text-align: center;
+        font-size: 1em;
+        color: #f5a6c0;
+        margin: 10px 0;
+    }
+    .navbar {
+        background-color: #fcd3e1;
+        padding: 10px 0;
+    }
+    .nav-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        padding: 0;
+        margin: 0;
+    }
+    .nav-links li a {
+        text-decoration: none;
+        color: #b267a6;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    .nav-links li a:hover {
+        color: #9b4d96;
+    }
+    .container {
+        max-width: 900px;
+        margin: 30px auto;
+        padding: 40px;
+        background: linear-gradient(145deg, #fff8f5, #fffdfb);
+        border-radius: 16px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        border: 1px solid #f7d6e0;
+    }
+    article h2 {
+        color: #b267a6;
+    }
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #fbe5ec;
+        font-size: 0.9em;
+        color: #a3746e;
+    }
+    .farewell-arabic {
+        text-align: center;
+        font-size: 1.3em;
+        margin: 30px 0 10px;
+        color: #9b4d96;
+    }
+    .quote {
+        background: #ffe6f0;
+        border-left: 5px solid #f7b6c2;
+        padding: 10px 15px;
+        margin: 20px 0;
+        border-radius: 8px;
+        font-style: italic;
+        color: #b24574;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Dear April</h1>
+    <div class="datetime">
+        <span id="date"></span> | <span id="time"></span>
+        <p style="margin-top: 10px; font-size: 0.9em; color: #9b4d96;">
+            This post was written on <strong id="today"></strong>
+        </p>
+    </div>
+</header>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="list.html">Blog</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div id="google_translate_element" style="text-align: right; padding: 10px;"></div>
+
+<div class="container">
+<article>
+    <div class="farewell-arabic">
+        السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُه
+    </div>
+
+    <h1>Hurt Doesn’t Justify Hurt</h1>
+
+
+    <h2>Overconfidence and Harsh Reality</h2>
+    <p>My biggest weakness is being overly confident. I believed that even in a toxic environment, I would not turn into a toxic person as long as I had a strong personality and firm principles. Until finally, I began to admit that I was not strong enough to survive in a harmful environment, not strong enough to avoid becoming harmful myself.</p>
+
+    <h2>Meeting the Source of My Struggles</h2>
+    <p>A while ago, I met a girl who, as it turns out, had been the very reason why my college years often felt so heavy. The first warning actually came from my dorm mate, but I ignored it because I thought it was unfair to judge someone based on what others said.</p>
+    <p>At first, everything seemed fine. She showed me her good side. But now I realize that I was being too naïve, because the truth is, everyone puts their best face forward when meeting someone new.</p>
+    <p>Day by day, she started showing behaviors that made me feel uncomfortable, whether it was through her actions, her habits, her mindset, or most often, the words she spoke to me or to others. Yet, I brushed it all aside, thinking this was just a part of her flaws that I should tolerate, the way friendships usually work out there.</p>
+    <p>Slowly, hurtful remarks like “You wouldn’t be able to do this without me” or “If I were you, I’d get it done right away” no longer made me sad or angry. Her words became so normal to my ears. And what’s worse, over time, I began to actually believe them. Her words started to convince me that I wasn’t good enough.</p>
+
+    <h2>The Trade-Off in Human Relationships</h2>
+    <p>We all acknowledge that every person has strengths and weaknesses. In every interaction, be it friendships, romantic relationships, or even parent-child relationships, there is something called a trade-off.</p>
+    <p>When interaction happens, we gain certain benefits but also accept certain costs. While we enjoy the benefits we receive, at the same time, we must also accept the drawbacks. Interacting with others means maintaining relationships by exchanging strengths what we can offer them and what they can offer us. On the other hand, we must also be ready to tolerate weaknesses, just as we hope our own flaws will be tolerated. This is often necessary to avoid conflicts.</p>
+    <p>But the question remains: is the tolerance we give still within reasonable boundaries?</p>
+
+    <h2>Forgiveness, Conflict Avoidance, and Its Consequences</h2>
+    <p>In every moment when someone does something unpleasant to us, those of us who dislike conflict often search for reasons to justify why we should let it go. That way, we forgive easily because we believe holding grudges is heavy and exhausting. It sounds noble, until it becomes a loophole for others to keep treating us however they want.</p>
+    <p>That is why clear communication is necessary. By speaking up, we give the other person a chance to learn. This creates balance, we forgive for our own hearts but at the same time, we draw boundaries for others.</p>
+    <div class="quote">
+        “Sometimes people don’t do wrong because they intend to, but because they don’t know they’re doing wrong.” – SAL
+    </div>
+    <p>This statement is very true. But what if the person refuses to listen, shuts their ears to criticism, and rejects all feedback?</p>
+
+    <h2>Trauma, Choice, and Responsibility</h2>
+    <p>I have read several psychological books. Contemporary psychology suggests that past wounds can influence the way an individual thinks, behaves, and acts in the present. They call these past wounds trauma.</p>
+    <p>On the other hand, Alfred Adler, a psychologist, stated that past wounds do not directly determine a person’s present life. Instead, it depends on the meaning the individual assigns to those wounds. According to Adler, every individual always has a choice: whether their past will make them better or worse. Trauma does not absolutely dictate the present.</p>
+    <p>Often, we feel sympathy for individuals who have faced painful or tragic experiences. Instinctively, we want to help them through it. This makes us even more forgiving. We widen our tolerance for their negative behaviors, assuming these flaws are caused by their past suffering. With open arms, we offer to be a friend in their healing journey. We hope that through our presence, they can start to believe again that life is worth living. Slowly and patiently, we try to accompany them in rebuilding their lives, showing them how the world normally works, so that they may feel deserving of something better in the future.</p>
+    <p>But what if our helping hand is never recognized as help, but instead used as a medium to prolong their wound? If we return to Adler’s theory, doesn’t every individual have the choice of what meaning to give their wounds? That means even when someone is hurt, they are still responsible for how they treat others. Trauma may limit a person, but it does not erase moral responsibility.</p>
+    <p>A popular phrase says: “Hurt people hurt people.” Yet we must also realize: “Hurt doesn’t justify hurt.”</p>
+
+    <h2>The Dilemma of Distance</h2>
+    <p>We may sometimes feel like villains for choosing to distance ourselves from someone who seems to need a friend the most. Looking inward, we realize we are not perfect either, so why should we leave someone just because of their imperfections?</p>
+
+    <h2>Answering the Questions</h2>
+    <p>Tolerance is reasonable when it does not strip us of dignity or self-worth. As long as it strengthens relationships, it is meaningful. But when tolerance becomes an excuse to ignore emotional abuse or manipulation, it is no longer tolerance, it is betrayal of ourselves.</p>
+    <p>What if the person refuses to listen, shuts their ears to criticism, and rejects all feedback? In relationship psychology, there is a concept called resistance to change. Every individual has the right to decide when to change, and we do not have absolute control over accelerating that process. Adler’s theory reminds us that the ultimate control lies in the meaning individuals assign to their experiences. We can only create opportunities for learning, not force the learning itself. At this point, keeping distance is not just an option, it is a necessity. We cannot sacrifice our mental health for someone unwilling to leave destructive patterns.</p>
+    <p>What if our help is never seen as help? Then we must remember that healthy empathy does not mean drowning in another person’s suffering. Empathy without boundaries turns into co-dependency, where we feel responsible for someone else’s healing when it is not our responsibility. Again, Adler is relevant here: wounds are real, but the meaning assigned to them is a choice. If someone chooses to use their wounds as an excuse to hurt others, then we have the right to step back.</p>
+    <p>And are we evil for keeping our distance from someone who seems to need a friend the most? Absolutely not. Distance is not betrayal; it is a healthier form of care, for ourselves and for them. Boundary theory in psychology emphasizes that boundaries are fundamental for functional relationships. Without boundaries, relationships lose form and become breeding grounds for manipulation. Thus, distance is not cruelty, but a critical step to save both sides: ourselves from destruction, and the other person from false comfort that enables destructive behavior.</p>
+    <p>We are indeed imperfect, but our imperfections cannot be used as an excuse to tolerate harm. In relationships, there is a difference between tolerable flaws like being forgetful or moody and intolerable behaviors, like belittling, manipulating, or harming. Ignoring this difference is a dangerous negligence.</p>
+    <p>Therefore, the answers to all those rhetorical questions converge at one point: keeping distance is the right choice when a relationship has crossed the line of health. It is not just a survival strategy, but a moral, logical, and responsible decision. In the end, hurt doesn’t justify hurt, and no reason, not even trauma can excuse harmful behavior. Saving ourselves is not selfishness; it is the only way we can continue to show up in healthy ways for the relationships that truly deserve to be sustained.</p>
+
+    <h2>Closing Reflection: Lessons for Ourselves Too</h2>
+    <p>Of course, in this entire story, it may seem as though the other person is the only one at fault. And while it is true that their harmful words and actions cannot be justified, we also need to acknowledge that we are not entirely blameless either. Every relationship is a two-way street.</p>
+    <p>Our willingness to tolerate too much, our hesitation to set clear boundaries, and our silence in moments when we should have spoken up, all of these were decisions we made. They do not make us guilty of what happened, but they remind us that there are lessons to be learned about protecting ourselves better in the future.</p>
+    <p>If the other person’s responsibility is to recognize how their wounds influence the way they treat others, then our responsibility is to reflect on why we allowed their actions to continuously hurt us. This does not mean blaming ourselves, but rather identifying patterns we need to change.</p>
+    <p>Because at the end of the day, healing is not just about moving away from what hurts us, it is also about growing into someone who knows how to choose healthier relationships, how to enforce stronger boundaries, and how to nurture self-respect without losing compassion.</p>
+    <p>So yes, hurt doesn’t justify hurt. But neither does being hurt justify us abandoning the chance to improve ourselves. The past may leave scars, but the choice of what meaning we give those scars is ours. And by choosing growth over bitterness, we ensure that tomorrow, we will not only survive, but live better, stronger, and with more wisdom.</p>
+
+    <div class="farewell-arabic">
+        وَالسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ
+    </div>
+</article>
+</div>
+
+<script>
+function updateTime() {
+    const now = new Date();
+    const jakartaTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Jakarta" }));
+    document.getElementById("date").textContent = jakartaTime.toLocaleDateString("en-GB");
+    document.getElementById("time").textContent = jakartaTime.toLocaleTimeString("en-GB");
+    document.getElementById("today").textContent = jakartaTime.toLocaleDateString("en-GB", { day: 'numeric', month: 'long', year: 'numeric' });
+}
+setInterval(updateTime, 1000);
+updateTime();
+
+document.addEventListener("copy", e => { e.preventDefault(); alert("Jangan disalin yaa 😊"); });
+document.addEventListener("contextmenu", e => { e.preventDefault(); alert("Jangan disalin yaa 😊"); });
+document.addEventListener("selectstart", e => e.preventDefault());
+</script>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    { pageLanguage: 'en', includedLanguages: 'id,en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
+    'google_translate_element'
+  );
+}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<div style="margin: 30px auto; max-width: 700px; background-color: #ffe6f0; border: 1px solid #f7b6c2; padding: 15px 20px; border-radius: 10px; color: #b24574; text-align: center; font-size: 0.95em;">
+  ✋ Please kindly respect the content — copying is disabled to preserve originality 😊
+</div>
+
+<footer>
+    <p>&copy; 2025 Dear April. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
