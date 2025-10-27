@@ -15,9 +15,6 @@
         margin: 0;
         background-color: #fef6fb;
         color: #6d3a76;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
         user-select: none;
         line-height: 1.8;
         text-align: justify;
@@ -66,11 +63,12 @@
     }
     .container {
         max-width: 900px;
-        margin: 20px auto;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        margin: 30px auto;
+        padding: 40px;
+        background: linear-gradient(145deg, #fff8f5, #fffdfb);
+        border-radius: 16px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        border: 1px solid #f7d6e0;
     }
     article h2 {
         color: #b267a6;
@@ -104,9 +102,9 @@
 <header>
     <h1>Dear April</h1>
     <div class="datetime">
-        <span id="date">Monday, 27 October 2025</span> | <span id="time"></span>
+        <span id="date"></span> | <span id="time"></span>
         <p style="margin-top: 10px; font-size: 0.9em; color: #9b4d96;">
-            This post was written on <strong>October 27, 2025</strong>
+            This post was written on Monday, 27 October 2025
         </p>
     </div>
 </header>
@@ -317,30 +315,11 @@
 
 
 
- <div class="farewell-arabic">
+<div class="farewell-arabic">
         وَالسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ
     </div>
 </article>
-</article>
 </div>
-
-<footer>
-    &copy; 2025 Dear April. All rights reserved.
-</footer>
-
-<script>
-// Hanya update jam (bukan tanggal)
-function updateTime() {
-    const now = new Date();
-    const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    document.getElementById("time").textContent = timeString;
-}
-setInterval(updateTime, 1000);
-updateTime();
-</script>
-
-</body>
-</html>
 
 <script>
 function updateTime() {
@@ -348,6 +327,7 @@ function updateTime() {
     const jakartaTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Jakarta" }));
     document.getElementById("date").textContent = jakartaTime.toLocaleDateString("en-GB");
     document.getElementById("time").textContent = jakartaTime.toLocaleTimeString("en-GB");
+    document.getElementById("today").textContent = jakartaTime.toLocaleDateString("en-GB", { day: 'numeric', month: 'long', year: 'numeric' });
 }
 setInterval(updateTime, 1000);
 updateTime();
