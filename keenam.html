@@ -18,6 +18,27 @@
   --line:#e4e7f2;
   --quote:#eef1ff;
 }
+  body.dark {
+  background: #0f0f14;
+  color: #e6e6eb;
+}
+
+body.dark .content {
+  background: #15151d;
+}
+
+.mode-btn{
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+  padding: 10px 14px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
 
 *{
   margin:0;
@@ -32,6 +53,7 @@ body{
   color:var(--text);
   line-height:1.8;
 }
+<button id="darkToggle" class="mode-btn">🌙</button>
 
 /* Progress bar */
 #progress{
@@ -377,5 +399,11 @@ document.addEventListener('dragstart', function(e){
   e.preventDefault();
 });
 </script>
+  <script>
+document.getElementById('darkToggle').onclick = function(){
+  document.body.classList.toggle('dark');
+};
+</script>
+
 </body>
 </html>
