@@ -53,18 +53,7 @@ body{
   color:var(--text);
   line-height:1.8;
 }
-<button id="darkToggle" class="mode-btn">🌙</button>
 
-/* Progress bar */
-#progress{
-  position:fixed;
-  top:0;
-  left:0;
-  height:5px;
-  width:0%;
-  background:linear-gradient(90deg,#9aa6ff,#bfa8ff);
-  z-index:9999;
-}
 
 /* Layout */
 .container{
@@ -191,7 +180,18 @@ input, textarea{
 </head>
 
 <body>
+<button id="darkToggle" class="mode-btn">🌙</button>
 
+/* Progress bar */
+#progress{
+  position:fixed;
+  top:0;
+  left:0;
+  height:5px;
+  width:0%;
+  background:linear-gradient(90deg,#9aa6ff,#bfa8ff);
+  z-index:9999;
+}
 <div id="progress"></div>
 
 <div class="container">
