@@ -187,15 +187,7 @@ input, textarea{
     font-size:2rem;
   }
 }
-  p{
-  transition: all 0.3s ease;
-}
 
-p.active{
-  background: rgba(255,255,255,0.08);
-  padding: 6px;
-  border-radius: 6px;
-}
 </style>
 </head>
 
@@ -409,19 +401,7 @@ document.addEventListener('dragstart', function(e){
   e.preventDefault();
 });
 </script>
-  <script>
-const paragraphs = document.querySelectorAll("p");
-window.addEventListener("scroll", ()=>{
-  paragraphs.forEach(p=>{
-    const rect = p.getBoundingClientRect();
-    if(rect.top > 100 && rect.top < 300){
-      p.classList.add("active");
-    }else{
-      p.classList.remove("active");
-    }
-  });
-});
-</script>
+
 
   <script>
 document.getElementById('darkToggle').onclick = function(){
