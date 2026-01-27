@@ -194,19 +194,17 @@ input, textarea{
 }
 /* Inline narrative quote (tanpa garis, tanpa box) */
 .inline-quote{
-    font-style: italic;
-padding: 2px 6px;
-  border-radius: 4px;
-   font-size: 1.05rem;
-   font-weight: normal; 
+  margin-top: 6px;        /* jarak kecil dari teks atas */
+  margin-bottom: 22px;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.6;
   color: var(--text);
-
-
 }
 
 /* soft highlight inline */
 .inline-quote em{
-  background: linear-gradient(transparent 72%, rgba(154,166,255,0.22) 72%);
+  background: linear-gradient(transparent 70%, rgba(154,166,255,0.22) 70%);
   padding: 0 4px;
   border-radius: 3px;
 }
@@ -217,11 +215,8 @@ body.dark .inline-quote{
 }
 
 body.dark .inline-quote em{
-  background: linear-gradient(transparent 72%, rgba(154,166,255,0.32) 72%);
+  background: linear-gradient(transparent 70%, rgba(154,166,255,0.35) 70%);
 }
-
-
-
 
 
 /* Quote highlight */
