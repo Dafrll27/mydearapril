@@ -124,6 +124,39 @@ body{
   transition: width 0.1s linear;
 }
 
+.soft-list{
+  margin: 14px 0 22px;
+  padding-left: 6px;
+}
+
+.soft-item{
+  position: relative;
+  padding-left: 18px;
+  margin: 8px 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* bullet aesthetic */
+.soft-item::before{
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent);
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+/* dark mode */
+body.dark .soft-item{
+  color: #e6e6f0;
+}
+
+body.dark .soft-item::before{
+  color: #9aa6ff;
+}
 
 
 /* Layout */
@@ -392,8 +425,8 @@ Waktu aku kecil, aku ngefans banget sama Maudy Ayunda, <em>yaa you know</em> lah
 <section class="section">
   <h2>Kekerasan yang Tumbuh di Rumah</h2>
   <p>
-  Tara Westover diceritakan di dalam buku <span class="key-line">nggak tumbuh di gambaran kekerasan yang biasa dibayangkan banyak orang</span>  . Kekerasan yang ia alami justru tumbuh <span class="key-line">di ruang yang seharusnya paling aman, yaitu rumah</span>  .
- </p><p><span class="key-line">Ayahnya punya keyakinan ideologis yang tertutup banget</span>  . <span class="key-line">Sosok ayahnya</span> diceritakan <span class="key-line">penuh ketakutan, paranoia, dan kecurigaan</span> terhadap dunia luar. <span class="key-line">Negara dianggap musuh</span>, <span class="key-line">pendidikan dianggap ancaman</span>, <span class="key-line">pengobatan medis dianggap konspirasi</span>, dan <span class="key-line">realitas dibentuk</span> bukan dari fakta, tetapi <span class="key-line">dari keyakinan yang tidak bisa dipertanyakan.</span>
+  Tara Westover diceritakan di dalam buku nggak tumbuh di gambaran kekerasan yang biasa dibayangkan banyak orang  . Kekerasan yang ia alami justru tumbuh <span class="key-line">di ruang yang seharusnya paling aman, yaitu rumah</span>  .
+ </p><p><span class="key-line">Ayahnya punya keyakinan ideologis yang tertutup banget</span>  . Sosok ayahnya diceritakan penuh ketakutan, paranoia, dan kecurigaan terhadap dunia luar. Negara dianggap musuh, pendidikan dianggap ancaman, pengobatan medis dianggap konspirasi, dan <span class="key-line"realitas dibentuk</span> bukan dari fakta, tetapi <span class="key-line">dari keyakinan yang tidak bisa dipertanyakan.</span>
  </p><p>Dalam sistem seperti ini, <span class="key-line">kontrol dibungkus sebagai perlindungan</span>, <span class="key-line">dominasi dibungkus sebagai iman</span>, dan <span class="key-line">ketakutan dibungkus sebagai kebenaran.</span>
 
   </p>
@@ -457,6 +490,19 @@ Waktu aku kecil, aku ngefans banget sama Maudy Ayunda, <em>yaa you know</em> lah
 <p><span class="key-line">Relasi antar saudara pun agak ambigu</span>. Mereka tidak tumbuh dalam pola saling melindungi secara sehat, tetapi dalam pola loyalitas keluarga yang kuat terhadap sistem ayah. Ada saudara yang pergi (Tyler), ada yang bertahan, ada yang diam, ada yang patuh, dan ada yang berkonflik secara internal (Shawn).</p>
 <p>Hubungan keluarga tidak dibangun di atas komunikasi terbuka, melainkan di atas kepatuhan, ketakutan, dan loyalitas ideologis. Akibatnya, kehadiran saudara-saudara Tara tidak selalu menjadi sumber keamanan, tetapi juga tidak selalu menjadi ancaman, melainkan <span class="key-line">bagian dari sistem yang sama-sama membingungkan.</span></p>
 <p>Dalam struktur seperti ini, keluarga Tara menjadi ruang yang secara emosional bisa terasa hangat, tetapi secara psikologis tidak aman. Bukan karena kekerasan selalu terjadi, tetapi karena <span class="key-line">realitas di dalam keluarga membingungkan</span>, antara kasih sayang dan kontrol, antara kebersamaan dan ketakutan, antara loyalitas dan luka. Inilah yang membuat keluarga tersebut menjadi tempat yang hangat, sekaligus juga ruang pembentukan trauma yang halus dan bertahap.</p>
+
+  <!-- Tanggapan Keluarga -->
+<section class="section">
+  <h2>Tanggapan Keluarga</h2>
+  <p>Di satu sisi:</p>
+
+<p><div class="soft-list">
+  <div class="soft-item">Ibunya kadang terlihat mendukung</div>
+  <div class="soft-item">Shawn kadang terlihat mendukung</div>
+  <div class="soft-item">Ayahnya juga kadang tidak menentang secara langsung</div>
+</div><p>
+
+<p>Ada momen-momen hangat. Ada momen-momen seolah keluarga itu “normal”.</p>
 
 </section>
 
