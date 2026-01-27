@@ -3,24 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>About Me • Dear April</title>
 
-<!-- Font -->
 <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#f7f6fb;
+  --bg:#fff7fb;
+  --text:#3a2a3f;
+  --sub:#7a5b7f;
+  --accent:#ff9acb;
+  --accent2:#b8a4ff;
   --card:#ffffff;
-  --text:#2e2e2e;
-  --sub:#6b7280;
-  --accent:#9aa6ff;
-  --soft:#eef1ff;
-  --line:#e4e7f2;
-  --glass: rgba(255,255,255,0.7);
+  --soft:#fceeff;
 }
 
+/* RESET */
 *{
   margin:0;
   padding:0;
@@ -28,39 +26,40 @@
   scroll-behavior:smooth;
 }
 
+/* BODY */
 body{
   font-family:'Comic Neue','Comic Sans MS',cursive;
-  background:linear-gradient(180deg,#f7f6fb,#fbfbff);
+  background: linear-gradient(180deg,#fff7fb,#fdf2ff);
   color:var(--text);
-  line-height:1.85;
+  line-height:1.8;
 }
 
-/* ================= NAVBAR ================= */
+/* NAVBAR */
 .navbar{
-  background:rgba(255,255,255,0.75);
-  backdrop-filter: blur(14px);
-  position:sticky;
+  background: linear-gradient(to right,#ffe4f3,#f1e9ff);
+  padding:14px 20px;
+  position: sticky;
   top:0;
   z-index:1000;
-  border-bottom:1px solid var(--line);
+  box-shadow:0 6px 18px rgba(0,0,0,0.05);
+  backdrop-filter: blur(8px);
 }
 
 .nav-container{
   max-width:1100px;
   margin:auto;
-  padding:14px 22px;
   display:flex;
   justify-content:space-between;
   align-items:center;
+  flex-wrap:wrap;
 }
 
 .logo{
   display:flex;
   align-items:center;
   font-weight:700;
-  font-size:1.1rem;
-  color:#5b5b8f;
-  letter-spacing:0.4px;
+  font-size:20px;
+  color:#8a3d88;
 }
 
 .logo img{
@@ -72,157 +71,185 @@ body{
 .nav-links{
   list-style:none;
   display:flex;
-  gap:22px;
+  gap:18px;
 }
 
 .nav-links a{
   text-decoration:none;
   font-weight:600;
-  color:#5f5f7a;
-  padding:6px 14px;
-  border-radius:12px;
+  color:#7a3b7b;
+  padding:6px 12px;
+  border-radius:10px;
   transition:0.3s;
 }
 
 .nav-links a:hover{
-  background:var(--soft);
-  color:#4a4a7a;
+  background:#ffd9f0;
+  color:#b84ba7;
 }
 
-/* ================= HERO ================= */
-.hero{
-  max-width:950px;
-  margin:90px auto 50px;
-  padding:0 22px;
+/* HEADER */
+.header{
   text-align:center;
+  padding:60px 20px 40px;
   animation:fadeUp 1s ease;
 }
 
-.hero h1{
+.header h1{
   font-size:2.8rem;
-  letter-spacing:0.6px;
+  background: linear-gradient(90deg,#ff7bbf,#b89cff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-.hero .tagline{
-  margin-top:12px;
-  font-size:1.05rem;
+.header p{
+  margin-top:10px;
   color:var(--sub);
+  font-size:1.05rem;
 }
 
-/* ================= CONTENT ================= */
+/* CONTAINER */
 .container{
-  max-width:950px;
+  max-width:900px;
   margin:auto;
-  padding:0 22px 100px;
+  padding:30px 20px 80px;
 }
 
-.card{
+/* CARD */
+.about-card{
   background:var(--card);
-  border-radius:22px;
-  padding:60px 60px;
-  box-shadow:0 15px 40px rgba(0,0,0,0.04);
+  border-radius:26px;
+  padding:45px 35px;
+  box-shadow:0 18px 45px rgba(0,0,0,0.08);
+  text-align:center;
   animation:fadeUp 1.2s ease;
 }
 
-/* ================= SECTIONS ================= */
-.section{
-  margin-bottom:45px;
+/* PROFILE */
+.profile-pic{
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  border:4px solid var(--accent);
+  margin-bottom:20px;
+  object-fit:cover;
+  box-shadow:0 8px 20px rgba(0,0,0,0.15);
 }
 
-.section h2{
-  font-size:1.6rem;
+/* TITLE */
+.about-card h2{
+  font-size:2.1rem;
   margin-bottom:14px;
-  position:relative;
-  padding-left:16px;
+  background: linear-gradient(90deg,#ff7bbf,#b89cff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-.section h2::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:7px;
-  width:4px;
-  height:70%;
-  background:linear-gradient(to bottom,var(--accent),#bfa8ff);
-  border-radius:3px;
+/* TEXT */
+.about-text{
+  font-size:1.05rem;
+  color:#5a3a5f;
+  margin-bottom:20px;
 }
 
-.section p{
-  margin-bottom:14px;
-  font-size:1.08rem;
-}
-
-/* ================= HIGHLIGHT ================= */
-.key-line{
-  background:linear-gradient(transparent 70%, rgba(154,166,255,0.25) 70%);
-  padding:0 4px;
-  border-radius:3px;
-}
-
-/* ================= QUOTE ================= */
-.quote-block{
-  margin:45px 0;
-  padding:28px 40px;
-  background:linear-gradient(135deg,#f4f6ff,#ffffff);
-  border-radius:18px;
-  text-align:center;
+/* QUOTE */
+.quote{
   font-style:italic;
+  color:#b26bb5;
+  margin:22px 0;
   font-size:1.1rem;
-  color:#555;
-  box-shadow:0 10px 25px rgba(0,0,0,0.04);
 }
 
-/* ================= DIVIDER ================= */
-.divider{
-  height:1px;
-  background:var(--line);
-  margin:55px 0;
-}
-
-/* ================= TIME ================= */
+/* TIME */
 .time-date{
-  text-align:center;
-  margin-top:30px;
   font-size:0.95rem;
-  color:#777;
+  color:#a07ca6;
+  margin-top:10px;
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 .footer{
   text-align:center;
-  padding:50px 20px;
-  color:#888;
+  margin-top:60px;
   font-size:0.9rem;
+  color:#a48aa9;
 }
 
-/* ================= ANIMATION ================= */
+/* DARK MODE BUTTON */
+.dark-toggle{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  z-index:9999;
+  background:linear-gradient(135deg,#ff7bbf,#b89cff);
+  color:white;
+  border:none;
+  padding:12px 14px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:16px;
+  box-shadow:0 10px 24px rgba(0,0,0,0.25);
+  transition:0.3s;
+}
+
+.dark-toggle:hover{
+  transform:scale(1.08);
+}
+
+/* DARK MODE */
+body.dark{
+  background: linear-gradient(180deg,#0e0f1a,#151728);
+  color:#e8e8f0;
+}
+
+body.dark .navbar{
+  background: rgba(25,26,45,0.75);
+}
+
+body.dark .logo,
+body.dark .nav-links a{
+  color:#d6d9ff;
+}
+
+body.dark .nav-links a:hover{
+  background: rgba(184,164,255,0.18);
+}
+
+body.dark .about-card{
+  background: rgba(22,24,45,0.95);
+  box-shadow:0 18px 45px rgba(0,0,0,0.45);
+}
+
+body.dark .about-text,
+body.dark .quote,
+body.dark .time-date,
+body.dark .footer{
+  color:#cfd2ff;
+}
+
+/* ANIMATION */
 @keyframes fadeUp{
-  from{opacity:0; transform:translateY(20px);}
+  from{opacity:0; transform:translateY(25px);}
   to{opacity:1; transform:translateY(0);}
 }
 
-/* ================= MOBILE ================= */
+/* RESPONSIVE */
 @media(max-width:600px){
-  .hero h1{
-    font-size:2.2rem;
-  }
-  .card{
-    padding:40px 26px;
-  }
-  .nav-links{
-    gap:10px;
-  }
+  .header h1{font-size:2.1rem;}
+  .about-card{padding:35px 22px;}
+  .about-text{font-size:1rem;}
+  .nav-links{flex-direction:column; gap:10px; width:100%;}
+  .nav-links a{display:block;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <nav class="navbar">
   <div class="nav-container">
     <div class="logo">
-      <img src="flower.png" alt="Flower Icon" />
+      <img src="flower.png" alt="Flower Icon"/>
       <span>Dear April</span>
     </div>
     <ul class="nav-links">
@@ -233,92 +260,80 @@ body{
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <h1>About Me</h1>
-  <div class="tagline">a quiet space for reflection, writing, and becoming</div>
-</section>
+<button id="darkToggle" class="dark-toggle">🌙</button>
 
-<!-- CONTENT -->
+<header class="header">
+  <h1>About Me 🌸</h1>
+  <p>A soft space for thoughts, growth, and gentle stories</p>
+</header>
+
 <div class="container">
-  <div class="card">
+  <div class="about-card">
 
-    <div class="section">
-      <h2>Hello</h2>
-      <p>
-        Hi, I’m Dinda — a quiet observer, a thinker, and a lifelong learner. Through this blog, I’m learning to write better in English while expressing the things that matter to me.
-      </p>
-      <p>
-        I believe in <span class="key-line">gentle growth</span>, honest stories, and writing that feels like a letter to a friend.
-      </p>
-    </div>
+    <!-- optional photo -->
+    <!-- <img src="profile.jpg" class="profile-pic" alt="Profile"> -->
 
-    <div class="divider"></div>
+    <h2>Welcome to My Blog</h2>
 
-    <div class="section">
-      <h2>What This Space Is</h2>
-      <p>
-        Dear April is not just a blog. It’s a personal archive of thoughts, reflections, learning processes, and inner conversations. A place where complexity is allowed to exist without pressure to simplify.
-      </p>
-      <p>
-        Writing here is not about perfection, but about clarity, honesty, and growth.
-      </p>
-    </div>
+    <p class="about-text">
+      Hi, I’m Dinda – a quiet observer, a thinker, and a lifelong learner. Through this blog, I’m learning to write better in English while expressing the things that matter to me. I believe in gentle growth, honest stories, and writing that feels like a letter to a friend. Thank you for being here.
+    </p>
 
-    <div class="divider"></div>
-
-    <div class="section">
-      <h2>Why I Write</h2>
-      <p>
-        I write to understand myself better.  
-        I write to process experiences.  
-        I write to document growth.  
-        I write to turn confusion into meaning.
-      </p>
-      <p>
-        This space is part of that journey.
-      </p>
-    </div>
-
-    <div class="quote-block">
-      “The best way to predict the future is to create it.” — Abraham Lincoln
+    <div class="quote">
+      “The best way to predict the future is to create it.” – Abraham Lincoln
     </div>
 
     <div class="time-date" id="time-date"></div>
 
   </div>
+
+  <footer class="footer">
+    © 2026 • Dear April Blog
+  </footer>
 </div>
 
-<!-- FOOTER -->
-<footer class="footer">
-  © 2025 Dear April Blog • Personal Journal Space
-</footer>
-
 <script>
+/* TIME */
 function updateTime() {
   const now = new Date();
-  const jakartaTime = new Date(now.toLocaleString("en-US", {timeZone: "Asia/Jakarta"}));
+  const jakartaTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Jakarta" }));
 
-  let hours = jakartaTime.getHours();
-  let minutes = jakartaTime.getMinutes();
-  let seconds = jakartaTime.getSeconds();
-  let day = jakartaTime.getDate();
-  let month = jakartaTime.getMonth() + 1;
-  let year = jakartaTime.getFullYear();
+  let h = jakartaTime.getHours();
+  let m = jakartaTime.getMinutes();
+  let s = jakartaTime.getSeconds();
+  let d = jakartaTime.getDate();
+  let mo = jakartaTime.getMonth()+1;
+  let y = jakartaTime.getFullYear();
 
-  hours = (hours < 10) ? '0' + hours : hours;
-  minutes = (minutes < 10) ? '0' + minutes : minutes;
-  seconds = (seconds < 10) ? '0' + seconds : seconds;
-  day = (day < 10) ? '0' + day : day;
-  month = (month < 10) ? '0' + month : month;
+  h=h<10?'0'+h:h;
+  m=m<10?'0'+m:m;
+  s=s<10?'0'+s:s;
+  d=d<10?'0'+d:d;
+  mo=mo<10?'0'+mo:mo;
 
-  const timeString = `${hours}:${minutes}:${seconds} WIB`;
-  const dateString = `${day}/${month}/${year}`;
-  document.getElementById('time-date').innerHTML = `Current time: ${timeString} | Date: ${dateString}`;
+  document.getElementById("time-date").innerHTML = `🕰️ ${h}:${m}:${s} WIB | 📅 ${d}/${mo}/${y}`;
+}
+setInterval(updateTime,1000);
+updateTime();
+
+/* DARK MODE */
+const toggle = document.getElementById('darkToggle');
+
+if(localStorage.getItem('theme')==='dark'){
+  document.body.classList.add('dark');
+  toggle.innerText="☀️";
 }
 
-setInterval(updateTime, 1000);
-updateTime();
+toggle.addEventListener('click',()=>{
+  document.body.classList.toggle('dark');
+  if(document.body.classList.contains('dark')){
+    localStorage.setItem('theme','dark');
+    toggle.innerText="☀️";
+  }else{
+    localStorage.setItem('theme','light');
+    toggle.innerText="🌙";
+  }
+});
 </script>
 
 </body>
