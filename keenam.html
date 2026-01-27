@@ -260,7 +260,7 @@ body.dark .direct-quote{
 /* Important emphasis highlight */
 .key-line{
   display: inline;
-  background: linear-gradient(transparent 70%, rgba(154,166,255,0.35) 70%);
+  background: linear-gradient(transparent 70%, rgba(255,180,190,0.35) 70%);
   padding: 2px 6px;
   border-radius: 4px;
   font-weight: 600;
@@ -268,20 +268,21 @@ body.dark .direct-quote{
 }
 
 /* block important line (kalimat penting satu baris penuh) */
-.key-block{
-  margin: 20px 0;
-  padding: 10px 14px;
-  background: linear-gradient(90deg, rgba(154,166,255,0.12), rgba(154,166,255,0.03));
-  border-left: 4px solid var(--accent);
-  border-radius: 6px;
-  font-weight: 600;
+key-line{
+  display: inline-block;
+  margin: 14px 0;
+  padding: 2px 6px;
+  background: linear-gradient(transparent 68%, rgba(255,180,190,0.35) 68%);
+  border-radius: 4px;
+  font-size: 1.05rem;
+  font-weight: normal;   /* <- ini penting: bukan bold */
   color: var(--text);
 }
 
 /* Dark mode */
 body.dark .key-line{
-  background: linear-gradient(transparent 70%, rgba(154,166,255,0.45) 70%);
-  color: #f0f0f5;
+  background: linear-gradient(transparent 68%, rgba(255,180,190,0.35) 68%);
+  color: #e6e6f0;
 }
 
 body.dark .key-block{
