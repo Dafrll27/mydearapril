@@ -192,27 +192,33 @@ body{
 input, textarea{
   user-select: text;
 }
-
+/* Inline narrative quote (tanpa garis, tanpa box) */
 .inline-quote{
+  margin-top: 6px;        /* jarak kecil dari teks atas */
+  margin-bottom: 22px;
   font-style: italic;
-  color: #3a3a4a;
-  margin: 14px 0;
-  padding-left: 14px;
-  position: relative;
   font-size: 1.05rem;
-  line-height: 1.6; 
+  line-height: 1.6;
+  color: var(--text);
 }
 
-.inline-quote::before{
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 8px;
-height:65%;
-  width: 3px;
-  background: linear-gradient(to bottom, var(--accent), #bfa8ff);
-  border-radius: 2px;
+/* soft highlight inline */
+.inline-quote em{
+  background: linear-gradient(transparent 72%, rgba(154,166,255,0.22) 72%);
+  padding: 0 4px;
+  border-radius: 3px;
 }
+
+/* dark mode */
+body.dark .inline-quote{
+  color: #e6e6f0;
+}
+
+body.dark .inline-quote em{
+  background: linear-gradient(transparent 72%, rgba(154,166,255,0.32) 72%);
+}
+
+
 
 /* soft highlight underline */
 .inline-quote em{
@@ -264,18 +270,9 @@ body.dark .direct-quote{
   padding:2px 6px;
   border-radius:4px;
 }
-.inline-quote{
-  font-style: italic;
-  color: #3a3a4a;
-  margin: 22px 0;
-  font-size: 1.05rem;
-}
 
-.inline-quote em{
-  background: linear-gradient(transparent 72%, rgba(154,166,255,0.25) 72%);
-  padding: 0 3px;
-  border-radius: 2px;
-}
+
+
 
 /* Footnote */
 .footnote{
@@ -355,7 +352,7 @@ body.dark .direct-quote{
 <section class="section">
   <h2>Awal Mula Mengenal Buku Ini</h2>
   <p>
-Waktu aku kecil, aku ngefans banget sama Maudy Ayunda, yaa you know lah yaa siapa dia. Nah, waktu itu aku sempat nonton salah satu video dia pas lagi diwawancara sama wartawan. Wartawannya nanya kurang lebih, “Ada buku rekomendasi nggak nih?” Nah Maudy jawab, “Educated dari Tara Westover.” </p>
+Waktu aku kecil, aku ngefans banget sama Maudy Ayunda, yaa you know lah yaa siapa dia. Nah, waktu itu aku sempat nonton salah satu video dia pas lagi diwawancara sama wartawan. Wartawannya nanya kurang lebih, <em>“Ada buku rekomendasi nggak nih?”</em> Nah Maudy jawab, <em>“Educated dari Tara Westover.”</em> </p>
 <p>Aku udah mulai coba baca dari dulu, tapi bukunya agak monoton sama isinya pekat, jadi bacanya nggak beres-beres, kadang kedistraksi buku lain juga. Tapi tahun ini aku akhirnya selesai bacanya dan menobatkan buku itu sebagai buku terbaik yang pernah aku baca sejauh ini.
 
   </p>
@@ -395,8 +392,8 @@ Waktu aku kecil, aku ngefans banget sama Maudy Ayunda, yaa you know lah yaa siap
 
   </p>
 </section>
-   <p class="inline-quote">
-  <em>“Menentang ayah sama dengan menentang Tuhan.”</em>
+  <p class="inline-quote">
+  <em><strong>“Menentang ayah sama dengan menentang Tuhan.”</strong></em>
 </p>
 </section>
 
