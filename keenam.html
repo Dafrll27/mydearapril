@@ -193,6 +193,41 @@ input, textarea{
   user-select: text;
 }
 
+.inline-quote{
+  font-style: italic;
+  color: #3a3a4a;
+  margin: 22px 0;
+  padding-left: 14px;
+  position: relative;
+  font-size: 1.05rem;
+}
+
+.inline-quote::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  bottom: 5px;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--accent), #bfa8ff);
+  border-radius: 2px;
+}
+
+/* soft highlight underline */
+.inline-quote em{
+  background: linear-gradient(transparent 60%, rgba(154,166,255,0.25) 60%);
+  padding: 0 4px;
+  border-radius: 3px;
+}
+
+/* Dark mode */
+body.dark .inline-quote{
+  color: #e6e6f0;
+}
+
+body.dark .inline-quote em{
+  background: linear-gradient(transparent 60%, rgba(154,166,255,0.35) 60%);
+}
 
 /* Quote highlight */
 .quote{
@@ -347,9 +382,9 @@ Waktu aku kecil, aku ngefans banget sama Maudy Ayunda, yaa you know lah yaa siap
 
   </p>
 </section>
-   <div class="quote direct-quote">
+   <p class="inline-quote">
   <em>“Menentang ayah sama dengan menentang Tuhan.”</em>
-</div>
+</p>
 </section>
 
 <div class="divider"></div>
