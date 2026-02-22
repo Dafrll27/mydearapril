@@ -9,16 +9,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Dear April</title>
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-<title>You Finally Understand Your Worth • Dear April</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
     body {
         font-family: 'Quicksand', sans-serif;
         margin: 0;
         background-color: #fef6fb;
         color: #6d3a76;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
         user-select: none;
         line-height: 1.8;
         text-align: justify;
@@ -67,12 +66,11 @@
     }
     .container {
         max-width: 900px;
-        margin: 30px auto;
-        padding: 40px;
-        background: linear-gradient(145deg, #fff8f5, #fffdfb);
-        border-radius: 16px;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-        border: 1px solid #f7d6e0;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
     article h2 {
         color: #b267a6;
@@ -90,38 +88,6 @@
         margin: 30px 0 10px;
         color: #9b4d96;
     }
-    blockquote {
-      margin:18px 0;
-      padding:12px 16px;
-      border-left:4px solid #f3c1d6;
-      background:#fff6f9;
-      color:var(--muted);
-      border-radius:6px;
-      font-style:italic;
-    }
-
-    ul, ol {
-      margin:12px 0 12px 26px;
-    }
-
-    .note {
-      margin-top:22px;
-      font-size:13px;
-      color:var(--muted);
-      border-top:1px dashed rgba(120,86,103,0.08);
-      padding-top:14px;
-    }
-
-    .book-box {
-      margin-top:28px;
-      background:#fff6fa;
-      border-left:4px solid #b24574;
-      padding:16px 20px;
-      border-radius:6px;
-      font-size:14px;
-      color:#563a48;
-    }
-        
     .quote {
         background: #ffe6f0;
         border-left: 5px solid #f7b6c2;
@@ -131,91 +97,6 @@
         font-style: italic;
         color: #b24574;
     }
-:root {
-  --bg: #f7f7f8;
-  --surface: #ffffff;
-  --text: #1f2937;
-  --muted: #6b7280;
-  --line: #e5e7eb;
-  --quote-bg: #f3f4f6;
-  --accent: #4b5563;
-}
-body.dark {
-  --bg: #0f1115;
-  --surface: #151922;
-  --text: #e5e7eb;
-  --muted: #9ca3af;
-  --line: #2b3240;
-  --quote-bg: #1d2330;
-  --accent: #d1d5db;
-}
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.75;
-}
-.header {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 36px 20px 14px;
-}
-.topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-.brand { font-size: 1.05rem; font-weight: 700; margin: 0; }
-.meta { color: var(--muted); font-size: 0.92rem; margin: 8px 0 0; }
-.nav a { color: var(--muted); text-decoration: none; margin-left: 14px; font-size: 0.92rem; }
-.nav a:hover { color: var(--text); }
-.toggle {
-  border: 1px solid var(--line);
-  background: var(--surface);
-  color: var(--text);
-  border-radius: 999px;
-  padding: 8px 12px;
-  cursor: pointer;
-}
-main {
-  max-width: 860px;
-  margin: 0 auto 42px;
-  padding: 0 20px;
-}
-article {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 26px;
-}
-h1, h2, h3 { line-height: 1.3; }
-article > h1:first-of-type { margin-top: 8px; font-size: 2rem; }
-h2 { margin-top: 34px; font-size: 1.35rem; }
-h3 { margin-top: 24px; font-size: 1.1rem; color: var(--accent); }
-p { margin: 0 0 14px; }
-blockquote {
-  margin: 20px 0;
-  padding: 14px 16px;
-  border-left: 3px solid var(--line);
-  background: var(--quote-bg);
-  border-radius: 8px;
-  color: var(--muted);
-  font-style: italic;
-}
-ul, ol { margin: 12px 0 18px 20px; }
-.farewell-arabic { text-align: center; color: var(--muted); margin: 8px 0 18px; }
-.book-box {
-  margin-top: 30px;
-  border: 1px solid var(--line);
-  background: var(--quote-bg);
-  border-radius: 10px;
-  padding: 14px 16px;
-  font-size: .95rem;
-}
-footer { text-align: center; color: var(--muted); padding: 10px 0 30px; font-size: .9rem; }
 </style>
 </head>
 <body>
@@ -223,23 +104,11 @@ footer { text-align: center; color: var(--muted); padding: 10px 0 30px; font-siz
 <header>
     <h1>Dear April</h1>
     <div class="datetime">
-        <span id="date"></span> | <span id="time"></span>
+        <span id="date">Monday, 27 October 2025</span> | <span id="time"></span>
         <p style="margin-top: 10px; font-size: 0.9em; color: #9b4d96;">
-            This post was written on Monday, 27 October 2025
+            This post was written on <strong>October 27, 2025</strong>
         </p>
-<header class="header">
-  <div class="topbar">
-    <p class="brand">Dear April</p>
-    <div>
-      <button id="themeToggle" class="toggle" aria-label="Toggle dark mode">🌙</button>
-      <nav class="nav" style="display:inline-block; margin-left:8px;">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="list.html">Blog</a>
-      </nav>
     </div>
-  </div>
-  <p class="meta">Published on Monday, 27 October 2025</p>
 </header>
 
 <nav class="navbar">
@@ -257,13 +126,32 @@ footer { text-align: center; color: var(--muted); padding: 10px 0 30px; font-siz
 <div class="container">
 <article>
     <div class="farewell-arabic">
-<main>
-  <article>
-<div class="farewell-arabic">
         السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُه
     </div>
 
-    <h1>You Finally Understand Your Worth</h1>
+    <p>Isi tulisanmu di sini...</p>
+</article>
+</div>
+
+<footer>
+    &copy; 2025 Dear April. All rights reserved.
+</footer>
+
+<script>
+// Hanya update jam (bukan tanggal)
+function updateTime() {
+    const now = new Date();
+    const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    document.getElementById("time").textContent = timeString;
+}
+setInterval(updateTime, 1000);
+updateTime();
+</script>
+
+</body>
+</html>
+
+<h1>You Finally Understand Your Worth</h1>
 <p>In this blog, I will discuss the importance of setting boundaries to build healthier relationships and how to create proper closure.</p>
 
 <h2>What Are Boundaries?</h2>
@@ -278,233 +166,3 @@ footer { text-align: center; color: var(--muted); padding: 10px 0 30px; font-siz
 <p>The book explains that we need to establish boundaries to build healthy relationships. Boundaries also serve as a signal that shows others how they should treat us.</p>
 
 <h2>Three Levels of Boundaries: From Porous, Rigid, to Healthy</h2>
-<p>When I first read <em>Set Boundaries, Find Peace</em>, I found one part that truly opened my eyes: boundaries don’t simply exist or not, they also have quality. Nedra Glover Tawwab divides them into three levels: porous, rigid and healthy. Reading this part made me pause because I could see pieces of my own life reflected in each one.</p>
-
-<h3>1. Porous Boundaries: When the Door Is Too Open</h3>
-<p>Porous boundaries are like a house whose doors are always open. Anyone can walk in, take what they want and leave whenever they please. From the outside, it looks kind and generous, but on the inside, the owner is exhausted.</p>
-<p>Porous boundaries are often marked by oversharing, dependency on others’ validation, fear of rejection and most commonly, the inability to say “no.” This is the root of people-pleasing: the fear of disappointing others outweighs the fear of losing oneself.</p>
-
-<h3>2. Rigid Boundaries: When the Door Is Always Locked</h3>
-<p>If porous boundaries are too loose, rigid boundaries are too tight. It’s like a house with a locked door, sealed windows and the curtains drawn so no one can see inside.</p>
-<p>People with rigid boundaries often avoid vulnerability, resist sharing their thoughts or emotions and sometimes cut off relationships completely, simply because they’re afraid of getting hurt again. Rigid boundaries often stem from painful past experiences: betrayal, humiliation or being taken advantage of. The defense logic then becomes, “If I close myself off completely, no one can hurt me anymore.”</p>
-
-<h3>3. Healthy Boundaries: The Balance of Maturity</h3>
-<p>Healthy boundaries are when we can open the door but also know when to close it. Not everyone is allowed to enter and even those who do know which spaces are off-limits.</p>
-<p>Healthy boundaries grow from self-awareness, emotional, mental and physical. They are marked by the ability to say “no” without guilt and to say “yes” when it aligns with one’s values and needs. In this space, we can share without losing ourselves, be vulnerable without feeling threatened and accept rejection without feeling broken.</p>
-<p>Healthy boundaries do not mean relationships without conflict. On the contrary, they require us to communicate clearly. Nedra reminds us that boundaries have two essential steps: <strong>communication</strong> and <strong>action</strong>. Communication means stating boundaries explicitly, not through hints, not through codes but through clear words. Action means enforcing those boundaries when they are crossed. Without action, boundaries are nothing but empty declarations.</p>
-
-<p>This is where the challenge lies: many of us are afraid to set boundaries because we fear others will be upset, distance themselves, or reject us. Yet, if we delay it, violations will keep repeating and frustration will only deepen.</p>
-
-<h1>Finding Our Place Among the Three Levels</h1> <p>When I read about these three levels of boundaries, I realized that my journey often swung between porous and rigid before slowly learning to reach healthy. Sometimes I was too open and when hurt, I shut down completely. Finding balance is not an instant process, it’s an ongoing practice. Healthy boundaries are not born out of fear but out of respect, for oneself and for others. That’s why boundaries are not merely about saying “no,” but about creating relationships that are clear, safe and mutually respectful.</p> <h2>From Family, We Learn (or Fail to Learn) About Boundaries</h2> <p>If traced back to its roots, one’s ability to set boundaries doesn’t suddenly appear in adulthood, it’s formed much earlier, within the very first environment we ever knew: the family.</p> <p>Family is the first school for understanding ourselves, others and the meaning of limits. From the way parents treat their children, a child learns two essential things: how to respect others and how to respect themselves.</p> <p>When parents allow their children to have opinions, emotions and decisions of their own, the child learns that they are entitled to a “personal line.” When parents control every move, dictate every choice and silence expression with phrases like “stop making excuses,” “just follow what I say,” or “parents always know best,” the child grows up without ever learning how to set their own limits. Even worse, such children often internalize a dangerous belief, that love must be earned through obedience.</p> <h2>The Quality of Boundaries We Inherit</h2> <p>Boundaries are invisible legacies we often carry unconsciously. Children who grow up in open, communicative families tend to develop healthy boundaries, they can say “no” without fear, appreciate differences and don’t easily feel guilty when refusing something.</p> <p>On the other hand, children raised in environments full of control, criticism or emotional manipulation often end up with blurred boundaries. They may become people pleasers, unable to refuse requests or swing to the opposite extreme, building rigid walls to protect themselves from being hurt again.</p> <p>We often assume that adulthood automatically heals all childhood wounds but it doesn’t. Many adults live with broken boundary patterns simply because they were never taught how to build them.</p> <h2>When We Were Never Taught to Set Boundaries</h2> <p>If you grew up in an environment where saying “no” was considered rebellious, where there was no room to make personal choices, then the first step isn’t to blame the past, but to recognize it. We can’t fix what we don’t acknowledge but once awareness begins, control follows.</p> <p>The next step is to relearn boundaries. Start small, recognize moments of discomfort. Identify the emotion: anger, exhaustion, disappointment or fear? Then practice communicating it calmly.</p> <p>You’re allowed to learn how to build boundaries even if no one ever taught you. You’re allowed to rewrite the way you love, in a healthier form. Remember: setting boundaries doesn’t mean you stop loving your family, it means you’re starting to love yourself without abandoning them.</p> <h2>Teaching the Next Generation About Boundaries</h2> <p>If one day we become parents, may we grow into a more mindful generation. Children don’t learn boundaries from books, they learn from how we treat them every single day.</p> <p>When we apologize after losing our temper for no reason, they learn that emotions can be handled responsibly. When we respect their small choices, like choosing their own clothes or deciding who they want to play with, they learn that their voice matters. When we don’t force them to always say “yes,” they learn that saying “no” is also an act of courage. The role of a parent is not to raise obedient children, but to raise children who can think and feel in healthy ways.</p> <h2>Continuing What Was Once Broken</h2> <p>I often think that some of us never grew up in homes that taught us how to set boundaries properly but we still have the chance to change that cycle. We can be the generation that doesn’t just seek healing, but passes it on.</p> <p>We can say with full conviction, to ourselves and to our future children: “You deserve space. You deserve to be heard. You have the right to say ‘no,’ even to those you love.”</p> <p>Because it all begins in the family, including the way we learn to become whole human beings, who know when to open their arms and when to keep enough distance to avoid losing themselves in the name of love.</p> <h2>Learning to Recognize and Communicate Boundaries</h2> <p>One of the most common mistakes in personal growth is assuming that others will automatically know our boundaries. We expect them to “get it” to read our tone or pick up subtle signs of discomfort. The truth is, no one can read our minds, not even those who love us the most. We don’t need to be without boundaries to be loved. We just need to know our limits and have the courage to express them clearly and healthily.</p> <h2>Four Ineffective Ways to Communicate Boundaries</h2> <p>In her book, Nedra Glover Tawwab explains four communication patterns that often make our boundaries fail to be conveyed: passive, aggressive, passive-aggressive and manipulative.</p> <p>If we are honest, maybe we have all been in one of them.</p> <h3>Passive</h3> <p>We know we are uncomfortable, but we stay silent. We don’t want to cause problems, are afraid to offend others or feel guilty for saying no. In the long run, we end up suppressing our own emotions just to maintain other people’s comfort. This is not a form of affection, this is a form of self-neglect.</p> <h3>Aggressive</h3> <p>We communicate boundaries in an attacking tone: we want to be heard but end up scaring others. Our words are sharp, our emotions explode and the focus shifts from our needs to the way we express them. In the end, the message gets lost behind the anger.</p> <h3>Passive-Aggressive</h3> <p>This is the most common and deceiving way. We appear to be “fine,” but we are actually disappointed. We complain to a third person, send subtle hints in chats or withdraw in silence. We hope others will understand through our changed behavior, but they will never truly know.</p> <h3>Manipulative</h3> <p>We don’t ask directly but we try to make others feel guilty so that they will do what we want. This often happens unconsciously, especially if since childhood we were used to having to “please” people to be accepted. All of these patterns come from the same thing: fear. Fear of rejection, fear of being misunderstood, fear of losing relationships but by avoiding short-term discomfort, we create long-term suffering.</p> <h2>Assertive Communication: The Mature Middle Ground</h2> <p>“The healthiest way to communicate your boundaries is to be assertive. In contrast to all the forms of ineffective communication, passive, aggressive, passive-aggressive and manipulative. Assertiveness is how you clearly and directly state your needs.”</p> <p>Tawwab explains that assertive communication means expressing our feelings, needs and boundaries clearly, directly and honestly without attacking others and without suppressing ourselves.</p> <p>She also writes:<br> “Assertiveness involves communicating your feelings openly and without attacking others. It isn’t demanding. Instead, it’s a way of commanding that people hear you.”</p> <p>So, assertive communication is not about forcing others to agree but about giving yourself space to be heard respectfully, while still respecting others.</p> <h3>According to Nedra Glover Tawwab, the characteristics of assertive communication include:</h3> <ul> <li>Saying no to things you do not want to do.</li> <li>Expressing your feelings directly to the person involved, not through a third party.</li> <li>Having the courage to express opinions without belittling others.</li> <li>Setting clear expectations at the beginning of a relationship or interaction.</li> </ul> <p>In essence, assertiveness is the foundation of healthy boundaries. Without the ability to communicate assertively, any boundaries we make will only remain in our head, never truly translated into real action.</p> <blockquote> <p>“I’m not comfortable talking about that.”<br> “I appreciate your opinion, but I have a different perspective.”<br> “Thank you for inviting me, but this time I want to rest at home.”</p> </blockquote> <p>Simple sentences, but behind them lies great courage, the courage to endure discomfort, because we know that’s the best way to keep relationships honest and healthy.</p> <h3>Tawwab writes that there are three simple (though not easy) steps to communicate assertively:</h3> <ol> <li><strong>Be Clear.</strong> Use simple and direct words. No need to beat around the bush, no need to apologize for your needs.</li> <li><strong>State Your Needs.</strong> Don’t just say “I don’t like it,” but explain what you expect. Focus on solutions, not complaints.</li> <li><strong>Face the Discomfort.</strong> The hardest part of setting boundaries is not talking, it’s facing the reaction afterward.</li> </ol> <p>We might feel guilty, afraid of being distanced or seen as “different.” That’s the small price to pay for a calmer life. In reality, healthy people won’t run away just because you set boundaries. They might need time to adjust but they will respect your honesty.</p> <h2>Stop Expecting Others to Be Mind Readers</h2> <p>Maybe unconsciously, many of us have done this, we feel disappointed, angry or hurt then go silent. We change our tone, start keeping distance, reply to messages coldly or even disappear for a while. Deep down we hope, “Hopefully they realize. Hopefully they know I’m angry.”</p> <p>Unfortunately, hints are not communication. Expecting others to be aware of our changed attitude will only lead to repeated disappointment. We forget that others are also humans with their own minds, lives and problems. They don’t live to interpret our tone changes or decode emotions we hide behind “it’s fine.”</p> <p>Pity them being scolded, avoided or blamed without knowing any reason. Pity ourselves too for constantly hoping without truly expressing what we need.</p> <blockquote> <p>“I want you to listen first before giving advice.”<br> “I need some time alone, not because I’m angry, but to calm myself.”<br> “I don’t like being joked about that, please don’t repeat it again.”</p> </blockquote> <p>Speaking assertively doesn’t mean being stubborn, it’s actually a form of emotional maturity. Communication is not about winning an argument, but about giving others a map to understand us correctly. Our emotions, our responsibility.</p> <h2>Learning to Voice Yourself: “I Want,” “I Need,” “I Expect”</h2> <p>After we stop expecting others to read our hints, the next step is to learn to speak clearly. The book <em>Set Boundaries, Find Peace</em> explains that healthy boundaries start with simple sentences:</p> <blockquote> <p>“I want…”<br> “I need…”<br> “I expect…”</p> </blockquote> <p>Nedra Glover Tawwab writes that, “The best boundaries are easy to understand. Starting statements with ‘I need,’ ‘I want,’ or ‘I expect’ helps you stay grounded in the truth of who you are. Boundaries are not about making others change, but about asserting what we need to remain ourselves.”</p> <h2>Voicing Boundaries Must Be Followed by Action</h2> <p>A boundary that is not followed by action is just an empty sentence. Every time you don’t follow through, you’re teaching others how to treat you.</p> <p>If you ask others to take off their shoes when entering your house, but you don’t do it yourself, they’ll assume your boundary isn’t serious. Likewise in relationships, if you say “I want to be respected,” but stay when you’re belittled, you’re giving permission to be violated.</p> <h2>The Final Assertiveness: When Boundaries Must Be Upheld</h2> <p>In the process of learning to create boundaries, there is one thing we rarely talk about, the courage to uphold those boundaries.</p> <blockquote> 
-    </blockquote><p>“People don’t respect threats, but they can learn to respect ultimatums.”</p> </blockquote> <p>An ultimatum is not a threat, it is a clear and realistic consequence of the boundaries we have already set. Threats only cause fear, but ultimatums emphasize responsibility.</p> <h3>Ultimatums Are Not About Control, But About Self-Respect</h3> <p>A healthy ultimatum is not a way to punish others but a way to protect our emotional balance.</p> <blockquote> <p>“I have asked you not to come without notice. If you still come without permission, I will not open the door.”<br> “I don’t want my personal matters shared with others. If you violate that, I will no longer share private things.”</p> </blockquote> <p>It may sound firm, even cold, but it is a form of affection rooted in self-respect. Healthy ultimatums are followed by real actions, not empty threats. If we do not uphold what we have set, we are teaching others that our boundaries are negotiable.</p>
- <h1>Guilt Is Normal, Don’t Let It Destroy Your Progress</h1>
-
-      <p class="lead">When first enforcing boundaries, guilt almost always appears. we will feel bad. we will think, “I feel so selfish,” or “I can’t believe I did that, they’re my family.” That guilt is not a sign we are wrong, it is a sign we are leaving an unhealthy pattern.</p>
-
-      <p>Like Chloe in Set Boundaries, Find Peace, who finally said to her mother:
-      <br>
-      “I’m not doing this to disrespect you, I’m doing this to respect myself.”</p>
-
-      <p>We can love someone and still say “no.” We can care and still keep distance. We can want to maintain a relationship and still refuse to be hurt.</p>
-
-      <h2>When It’s Time to Let Go</h2>
-
-      <p>However, there are times when, even after setting and enforcing boundaries multiple times, the person still violates them. They still don’t change. They still hurt at that point, as Tawwab writes,</p>
-
-      <blockquote>“When you’ve tried setting boundaries and your requests are continuously violated, it may be time to consider cutting people off.”</blockquote>
-
-      <p>Letting go does not mean we stop caring. It means we stop trying to fix something that can only be fixed by someone else. It means choosing peace over repeating the same wounds. We will grieve, of course. Losing a relationship, even an unhealthy one, is still a loss. We will feel sad, confused, angry, maybe even regretful. Eventually, you will reach one point, acceptance. Acceptance that you have tried and that is enough.</p>
-
-      <h2>Boundaries Do Not Destroy Healthy Relationships</h2>
-
-      <p>We may be afraid, afraid of losing people, afraid of being seen as cruel, afraid of being alone. Nedra writes firmly,</p>
-
-      <blockquote>“Setting limits won’t disrupt a healthy relationship.”</blockquote>
-
-      <p>A healthy relationship will not be destroyed just because we assert a boundary. In fact, boundaries are what keep relationships mutually respectful. If someone distances themselves just because we start loving yourself in a healthy way, maybe they never intended to approach we the right way. So, when we must say “Enough,” know that we are closing a door not to restrict love but to make room for peace.</p>
-
-      <h2>Boundaries in Friendship</h2>
-
-      <p>If asked what type of relationship feels the “safest” for us to be our authentic selves, many would answer, friendship. In truth, that’s often where boundaries become blurry. We fear hurting others, fear ruining the friendship, fear being seen as selfish. In the end, we’d rather hold back than be honest.</p>
-
-      <p>One of the biggest traps in friendship is the belief that we must always be ready to hold all our friend’s problems, from small complaints to deep past traumas. Over time, we unconsciously become an “emotional dumpster.” We are not therapists. We can listen but we cannot heal. Sometimes, our real responsibility is to guide our friends to professionals, psychologists, counselors, or support groups. Recognizing this boundary does not mean we stop caring; in fact, it’s the healthiest way to stay present without sacrificing ourselves. When we keep carrying problems that aren’t ours, eventually what appears is exhaustion, frustration and the urge to withdraw.</p>
-
-      <h2>Enmeshment: The Misconception of Being a “Good Friend”</h2>
-
-      <p>Most of us once believed that being a good friend means carrying our friend’s burdens as if they were our own. We replay their problems in our heads, worry for them, even try to manage their lives as if it’s ours. This is called enmeshment, an excessive attachment that actually shows unhealthy boundaries.</p>
-
-      <p>As Iyanla Vanzant writes, “We do not owe anyone the burden of carrying their life on our shoulders.” Being a good friend doesn’t mean allowing ourselves to break down with their problems. The healthiest way is to stay present, listen, but give them space to solve their own issues. In the end, no one has ever truly been helped just by us constantly worrying about them.</p>
-
-      <h2>Friendship, Between Closeness and Exhaustion</h2>
-
-      <p>If family is the first place we learn about boundaries, then friendship is the second and it often tests how strong we can hold them. We often think that true friendship means “always being there” for each other. The problem is, the word “always” hides a trap. No human can truly “always” be present without sacrificing themselves. That’s where the issue lies, friendship without boundaries often leads to emotional exhaustion.</p>
-
-      <p>Nedra Glover Tawwab tells the story of Kevin and Dave as an illustration. Kevin loves his longtime friend, Dave, who is always around when needed. However, every time they talk, Dave only complains, about work, his wife and people around him. Kevin becomes an emotional trash can that never empties. In the end, he always feels drained after every call.</p>
-
-      <p>We might have similar experiences, friends who always come with complaints but rarely listen or friends who make us feel guilty when we don’t reply immediately or skip a hangout. Over time, affection mixes with obligation and this is no longer a healthy friendship but an imbalanced pattern that pressures one side.</p>
-
-      <h2>Dealing with Those Who Continuously Violate Boundaries</h2>
-
-      <p>There is one sentence from Nedra Glover Tawwab that truly sticks in my mind,</p>
-
-      <blockquote>“People will do what you allow and they will do it over and over again until you stop them.”</blockquote>
-
-      <p>This sentence is simple but striking. We often complain that others keep crossing our boundaries, without realizing they can do it because we keep giving them space. The truth is, we cannot control others. We cannot ensure they will change, we cannot force them to respect our boundaries but we can always control one thing, what we tolerate.</p>
-
-      <h2>Strategies for Dealing with Boundary Violators</h2>
-
-      <p>According to Tawwab, there are several key steps to protect yourself when dealing with people who constantly violate boundaries:</p>
-
-      <ul>
-        <li>Reduce the frequency of interactions with unhealthy people.</li>
-        <li>Choose to spend time alone rather than with those who harm you.</li>
-        <li>Make tough choices about who to invest your time in.</li>
-        <li>Set expectations early when building new relationships.</li>
-        <li>Repeat your boundaries consistently or step back when it’s clear they refuse to respect them.</li>
-        <li>Build new relationships with healthy people.</li>
-      </ul>
-
-      <p>It may sound firm. Isn’t it even harsher when we allow ourselves to be slowly drained by people who keep crossing our boundaries?</p>
-
-      <p>Nedra helps us differentiate between healthy friendship and unhealthy friendship.</p>
-
-      <h2>Signs of a healthy friendship:</h2>
-      <ul>
-        <li>Mutual support for growth.</li>
-        <li>Reciprocal relationship: both give and receive.</li>
-        <li>Friendship evolves as we grow.</li>
-        <li>Honest conversations about feelings without fear of loss.</li>
-        <li>Boundaries don’t threaten the relationship.</li>
-        <li>Acceptance of each other’s uniqueness.</li>
-      </ul>
-
-      <h2>Signs of an unhealthy friendship:</h2>
-      <ul>
-        <li>Competitive and undermining relationship.</li>
-        <li>Always feeling drained after interaction.</li>
-        <li>Friends try to embarrass us in front of others.</li>
-        <li>No balance, we give more than we receive.</li>
-        <li>Personal secrets are shared without consent.</li>
-        <li>No room to resolve conflict.</li>
-        <li>Boundaries are not respected.</li>
-        <li>Enmeshed relationship (too attached until losing self-identity).</li>
-      </ul>
-
-      <h2>When a Relationship Must End</h2>
-
-      <p>Sometimes, the healthiest step is not to fix, but to end. It’s not an easy decision, especially when the friendship or relationship has lasted for years. We often get trapped in nostalgia, hoping things will return to how they used to be. But the truth is: if we’ve changed, the relationship must change too. And if it doesn’t, maybe it’s no longer right for who we are now.</p>
-
-      <p>Tawwab mentions several signs that often appear before we are truly ready to let go:</p>
-
-      <ul>
-        <li>Tired of trying to fix something that cannot be fixed.</li>
-        <li>Exhausted from repeating the same problems to other friends without resolution.</li>
-        <li>Realizing we are not living according to our own values.</li>
-        <li>Seeing that change is only temporary, then returning to old patterns.</li>
-        <li>Starting to imagine life without that person.</li>
-        <li>Recognizing that the loss is smaller than the harm.</li>
-        <li>Having the courage to admit that the relationship is damaging mental health more than helping it grow.</li>
-      </ul>
-
-      <p>At this point, letting go is no longer a choice, it becomes a necessity.</p>
-
-    <h1>When Should We Stop?</h1>
-
-      <p>Facing chronic boundary violators is a test, do we choose to hold on for the sake of nostalgia or do we dare to let go for the sake of our own well-being? Here I learned that maintaining a relationship should never come at the cost of sanity. Sometimes, the greatest courage is not in staying but in admitting that the relationship has already ended.</p>
-
-      <p>It is precisely there that we truly learn the meaning of boundaries, not only saying “enough” to others but also to ourselves, enough waiting, enough hoping, enough enduring something that has long been unhealthy. In the end, letting go is not a sign that we have stopped loving. It is a sign that we have started loving ourselves.</p>
-
-      <h2>How to End a Relationship</h2>
-      <p>Ending a relationship takes many forms, from the most passive to the most open:</p>
-
-      <ul>
-        <li><strong>Ghosting</strong> – disappearing without explanation, not answering calls, not responding to messages. Sometimes considered a “safe” way but it actually leaves many question marks.</li>
-        <li><strong>A relationship on life support</strong> – after a major conflict, the bond never truly recovers, interaction happens only occasionally.</li>
-        <li><strong>Letting it fade slowly</strong> – communication becomes rarer, intensity decreases, until it naturally stops on its own.</li>
-        <li><strong>An honest conversation</strong> – sitting together, expressing frustrations, and openly declaring that the relationship is over. This way is hard but sometimes it is the healthiest, because it provides clear closure for both sides.</li>
-      </ul>
-
-      <p>There is no way that is entirely “right” or “wrong.” We are the ones who know best who our friends or partners are and what method is the most realistic to take.</p>
-
-      <h2>The Balance That Has Long Been Taught</h2>
-
-      <p>It turns out, the balance that Nedra teaches is not something new. Since long ago, the book of life has reminded us that everything needs limits, even in giving.</p>
-
-      <blockquote>
-        وَلَا تَجْعَلْ يَدَكَ مَغْلُوْلَةً اِلٰى عُنُقِكَ وَلَا تَبْسُطْهَا كُلَّ الْبَسْطِ فَتَقْعُدْ مَلُوْمًا مَّحْسُوْرًا ۝٢٩<br>
-        “And do not make your hand chained to your neck (by being stingy), nor stretch it out completely (by being wasteful), so that you become blamed and regretful.”<br>
-        <span style="font-size:13px;color:#8a6b77;">(QS. Al-Isra: 29)</span>
-      </blockquote>
-
-      <p>This verse is not only about wealth but about boundaries in giving and withholding, about balance between kindness to others and responsibility to oneself. That in life and in relationships, we are not asked to hold everything in but also not commanded to exhaust ourselves completely for the sake of others.</p>
-
-      <p>Here lies the essence of boundaries, maintaining balance so that love does not turn into burden, and kindness does not turn into pain. Even in the gentlest teachings, we are taught to give wisely and to protect ourselves from losing direction amidst overflowing affection.</p>
-
-      <p>In the end, as you might have realized since the very first blog:<br>
-      <strong>Hurt doesn’t justify hurt.</strong><br>
-      Now you know one more thing:<br>
-      <strong>Healing means learning when to walk away, not because you hate, but because you finally understand your worth.</strong></p>
-
-      <div class="book-box">
-        <strong>Book Reviewed:</strong><br>
-        Tawwab, Nedra Glover. <em>Set Boundaries, Find Peace: A Guide to Reclaiming Yourself.</em> Penguin Life, 2021.
-      </div>
-
-
-
-<div class="farewell-arabic">
-        وَالسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ
-    </div>
-</article>
-</div>
-
-  </article>
-</main>
-<footer>© 2025 Dear April. All rights reserved.</footer>
-<script>
-function updateTime() {
-    const now = new Date();
-    const jakartaTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Jakarta" }));
-    document.getElementById("date").textContent = jakartaTime.toLocaleDateString("en-GB");
-    document.getElementById("time").textContent = jakartaTime.toLocaleTimeString("en-GB");
-    document.getElementById("today").textContent = jakartaTime.toLocaleDateString("en-GB", { day: 'numeric', month: 'long', year: 'numeric' });
-}
-setInterval(updateTime, 1000);
-updateTime();
-
-document.addEventListener("copy", e => { e.preventDefault(); alert("Jangan disalin yaa 😊"); });
-document.addEventListener("contextmenu", e => { e.preventDefault(); alert("Jangan disalin yaa 😊"); });
-document.addEventListener("selectstart", e => e.preventDefault());
-</script>
-
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement(
-    { pageLanguage: 'en', includedLanguages: 'id,en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
-    'google_translate_element'
-  );
-const toggleBtn = document.getElementById('themeToggle');
-const saved = localStorage.getItem('theme');
-if (saved === 'dark') {
-  document.body.classList.add('dark');
-  toggleBtn.textContent = '☀️';
-}
-toggleBtn.addEventListener('click', () => {
-  document.body.classList.toggle('dark');
-  const dark = document.body.classList.contains('dark');
-  localStorage.setItem('theme', dark ? 'dark' : 'light');
-  toggleBtn.textContent = dark ? '☀️' : '🌙';
-});
-</script>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-<div style="margin: 30px auto; max-width: 700px; background-color: #ffe6f0; border: 1px solid #f7b6c2; padding: 15px 20px; border-radius: 10px; color: #b24574; text-align: center; font-size: 0.95em;">
-  ✋ Please kindly respect the content — copying is disabled to preserve originality 😊
-</div>
-
-<footer>
-    <p>&copy; 2025 Dear April. All rights reserved.</p>
-</footer>
-
-</body>
-</html>
