@@ -1,168 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Dear April</title>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+<title>You Finally Understand Your Worth</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+
 <style>
-    body {
-        font-family: 'Quicksand', sans-serif;
-        margin: 0;
-        background-color: #fef6fb;
-        color: #6d3a76;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        line-height: 1.8;
-        text-align: justify;
-    }
-    header {
-        background: linear-gradient(to right, #fcd3e1, #e1c4f2);
-        text-align: center;
-        padding: 30px 20px;
-        border-bottom: 4px solid #e5b17c;
-    }
-    header h1 {
-        font-size: 2.5em;
-        margin-bottom: 10px;
-        color: #b267a6;
-    }
-    .datetime {
-        text-align: center;
-        font-size: 1em;
-        color: #f5a6c0;
-        margin: 10px 0;
-    }
-    .navbar {
-        background-color: #fcd3e1;
-        padding: 10px 0;
-    }
-    .nav-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .nav-links {
-        list-style: none;
-        display: flex;
-        gap: 20px;
-        padding: 0;
-        margin: 0;
-    }
-    .nav-links li a {
-        text-decoration: none;
-        color: #b267a6;
-        font-weight: bold;
-        transition: color 0.3s ease;
-    }
-    .nav-links li a:hover {
-        color: #9b4d96;
-    }
-    .container {
-        max-width: 900px;
-        margin: 20px auto;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    }
-    article h2 {
-        color: #b267a6;
-    }
-    footer {
-        text-align: center;
-        padding: 20px;
-        background-color: #fbe5ec;
-        font-size: 0.9em;
-        color: #a3746e;
-    }
-    .farewell-arabic {
-        text-align: center;
-        font-size: 1.3em;
-        margin: 30px 0 10px;
-        color: #9b4d96;
-    }
-    .quote {
-        background: #ffe6f0;
-        border-left: 5px solid #f7b6c2;
-        padding: 10px 15px;
-        margin: 20px 0;
-        border-radius: 8px;
-        font-style: italic;
-        color: #b24574;
-    }
+:root{
+  --bg:#f7f6fb;
+  --text:#2e2e2e;
+  --sub:#6b6b7a;
+  --accent:#9aa6ff;
+  --line:#e4e7f2;
+  --highlight:#fff3c4;
+}
+
+/* Dark mode variables */
+body.dark{
+  --bg:#0f1117;
+  --text:#e8e8f0;
+  --sub:#a0a0b5;
+  --line:#222633;
+  --highlight:rgba(154,166,255,0.25);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Comic Neue','Comic Sans MS',cursive;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.9;
+  transition:background .3s ease, color .3s ease;
+}
+
+/* Progress bar */
+#progress{
+  position:fixed;
+  top:0;
+  left:0;
+  height:4px;
+  width:0%;
+  background:linear-gradient(90deg,#9aa6ff,#bfa8ff);
+  z-index:9999;
+}
+
+/* Dark mode button */
+.mode-btn{
+  position:fixed;
+  top:18px;
+  right:18px;
+  z-index:999;
+  padding:8px 12px;
+  border-radius:50px;
+  border:none;
+  cursor:pointer;
+  background:#ffffff;
+  font-size:14px;
+  box-shadow:0 3px 8px rgba(0,0,0,0.08);
+}
+
+body.dark .mode-btn{
+  background:#1e2230;
+  color:#fff;
+}
+
+/* Layout */
+.container{
+  max-width:850px;
+  margin:auto;
+  padding:90px 22px;
+}
+
+/* Header */
+.blog-header{
+  text-align:center;
+  margin-bottom:60px;
+}
+
+.blog-header h1{
+  font-size:2.4rem;
+  margin-bottom:12px;
+}
+
+.meta{
+  font-size:0.9rem;
+  color:var(--sub);
+}
+
+/* Section */
+.section{
+  margin-bottom:45px;
+  animation:fadeUp 0.8s ease both;
+}
+
+.section h2{
+  font-size:1.5rem;
+  margin-bottom:14px;
+  border-left:4px solid var(--accent);
+  padding-left:14px;
+}
+
+.section h3{
+  font-size:1.2rem;
+  margin-top:20px;
+  margin-bottom:10px;
+}
+
+.section p{
+  margin-bottom:16px;
+}
+
+/* Highlight important line */
+.key-line{
+  background:linear-gradient(transparent 70%, var(--highlight) 70%);
+  padding:2px 4px;
+}
+
+/* Quote block */
+.quote{
+  font-style:italic;
+  margin:20px 0;
+  padding-left:16px;
+  border-left:3px solid var(--accent);
+}
+
+/* Divider */
+.divider{
+  height:1px;
+  background:var(--line);
+  margin:60px 0;
+}
+
+/* Footer */
+.footer{
+  margin-top:80px;
+  text-align:center;
+  font-size:0.85rem;
+  color:var(--sub);
+}
+
+/* Animation */
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(15px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* Mobile */
+@media(max-width:600px){
+  .blog-header h1{
+    font-size:1.9rem;
+  }
+}
 </style>
 </head>
+
 <body>
 
-<header>
-    <h1>Dear April</h1>
-    <div class="datetime">
-        <span id="date">Monday, 27 October 2025</span> | <span id="time"></span>
-        <p style="margin-top: 10px; font-size: 0.9em; color: #9b4d96;">
-            This post was written on <strong>October 27, 2025</strong>
-        </p>
-    </div>
-</header>
-
-<nav class="navbar">
-    <div class="nav-container">
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Me</a></li>
-            <li><a href="list.html">Blog</a></li>
-        </ul>
-    </div>
-</nav>
-
-<div id="google_translate_element" style="text-align: right; padding: 10px;"></div>
+<div id="progress"></div>
+<button class="mode-btn" id="darkToggle">🌙</button>
 
 <div class="container">
-<article>
-    <div class="farewell-arabic">
-        السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُه
-    </div>
 
-    <p>Isi tulisanmu di sini...</p>
-</article>
+<header class="blog-header">
+  <h1>You Finally Understand Your Worth</h1>
+  <div class="meta">Published on 28 October 2025</div>
+</header>
+
+<section class="section">
+<p>In this blog, I will discuss the importance of setting boundaries to build healthier relationships and how to create proper closure.</p>
+</section>
+
+<div class="divider"></div>
+
+<section class="section">
+<h2>What Are Boundaries?</h2>
+
+<p>Have you ever felt exhausted maintaining a relationship, whether it’s with a friend, a partner, a parent, a colleague or even your boss? Recently, I came across a book that has deeply helped my recovery process: <em>Set Boundaries, Find Peace</em> by Nedra Glover Tawwab.</p>
+
+<p>Nedra Glover Tawwab, in <em>Set Boundaries, Find Peace</em>, emphasizes that the root of self-care lies in boundaries. The signs that we’re losing this root can actually be recognized in our daily lives: fatigue, feeling stuck in routines and a growing sense of resentment toward the people around us.</p>
+
+<div class="quote">
+“Boundaries are expectations and needs that help you feel safe and comfortable in your relationships. Expectations in relationships help you stay mentally and emotionally well. Learning when to say no and when to say yes is also an essential part of feeling comfortable when interacting with others.” — Nedra Glover Tawwab
 </div>
 
-<footer>
-    &copy; 2025 Dear April. All rights reserved.
+<p>The book explains that we need to establish boundaries to build healthy relationships. Boundaries also serve as a signal that shows others how they should treat us.</p>
+</section>
+
+<div class="divider"></div>
+
+<section class="section">
+<h2>Three Levels of Boundaries</h2>
+
+<h3>1. Porous Boundaries</h3>
+<p>Porous boundaries are like a house whose doors are always open. Anyone can walk in, take what they want and leave whenever they please. From the outside, it looks kind and generous, but on the inside, the owner is exhausted.</p>
+
+<h3>2. Rigid Boundaries</h3>
+<p>If porous boundaries are too loose, rigid boundaries are too tight. It’s like a house with a locked door. People with rigid boundaries often avoid vulnerability and cut off relationships out of fear of getting hurt again.</p>
+
+<h3>3. Healthy Boundaries</h3>
+<p>Healthy boundaries are when we can open the door but also know when to close it. <span class="key-line">Healthy boundaries grow from self-awareness.</span> They allow us to say “no” without guilt and “yes” without fear.</p>
+</section>
+
+<div class="divider"></div>
+
+<section class="section">
+<h2>Assertive Communication</h2>
+
+<p>“The healthiest way to communicate your boundaries is to be assertive.”</p>
+
+<p>Assertiveness means expressing feelings clearly without attacking others and without suppressing ourselves.</p>
+
+<p>Assertiveness sounds like this:</p>
+
+<div class="quote">
+“I’m not comfortable talking about that.”<br>
+“I appreciate your opinion, but I have a different perspective.”<br>
+“Thank you for inviting me, but this time I want to rest at home.”
+</div>
+
+<p><span class="key-line">Communication is not about winning arguments, but about giving others a map to understand us correctly.</span></p>
+</section>
+
+<div class="divider"></div>
+
+<section class="section">
+<h2>Guilt Is Normal</h2>
+
+<p>When first enforcing boundaries, guilt almost always appears. That guilt is not a sign we are wrong — it is a sign we are leaving an unhealthy pattern.</p>
+
+<div class="quote">
+“I’m not doing this to disrespect you, I’m doing this to respect myself.”
+</div>
+
+<p>We can love someone and still say “no.” We can care and still keep distance.</p>
+</section>
+
+<div class="divider"></div>
+
+<section class="section">
+<h2>When It’s Time to Let Go</h2>
+
+<p>“When you’ve tried setting boundaries and your requests are continuously violated, it may be time to consider cutting people off.”</p>
+
+<p><span class="key-line">Letting go is not a sign that we have stopped loving. It is a sign that we have started loving ourselves.</span></p>
+</section>
+
+<div class="divider"></div>
+
+<section class="section">
+<h2>The Balance That Has Long Been Taught</h2>
+
+<div class="quote">
+“And do not make your hand chained to your neck (by being stingy), nor stretch it out completely (by being wasteful), so that you become blamed and regretful.” (QS. Al-Isra: 29)
+</div>
+
+<p>In the end, as you might have realized since the very first blog: <br>
+<span class="key-line">Hurt doesn’t justify hurt.</span></p>
+
+<p>Now you know one more thing: <br>
+<span class="key-line">Healing means learning when to walk away, not because you hate, but because you finally understand your worth.</span></p>
+</section>
+
+<div class="divider"></div>
+
+<section class="section">
+<p><strong>Book Reviewed:</strong><br>
+Tawwab, Nedra Glover. <em>Set Boundaries, Find Peace: A Guide to Reclaiming Yourself.</em> Penguin Life, 2021.</p>
+</section>
+
+<footer class="footer">
+© 2025 Dear April • All rights reserved
 </footer>
 
+</div>
+
 <script>
-// Hanya update jam (bukan tanggal)
-function updateTime() {
-    const now = new Date();
-    const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    document.getElementById("time").textContent = timeString;
+/* Progress bar */
+window.addEventListener('scroll',()=>{
+  const scrollTop=document.documentElement.scrollTop;
+  const height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+  const progress=(scrollTop/height)*100;
+  document.getElementById('progress').style.width=progress+'%';
+});
+
+/* Dark mode toggle */
+const toggle=document.getElementById('darkToggle');
+toggle.onclick=function(){
+  document.body.classList.toggle('dark');
+  localStorage.setItem("theme",document.body.classList.contains("dark")?"dark":"light");
+};
+
+/* Persist theme */
+if(localStorage.getItem("theme")==="dark"){
+  document.body.classList.add("dark");
 }
-setInterval(updateTime, 1000);
-updateTime();
 </script>
 
 </body>
 </html>
-
-<h1>You Finally Understand Your Worth</h1>
-<p>In this blog, I will discuss the importance of setting boundaries to build healthier relationships and how to create proper closure.</p>
-
-<h2>What Are Boundaries?</h2>
-<p>Have you ever felt exhausted maintaining a relationship, whether it’s with a friend, a partner, a parent, a colleague or even your boss? Recently, I came across a book that has deeply helped my recovery process: <em>Set Boundaries, Find Peace</em> by Nedra Glover Tawwab.</p>
-<p>Nedra Glover Tawwab, in <em>Set Boundaries, Find Peace</em>, emphasizes that the root of self-care lies in boundaries. The signs that we’re losing this root can actually be recognized in our daily lives: fatigue, feeling stuck in routines and a growing sense of resentment toward the people around us.</p>
-
-<blockquote>
-    “Boundaries are expectations and needs that help you feel safe and comfortable in your relationships. Expectations in relationships help you stay mentally and emotionally well. Learning when to say no and when to say yes is also an essential part of feeling comfortable when interacting with others.”  
-    <br>— <strong>Nedra Glover Tawwab</strong>
-</blockquote>
-
-<p>The book explains that we need to establish boundaries to build healthy relationships. Boundaries also serve as a signal that shows others how they should treat us.</p>
-
-<h2>Three Levels of Boundaries: From Porous, Rigid, to Healthy</h2>
