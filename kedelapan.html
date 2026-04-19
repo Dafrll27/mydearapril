@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>#It’s Just a Joke, Right?</title>
+
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#f7f6fb;
+  --text:#2e2e2e;
+  --sub:#5f6c7b;
+  --accent:#9aa6ff;
+  --line:#e4e7f2;
+  --quote:#eef1ff;
+}
+  body.dark {
+  background: #0f0f14;
+  color: #e6e6eb;
+}
+
+body.dark .content {
+  background: #15151d;
+}
+/* ========================= */
+/* DARK MODE FIXES */
+/* ========================= */
+
+body.dark{
+  background:#0f0f14;
+  color:#e6e6eb;
+}
+
+body.dark .container{
+  background:transparent;
+}
+
+/* Section text */
+body.dark .section p{
+  color:#dcdce3;
+}
+
+/* Headings */
+body.dark .section h2,
+body.dark .section h3,
+body.dark .blog-header h1{
+  color:#ffffff;
+}
+
+/* Meta text */
+body.dark .meta{
+  color:#b0b0c3;
+}
+
+/* Quote box */
+body.dark .quote{
+  background:#1a1a26;
+  color:#eaeaf0;
+  border-left:6px solid #9aa6ff;
+}
+
+/* Highlight */
+body.dark .highlight{
+  background:#2a2a3d;
+  color:#ffffff;
+}
+
+/* Divider */
+body.dark .divider{
+  background:#2a2a3a;
+}
+
+/* Footnote */
+body.dark .footnote{
+  background:#1a1a26;
+  color:#cfcfe6;
+}
+
+/* Footer */
+body.dark .footer{
+  color:#9a9ab5;
+}
+
+.mode-btn{
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+  padding: 10px 14px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+
+body{
+  font-family:'Comic Neue','Comic Sans MS',cursive;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.8;
+}
+/* Progress bar */
+#progress{
+  position:fixed;
+  top:0;
+  left:0;
+  height:5px;
+  width:0%;
+  background:linear-gradient(90deg,#9aa6ff,#bfa8ff);
+  z-index:9999;
+  transition: width 0.1s linear;
+}
+
+.soft-list{
+  margin: 14px 0 22px;
+  padding-left: 6px;
+}
+
+.soft-item{
+  position: relative;
+  padding-left: 18px;
+  margin: 8px 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* bullet aesthetic */
+.soft-item::before{
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent);
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+/* dark mode */
+body.dark .soft-item{
+  color: #e6e6f0;
+}
+
+body.dark .soft-item::before{
+  color: #9aa6ff;
+}
+
+
+/* Layout */
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:80px 20px;
+}
+
+/* Header */
+.blog-header{
+  text-align:center;
+  margin-bottom:60px;
+  animation:fadeUp 1s ease;
+}
+
+.blog-header h1{
+  font-size:2.5rem;
+  margin-bottom:15px;
+}
+
+.meta{
+  color:var(--sub);
+  font-size:0.9rem;
+}
+
+/* Sections */
+.section{
+  margin-bottom:50px;
+  animation:fadeUp 1s ease;
+}
+
+.section h2{
+  font-size:1.6rem;
+  margin-bottom:15px;
+  border-left:5px solid var(--accent);
+  padding-left:15px;
+}
+
+.section h3{
+  font-size:1.3rem;
+  margin-bottom:10px;
+  color:#4a4a4a;
+}
+
+.section p{
+  margin-bottom:15px;
+  color:#333;
+}
+
+/* Divider */
+.divider{
+  height:1px;
+  background:var(--line);
+  margin:60px 0;
+}
+  /* Anti copy & select */
+body{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow selection only for inputs if needed */
+input, textarea{
+  user-select: text;
+}
+/* Inline narrative quote (tanpa garis, tanpa box) */
+.inline-quote{
+  margin-top: 6px;        /* jarak kecil dari teks atas */
+  margin-bottom: 22px;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* soft highlight inline */
+.inline-quote em{
+  background: linear-gradient(transparent 70%, rgba(154,166,255,0.22) 70%);
+  padding: 0 4px;
+  border-radius: 3px;
+}
+
+/* dark mode */
+body.dark .inline-quote{
+  color: #e6e6f0;
+}
+
+body.dark .inline-quote em{
+  background: linear-gradient(transparent 70%, rgba(154,166,255,0.35) 70%);
+}
+
+
+/* Quote highlight */
+.quote{
+  background:var(--quote);
+  border-left:6px solid var(--accent);
+  padding:20px;
+  margin:25px 0;
+  font-style:italic;
+  border-radius:8px;
+}
+.direct-quote{
+  background: linear-gradient(135deg, #eef1ff, #f6f7ff);
+  border-left: 6px solid var(--accent);
+  padding: 22px 24px;
+  margin: 30px 0;
+  border-radius: 10px;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #2f2f3a;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.04);
+}
+
+/* Dark mode version */
+body.dark .direct-quote{
+  background: linear-gradient(135deg, #1b1c28, #222336);
+  border-left: 6px solid #9aa6ff;
+  color: #e8e8f0;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+/* Important highlight */
+.highlight{
+  background:#fff7d6;
+  padding:2px 6px;
+  border-radius:4px;
+}
+
+/* Important emphasis highlight */
+.key-line{
+  display: inline;
+  background: linear-gradient(transparent 70%, rgba(255,180,190,0.20) 70%);
+  padding: 2px 6px;
+  border-radius: 4px;
+   font-size: 1.05rem;
+   font-weight: normal; 
+  color: var(--text);
+}
+
+/* block important line (kalimat penting satu baris penuh) */
+key-line{
+  display: inline-block;
+  margin: 14px 0;
+  padding: 2px 6px;
+  background: linear-gradient(transparent 68%, rgba(255,180,190,0.20) 68%);
+  border-radius: 4px;
+  font-size: 1.05rem;
+  font-weight: normal;   /* <- ini penting: bukan bold */
+  color: var(--text);
+}
+
+/* Dark mode */
+body.dark .key-line{
+  background: linear-gradient(transparent 68%, rgba(255,180,190,0.20) 68%);
+  color: #e6e6f0;
+}
+
+body.dark .key-block{
+  background: linear-gradient(90deg, rgba(154,166,255,0.18), rgba(154,166,255,0.05));
+  border-left: 4px solid #9aa6ff;
+  color: #f0f0f5;
+}
+
+
+
+/* Footnote */
+.footnote{
+  font-size:0.9rem;
+  color:#555;
+  background:#f0f2ff;
+  padding:15px;
+  border-radius:8px;
+  margin-top:40px;
+}
+
+/* Footer */
+.footer{
+  text-align:center;
+  margin-top:80px;
+  font-size:0.9rem;
+  color:#777;
+}
+
+/* Animations */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* Mobile */
+@media(max-width:600px){
+  .blog-header h1{
+    font-size:2rem;
+  }
+}
+
+</style>
+</head>
+
+<body>
+  <div id="progress"></div>
+
+<button id="darkToggle" class="mode-btn">🌙</button>
+
+
+<div class="container">
+
+<!-- HEADER -->
+<header class="blog-header">
+  <h1>#It’s Just a Joke, Right?</h1>
+  <div class="meta">Published on: April 19th, 2026</div>
+</header>
+
+<section class="section">
+<div class="divider"></div>
+<h2>Looking at the Data</h2>
+
+<p>In many social spaces, the phrase <em>“it’s just a joke”</em> often becomes the simplest shield for something that is actually not simple at all. It sounds light, as if it is harmless, as if it does not need to be taken seriously. But that is exactly where the problem lies. <span class="key-line">When something that crosses boundaries is wrapped as humor, it loses its label as “wrong” and slowly turns into something considered normal.</span></p>
+
+<p>In social studies, this phenomenon is often associated with the concept of <em><b><span class="highlight">rape culture</span></b></em>, a culture that normalizes or trivializes sexual violence through everyday practices such as comments, jokes, or behaviors that demean others. <span class="key-line">This means that things that seem “small” actually play a role in shaping the collective perspective on boundaries, consent, and safety.</span></p>
+
+<p>If we look at the context of Indonesia, this issue is not just about perception. The Annual Records <em>(CATAHU)</em> by the <b><span class="key-line">National Commission on Violence Against Women (Komnas Perempuan)</span></b> consistently show the high number of cases of violence against women each year. In its latest report, <span class="highlight">more than 330,000 cases of violence against women were recorded</span> and collected from various service providers. This number itself is described as <span class="key-line">just the tip of the iceberg</span>, as many cases are never reported.</p>
+
+<p>In educational environments, which are supposed to be safe spaces, the situation also requires serious attention. The <b><span class="key-line">Ministry of Women’s Empowerment and Child Protection (KemenPPPA)</span></b> emphasizes that sexual violence also occurs in educational settings, including universities, and requires systematic prevention and handling. Meanwhile, <b><span class="key-line">Komnas Perempuan</span></b> in its various press releases also highlights that <span class="highlight">cases on campuses are often hidden and difficult to uncover</span> due to power relations, stigma, and low reporting rates.</p>
+
+<p>This aligns with findings that many victims choose not to report, because they are afraid, not believed, or worried about social consequences. In situations like this, when inappropriate comments or actions continue to be labeled as <em>“jokes,”</em> <span class="key-line">the line between what is serious and what is considered trivial becomes increasingly blurred.</span></p>
+
+<p>Ironically, in many social discussions, the focus is more often directed at women, how they should dress, behave, or protect themselves rather than discussing how men should be taught to understand boundaries, respect others, and take responsibility for their behavior. <span class="highlight">This imbalance not only creates unfair standards but also reinforces the same patterns over time.</span></p>
+
+<p>If we look deeper, this is not just about individuals who are <em>“joking.”</em> <span class="key-line">This is about a social system that has long been used to letting small things pass without correction.</span> An environment that does not set clear boundaries, authority figures who are inconsistent, and a society that prefers to normalize rather than correct. <span class="highlight">All of these contribute to forming patterns that continue to repeat.</span></p>
+
+<div class="divider"></div>
+<h2>Educate Your Son</h2>
+
+<p>There is one pattern that appears in almost every discussion about boundaries, harassment, and safety. Somehow, the conversation almost always circles back to women. What she wears, how she behaves, how <em>“appropriate”</em> she presents herself. <span class="key-line">As if the solution to this issue always starts from one side only.</span></p>
+
+<p>Women are taught to cover themselves more, speak more carefully, laugh less freely, walk less confidently, and exist without <em>“drawing attention.”</em> Everything is regulated. Everything is monitored. Everything is directed toward one goal, <b><span class="highlight">not to “provoke.”</span></b></p>
+
+<p><span class="key-line"><b>The question is simple, provoke who?</b></span></p>
+
+<p>Because on the other side, men often do not receive the same level of pressure. <span class="key-line">There is no equal urgency to teach them about boundaries, about consent, about how to respect others without conditions.</span> There is no consistent social standard that truly demands them to be responsible for their behavior. <span class="highlight">When something happens, the first thing that gets evaluated is still the woman.</span></p>
+
+<p><em>What did she do?</em><br>
+<em>Why was she there?</em><br>
+<em>Why didn’t she avoid it?</em></p>
+
+<p><span class="key-line">Rarely do the questions begin with the person who caused it.</span></p>
+
+<p>Even when clearly inappropriate behavior appears in the form of comments, jokes, or actions, the response is often not correction, but justification. <em>“He’s just joking.” “That’s just how men are.” “Don’t take it too seriously.”</em></p>
+
+<p><span class="highlight">Interesting, isn’t it?</span> Something considered serious enough to control women suddenly becomes not serious when it comes to controlling men.</p>
+
+<p>At this point, we are not really talking about who is wrong as an individual. <span class="key-line">We are looking at a bigger pattern, a social system that is more comfortable controlling women than educating men.</span> Because controlling is easier than changing.</p>
+
+<h2>If you have authority, start acting like it!</h2>
+
+<p>To those of you who have authority, teachers, parents, leaders, or anyone who consciously or unconsciously holds a position to influence others, <span class="key-line">the most exhausting thing is not just seeing mistakes happen, but seeing how you choose to do nothing.</span> Because apparently, having authority does not always mean having courage.</p>
+
+<p>Many have positions, but no stance. Many are heard, but do not truly take responsibility for what they say and do. <span class="highlight">Ironically, when something clearly crosses the line, the response is often not to stop it, but to ignore it, or worse, to laugh along.</span></p>
+
+<p><span class="highlight">Interesting, isn’t it?</span> In spaces that are supposed to be the safest, boundaries are most often violated, and <span class="key-line">those who should protect them are the ones blurring them.</span></p>
+
+<p>To those who are called <em>“role models,”</em> those who stand on stages or hold positions that make others look up to you, every word you say is not just a word. <span class="key-line">Every joke you think is harmless, every comment you consider trivial, it is recorded. It is imitated. It is repeated.</span> When what you tolerate are things that clearly cross boundaries, what you teach is not values, but <span class="highlight">tolerance of misconduct.</span></p>
+
+<p><span class="key-line"><b>Authority without action is nothing more than an empty title,</b></span> and empty titles never protect anyone. <b>So if you have authority, start acting like it!</b></p>
+<div class="divider"></div>
+
+  <h2>Do better or step aside!</h2>
+
+<p>To anyone who has ever done or is still doing these things, those who feel safe because they have never been called out, those who feel innocent because <em>“everyone does it,”</em> those who feel protected by a simple phrase like <em>“it’s just a joke,”</em> maybe it is time to stop feeling comfortable in the wrong place.</p>
+
+<p><span class="key-line"><b>Wake up.</b></span></p>
+
+<p>Not because someone is forcing you, but because you should already be mature enough to understand it yourself. <span class="key-line">Use your mind, not just to defend yourself, but to think before acting.</span> To question whether what you consider normal is truly appropriate, or simply something you have never been challenged to reflect on. Do not let your ability to think, which should be your greatest strength, go unused as if it has no purpose.</p>
+
+<p><span class="highlight"><b>And do not forget, use empathy.</b></span></p>
+
+<p>Because understanding that someone else can feel uncomfortable should not be difficult. But somehow, it is often the first thing that disappears when something is labeled as a <em>“joke.”</em> As if as long as you are laughing, others have no right to feel disturbed. As if as long as your intention is not bad, the impact does not matter.</p>
+
+<p><span class="key-line"><b>But the world does not operate based on intention. It operates based on impact.</b></span></p>
+
+<p>Stop waiting to be called out to realize something is wrong. <span class="key-line">Not every mistake will be immediately stopped by others.</span> Not everyone has the courage or the space to say they feel uncomfortable. <span class="highlight">But their silence is not consent.</span></p>
+
+<p>There is not much left to say except hope. <span class="key-line">Hope that those who have felt uncomfortable find space to heal</span>, in their own way, without having to carry that burden for the rest of their lives.</p>
+
+<p>Beyond that, hopefully there is enough awareness to truly reflect. Not just to feel guilty for a moment, but to truly understand, and then stop. Because <span class="highlight">every action, no matter how small you think it is, still leaves a trace.</span></p>
+
+<p>Out there, there will always be people who are more aware of that trace, who may see you differently because of it. <span class="key-line">That is a consequence that must be accepted.</span></p>
+
+<p><b><span class="highlight">No.. it’s not just a joke. Impact over intent, always.</span></b></p>
+
+<div class="divider"></div>
+  <h2>Daftar Pustaka</h2>
+
+<p><b><span class="key-line">Komnas Perempuan</span></b><br>
+<em>Catatan Tahunan (CATAHU) 2024: Menata Data, Menajamkan Arah</em><br>
+https://komnasperempuan.go.id/catatan-tahunan-detail/catahu-2024-menata-data-menajamkan-arah-refleksi-pendokumentasian-dan-tren-kasus-kekerasan-terhadap-perempuan</p>
+
+<p><b><span class="key-line">Komnas Perempuan</span></b><br>
+<em>Siaran Pers: Kekerasan Seksual di Perguruan Tinggi sebagai Fenomena Gunung Es</em><br>
+https://komnasperempuan.go.id/siaran-pers-detail/siaran-pers-komnas-perempuan-merespons-kasus-kekerasan-seksual-di-perguruan-tinggi</p>
+
+<p><b><span class="key-line">Kementerian Pemberdayaan Perempuan dan Perlindungan Anak (KemenPPPA)</span></b><br>
+<em>Pencegahan Kekerasan Seksual di Lingkungan Kampus</em><br>
+https://www.kemenpppa.go.id</p>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  © 2026 • Dear April Blog
+</footer>
+
+</div>
+
+<script>
+// Progress bar
+window.addEventListener('scroll',()=>{
+  const scrollTop=document.documentElement.scrollTop;
+  const height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+  const progress=(scrollTop/height)*100;
+  document.getElementById('progress').style.width=progress+'%';
+});
+
+// Date
+document.getElementById("date").innerText = new Date().toLocaleDateString("en-GB",{
+  day:"numeric",
+  month:"long",
+  year:"numeric"
+});
+</script>
+<script>
+/* Disable right click */
+document.addEventListener('contextmenu', function(e){
+  e.preventDefault();
+});
+
+/* Disable copy */
+document.addEventListener('copy', function(e){
+  e.preventDefault();
+});
+
+/* Disable cut */
+document.addEventListener('cut', function(e){
+  e.preventDefault();
+});
+
+/* Disable drag */
+document.addEventListener('dragstart', function(e){
+  e.preventDefault();
+});
+</script>
+
+
+ <script>
+const toggleBtn = document.getElementById('darkToggle');
+
+/* Load mode from localStorage */
+if(localStorage.getItem('theme') === 'dark'){
+  document.body.classList.add('dark');
+  toggleBtn.innerText = '☀️';
+}else{
+  toggleBtn.innerText = '🌙';
+}
+
+/* Toggle mode */
+toggleBtn.onclick = function(){
+  document.body.classList.toggle('dark');
+
+  if(document.body.classList.contains('dark')){
+    localStorage.setItem('theme','dark');
+    toggleBtn.innerText = '☀️';
+  }else{
+    localStorage.setItem('theme','light');
+    toggleBtn.innerText = '🌙';
+  }
+};
+</script>
+
+
+</body>
+</html>
+
