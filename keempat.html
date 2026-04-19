@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hurt Doesn’t Justify Hurt</title>
+
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#f7f6fb;
+  --text:#2e2e2e;
+  --sub:#5f6c7b;
+  --accent:#9aa6ff;
+  --line:#e4e7f2;
+  --quote:#eef1ff;
+}
+  body.dark {
+  background: #0f0f14;
+  color: #e6e6eb;
+}
+
+body.dark .content {
+  background: #15151d;
+}
+/* ========================= */
+/* DARK MODE FIXES */
+/* ========================= */
+
+body.dark{
+  background:#0f0f14;
+  color:#e6e6eb;
+}
+
+body.dark .container{
+  background:transparent;
+}
+
+/* Section text */
+body.dark .section p{
+  color:#dcdce3;
+}
+
+/* Headings */
+body.dark .section h2,
+body.dark .section h3,
+body.dark .blog-header h1{
+  color:#ffffff;
+}
+
+/* Meta text */
+body.dark .meta{
+  color:#b0b0c3;
+}
+
+/* Quote box */
+body.dark .quote{
+  background:#1a1a26;
+  color:#eaeaf0;
+  border-left:6px solid #9aa6ff;
+}
+
+/* Highlight */
+body.dark .highlight{
+  background:#2a2a3d;
+  color:#ffffff;
+}
+
+/* Divider */
+body.dark .divider{
+  background:#2a2a3a;
+}
+
+/* Footnote */
+body.dark .footnote{
+  background:#1a1a26;
+  color:#cfcfe6;
+}
+
+/* Footer */
+body.dark .footer{
+  color:#9a9ab5;
+}
+
+.mode-btn{
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+  padding: 10px 14px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+
+body{
+  font-family:'Comic Neue','Comic Sans MS',cursive;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.8;
+}
+/* Progress bar */
+#progress{
+  position:fixed;
+  top:0;
+  left:0;
+  height:5px;
+  width:0%;
+  background:linear-gradient(90deg,#9aa6ff,#bfa8ff);
+  z-index:9999;
+  transition: width 0.1s linear;
+}
+
+.soft-list{
+  margin: 14px 0 22px;
+  padding-left: 6px;
+}
+
+.soft-item{
+  position: relative;
+  padding-left: 18px;
+  margin: 8px 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* bullet aesthetic */
+.soft-item::before{
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent);
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+/* dark mode */
+body.dark .soft-item{
+  color: #e6e6f0;
+}
+
+body.dark .soft-item::before{
+  color: #9aa6ff;
+}
+
+
+/* Layout */
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:80px 20px;
+}
+
+/* Header */
+.blog-header{
+  text-align:center;
+  margin-bottom:60px;
+  animation:fadeUp 1s ease;
+}
+
+.blog-header h1{
+  font-size:2.5rem;
+  margin-bottom:15px;
+}
+
+.meta{
+  color:var(--sub);
+  font-size:0.9rem;
+}
+
+/* Sections */
+.section{
+  margin-bottom:50px;
+  animation:fadeUp 1s ease;
+}
+
+.section h2{
+  font-size:1.6rem;
+  margin-bottom:15px;
+  border-left:5px solid var(--accent);
+  padding-left:15px;
+}
+
+.section h3{
+  font-size:1.3rem;
+  margin-bottom:10px;
+  color:#4a4a4a;
+}
+
+.section p{
+  margin-bottom:15px;
+  color:#333;
+}
+
+/* Divider */
+.divider{
+  height:1px;
+  background:var(--line);
+  margin:60px 0;
+}
+  /* Anti copy & select */
+body{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow selection only for inputs if needed */
+input, textarea{
+  user-select: text;
+}
+/* Inline narrative quote (tanpa garis, tanpa box) */
+.inline-quote{
+  margin-top: 6px;        /* jarak kecil dari teks atas */
+  margin-bottom: 22px;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* soft highlight inline */
+.inline-quote em{
+  background: linear-gradient(transparent 70%, rgba(154,166,255,0.22) 70%);
+  padding: 0 4px;
+  border-radius: 3px;
+}
+
+/* dark mode */
+body.dark .inline-quote{
+  color: #e6e6f0;
+}
+
+body.dark .inline-quote em{
+  background: linear-gradient(transparent 70%, rgba(154,166,255,0.35) 70%);
+}
+
+
+/* Quote highlight */
+.quote{
+  background:var(--quote);
+  border-left:6px solid var(--accent);
+  padding:20px;
+  margin:25px 0;
+  font-style:italic;
+  border-radius:8px;
+}
+.direct-quote{
+  background: linear-gradient(135deg, #eef1ff, #f6f7ff);
+  border-left: 6px solid var(--accent);
+  padding: 22px 24px;
+  margin: 30px 0;
+  border-radius: 10px;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #2f2f3a;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.04);
+}
+
+/* Dark mode version */
+body.dark .direct-quote{
+  background: linear-gradient(135deg, #1b1c28, #222336);
+  border-left: 6px solid #9aa6ff;
+  color: #e8e8f0;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+/* Important highlight */
+.highlight{
+  background:#fff7d6;
+  padding:2px 6px;
+  border-radius:4px;
+}
+
+/* Important emphasis highlight */
+.key-line{
+  display: inline;
+  background: linear-gradient(transparent 70%, rgba(255,180,190,0.20) 70%);
+  padding: 2px 6px;
+  border-radius: 4px;
+   font-size: 1.05rem;
+   font-weight: normal; 
+  color: var(--text);
+}
+
+/* block important line (kalimat penting satu baris penuh) */
+key-line{
+  display: inline-block;
+  margin: 14px 0;
+  padding: 2px 6px;
+  background: linear-gradient(transparent 68%, rgba(255,180,190,0.20) 68%);
+  border-radius: 4px;
+  font-size: 1.05rem;
+  font-weight: normal;   /* <- ini penting: bukan bold */
+  color: var(--text);
+}
+
+/* Dark mode */
+body.dark .key-line{
+  background: linear-gradient(transparent 68%, rgba(255,180,190,0.20) 68%);
+  color: #e6e6f0;
+}
+
+body.dark .key-block{
+  background: linear-gradient(90deg, rgba(154,166,255,0.18), rgba(154,166,255,0.05));
+  border-left: 4px solid #9aa6ff;
+  color: #f0f0f5;
+}
+
+
+
+/* Footnote */
+.footnote{
+  font-size:0.9rem;
+  color:#555;
+  background:#f0f2ff;
+  padding:15px;
+  border-radius:8px;
+  margin-top:40px;
+}
+
+/* Footer */
+.footer{
+  text-align:center;
+  margin-top:80px;
+  font-size:0.9rem;
+  color:#777;
+}
+
+/* Animations */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* Mobile */
+@media(max-width:600px){
+  .blog-header h1{
+    font-size:2rem;
+  }
+}
+
+</style>
+</head>
+
+<body>
+  <div id="progress"></div>
+
+<button id="darkToggle" class="mode-btn">🌙</button>
+
+
+<div class="container">
+
+<!-- HEADER -->
+<header class="blog-header">
+  <h1>Hurt Doesn’t Justify Hurt</h1>
+  <div class="meta">Published on: September 5th, 2025</div>
+</header>
+
+<section class="section">
+  
+<h2>Overconfidence and Harsh Reality</h2>
+
+<p><span class="key-line"><b>My biggest weakness is being overly confident.</b></span> I believed that even in a toxic environment, I would not turn into a toxic person as long as I had a strong personality and firm principles. Until finally, I began to admit that I was not strong enough to survive in a harmful environment, not strong enough to avoid becoming harmful myself.</p>
+<div class="divider"></div>
+  <h2>Meeting the Source of My Struggles</h2>
+
+<p>A while ago, I met a girl who, as it turns out, had been the very reason why my college years often felt so heavy. The first warning actually came from my dorm mate, but I ignored it because I thought it was unfair to judge someone based on what others said.</p>
+
+<p>At first, everything seemed fine. She showed me her good side. But now I realize that I was being too naïve, because <span class="key-line">the truth is, everyone puts their best face forward when meeting someone new.</span></p>
+
+<p>Day by day, she started showing behaviors that made me feel uncomfortable, whether it was through her actions, her habits, her mindset, or most often, the words she spoke to me or to others. Yet, I brushed it all aside, thinking this was just a part of her flaws that I should tolerate, the way friendships usually work out there.</p>
+
+<p>Slowly, hurtful remarks like <em>“You wouldn’t be able to do this without me”</em> or <em>“If I were you, I’d get it done right away”</em> no longer made me sad or angry. <span class="highlight">Her words became so normal to my ears.</span> And what’s worse, over time, I began to actually believe them. <span class="key-line">Her words started to convince me that I wasn’t good enough.</span></p>
+
+<h2>The Trade-Off in Human Relationships</h2>
+
+<p>We all acknowledge that every person has strengths and weaknesses. In every interaction, be it friendships, romantic relationships, or even parent-child relationships, there is something called a trade-off.</p>
+
+<p>When interaction happens, we gain certain benefits but also accept certain costs. While we enjoy the benefits we receive, at the same time, we must also accept the drawbacks. Interacting with others means maintaining relationships by exchanging strengths what we can offer them and what they can offer us. On the other hand, we must also be ready to tolerate weaknesses, just as we hope our own flaws will be tolerated. This is often necessary to avoid conflicts.</p>
+
+<p><span class="key-line"><b>But the question remains: is the tolerance we give still within reasonable boundaries?</b></span></p>
+
+<h2>Forgiveness, Conflict Avoidance, and Its Consequences</h2>
+
+<p>In every moment when someone does something unpleasant to us, those of us who dislike conflict often search for reasons to justify why we should let it go. That way, we forgive easily because we believe holding grudges is heavy and exhausting. <span class="highlight">It sounds noble, until it becomes a loophole for others to keep treating us however they want.</span></p>
+
+<p>That is why clear communication is necessary. By speaking up, we give the other person a chance to learn. <span class="key-line">This creates balance, we forgive for our own hearts but at the same time, we draw boundaries for others.</span></p>
+
+<p>As the quote goes:<br>
+<em>“Sometimes people don’t do wrong because they intend to, but because they don’t know they’re doing wrong.”</em> – <b>SAL</b></p>
+
+<p>This statement is very true. <span class="key-line"><b>But what if the person refuses to listen, shuts their ears to criticism, and rejects all feedback?</b></span></p>
+
+<div class="divider"></div>
+
+  <h2>Trauma, Choice, and Responsibility</h2>
+
+<p>I have read several psychological books. Contemporary psychology suggests that past wounds can influence the way an individual thinks, behaves, and acts in the present. They call these past wounds <em>trauma.</em></p>
+
+<p>On the other hand, <b><span class="key-line">Alfred Adler</span></b>, a psychologist, stated that past wounds do not directly determine a person’s present life. Instead, it depends on the meaning the individual assigns to those wounds. <span class="key-line">According to Adler, every individual always has a choice: whether their past will make them better or worse.</span> <span class="highlight">Trauma does not absolutely dictate the present.</span></p>
+
+<p>Often, we feel sympathy for individuals who have faced painful or tragic experiences. Instinctively, we want to help them through it. <span class="key-line">This makes us even more forgiving.</span> We widen our tolerance for their negative behaviors, assuming these flaws are caused by their past suffering. With open arms, we offer to be a friend in their healing journey. We hope that through our presence, they can start to believe again that life is worth living. Slowly and patiently, we try to accompany them in rebuilding their lives, showing them how the world normally works, so that they may feel deserving of something better in the future.</p>
+
+<p><span class="highlight"><b>But what if our helping hand is never recognized as help, but instead used as a medium to prolong their wound?</b></span></p>
+
+<p>If we return to Adler’s theory, doesn’t every individual have the choice of what meaning to give their wounds? <span class="key-line">That means even when someone is hurt, they are still responsible for how they treat others.</span> Trauma may limit a person, but <span class="highlight">it does not erase moral responsibility.</span></p>
+
+<p>A popular phrase says: <em>“Hurt people hurt people.”</em> Yet we must also realize: <b><span class="highlight">“Hurt doesn’t justify hurt.”</span></b></p>
+
+<h2>The Dilemma of Distance</h2>
+
+<p>We may sometimes feel like villains for choosing to distance ourselves from someone who seems to need a friend the most. <span class="key-line">Looking inward, we realize we are not perfect either</span>, so why should we leave someone just because of their imperfections?</p>
+<div class="divider"></div>
+
+<h2>Answering the Questions</h2>
+
+<p><span class="key-line">Tolerance is reasonable when it does not strip us of dignity or self-worth.</span> As long as it strengthens relationships, it is meaningful. But when tolerance becomes an excuse to ignore emotional abuse or manipulation, <span class="highlight">it is no longer tolerance, it is betrayal of ourselves.</span></p>
+
+<p><span class="key-line"><b>What if the person refuses to listen, shuts their ears to criticism, and rejects all feedback?</b></span> In relationship psychology, there is a concept called <em>resistance to change.</em> Every individual has the right to decide when to change, and we do not have absolute control over accelerating that process. Adler’s theory reminds us that <span class="key-line">the ultimate control lies in the meaning individuals assign to their experiences.</span> We can only create opportunities for learning, not force the learning itself. <span class="highlight">At this point, keeping distance is not just an option, it is a necessity.</span> We cannot sacrifice our mental health for someone unwilling to leave destructive patterns.</p>
+
+<p><span class="key-line"><b>What if our help is never seen as help?</b></span> Then we must remember that healthy empathy does not mean drowning in another person’s suffering. <span class="highlight">Empathy without boundaries turns into co-dependency</span>, where we feel responsible for someone else’s healing when it is not our responsibility. Again, Adler is relevant here: wounds are real, but the meaning assigned to them is a choice. If someone chooses to use their wounds as an excuse to hurt others, then <span class="key-line">we have the right to step back.</span></p>
+
+  <p><span class="key-line"><b>And are we evil for keeping our distance from someone who seems to need a friend the most?</b></span> Absolutely not. <span class="highlight">Distance is not betrayal; it is a healthier form of care</span>, for ourselves and for them. Boundary theory in psychology emphasizes that <span class="key-line">boundaries are fundamental for functional relationships.</span> Without boundaries, relationships lose form and become breeding grounds for manipulation. Thus, <span class="highlight">distance is not cruelty, but a critical step to save both sides</span>: ourselves from destruction, and the other person from false comfort that enables destructive behavior.</p>
+
+<p>We are indeed imperfect, but <span class="key-line">our imperfections cannot be used as an excuse to tolerate harm.</span> In relationships, there is a difference between tolerable flaws like being forgetful or moody and intolerable behaviors, like belittling, manipulating, or harming. <span class="highlight">Ignoring this difference is a dangerous negligence.</span></p>
+
+<p>Therefore, the answers to all those rhetorical questions converge at one point: <span class="key-line"><b>keeping distance is the right choice when a relationship has crossed the line of health.</b></span> It is not just a survival strategy, but a moral, logical, and responsible decision. In the end, <span class="highlight"><b>hurt doesn’t justify hurt</b></span>, and no reason, not even trauma can excuse harmful behavior. <span class="key-line">Saving ourselves is not selfishness; it is the only way we can continue to show up in healthy ways for the relationships that truly deserve to be sustained.</span></p>
+<div class="divider"></div>
+
+<h2>Closing Reflection: Lessons for Ourselves Too</h2>
+
+<p>Of course, in this entire story, it may seem as though the other person is the only one at fault. And while it is true that their harmful words and actions cannot be justified, <span class="key-line">we also need to acknowledge that we are not entirely blameless either.</span> Every relationship is a two-way street.</p>
+
+<p>Our willingness to tolerate too much, our hesitation to set clear boundaries, and our silence in moments when we should have spoken up, all of these were decisions we made. <span class="highlight">They do not make us guilty of what happened, but they remind us that there are lessons to be learned</span> about protecting ourselves better in the future.</p>
+
+<p>If the other person’s responsibility is to recognize how their wounds influence the way they treat others, then our responsibility is to reflect on why we allowed their actions to continuously hurt us. <span class="key-line">This does not mean blaming ourselves, but rather identifying patterns we need to change.</span></p>
+
+<p>Because at the end of the day, healing is not just about moving away from what hurts us, it is also about <span class="highlight">growing into someone who knows how to choose healthier relationships</span>, how to enforce stronger boundaries, and how to nurture self-respect without losing compassion.</p>
+
+<p>So yes, <b><span class="highlight">hurt doesn’t justify hurt.</span></b> But neither does being hurt justify us abandoning the chance to improve ourselves. The past may leave scars, but <span class="key-line">the choice of what meaning we give those scars is ours.</span> And by choosing growth over bitterness, we ensure that tomorrow, we will not only survive, but live better, stronger, and with more wisdom.</p>
+
+  
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  © 2026 • Dear April Blog
+</footer>
+
+</div>
+
+<script>
+// Progress bar
+window.addEventListener('scroll',()=>{
+  const scrollTop=document.documentElement.scrollTop;
+  const height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+  const progress=(scrollTop/height)*100;
+  document.getElementById('progress').style.width=progress+'%';
+});
+
+// Date
+document.getElementById("date").innerText = new Date().toLocaleDateString("en-GB",{
+  day:"numeric",
+  month:"long",
+  year:"numeric"
+});
+</script>
+<script>
+/* Disable right click */
+document.addEventListener('contextmenu', function(e){
+  e.preventDefault();
+});
+
+/* Disable copy */
+document.addEventListener('copy', function(e){
+  e.preventDefault();
+});
+
+/* Disable cut */
+document.addEventListener('cut', function(e){
+  e.preventDefault();
+});
+
+/* Disable drag */
+document.addEventListener('dragstart', function(e){
+  e.preventDefault();
+});
+</script>
+
+
+ <script>
+const toggleBtn = document.getElementById('darkToggle');
+
+/* Load mode from localStorage */
+if(localStorage.getItem('theme') === 'dark'){
+  document.body.classList.add('dark');
+  toggleBtn.innerText = '☀️';
+}else{
+  toggleBtn.innerText = '🌙';
+}
+
+/* Toggle mode */
+toggleBtn.onclick = function(){
+  document.body.classList.toggle('dark');
+
+  if(document.body.classList.contains('dark')){
+    localStorage.setItem('theme','dark');
+    toggleBtn.innerText = '☀️';
+  }else{
+    localStorage.setItem('theme','light');
+    toggleBtn.innerText = '🌙';
+  }
+};
+</script>
+
+
+</body>
+</html>
+
