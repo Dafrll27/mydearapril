@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>#MeToo?</title>
+
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#f7f6fb;
+  --text:#2e2e2e;
+  --sub:#5f6c7b;
+  --accent:#9aa6ff;
+  --line:#e4e7f2;
+  --quote:#eef1ff;
+}
+  body.dark {
+  background: #0f0f14;
+  color: #e6e6eb;
+}
+
+body.dark .content {
+  background: #15151d;
+}
+/* ========================= */
+/* DARK MODE FIXES */
+/* ========================= */
+
+body.dark{
+  background:#0f0f14;
+  color:#e6e6eb;
+}
+
+body.dark .container{
+  background:transparent;
+}
+
+/* Section text */
+body.dark .section p{
+  color:#dcdce3;
+}
+
+/* Headings */
+body.dark .section h2,
+body.dark .section h3,
+body.dark .blog-header h1{
+  color:#ffffff;
+}
+
+/* Meta text */
+body.dark .meta{
+  color:#b0b0c3;
+}
+
+/* Quote box */
+body.dark .quote{
+  background:#1a1a26;
+  color:#eaeaf0;
+  border-left:6px solid #9aa6ff;
+}
+
+/* Highlight */
+body.dark .highlight{
+  background:#2a2a3d;
+  color:#ffffff;
+}
+
+/* Divider */
+body.dark .divider{
+  background:#2a2a3a;
+}
+
+/* Footnote */
+body.dark .footnote{
+  background:#1a1a26;
+  color:#cfcfe6;
+}
+
+/* Footer */
+body.dark .footer{
+  color:#9a9ab5;
+}
+
+.mode-btn{
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+  padding: 10px 14px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+
+body{
+  font-family:'Comic Neue','Comic Sans MS',cursive;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.8;
+}
+/* Progress bar */
+#progress{
+  position:fixed;
+  top:0;
+  left:0;
+  height:5px;
+  width:0%;
+  background:linear-gradient(90deg,#9aa6ff,#bfa8ff);
+  z-index:9999;
+  transition: width 0.1s linear;
+}
+
+.soft-list{
+  margin: 14px 0 22px;
+  padding-left: 6px;
+}
+
+.soft-item{
+  position: relative;
+  padding-left: 18px;
+  margin: 8px 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* bullet aesthetic */
+.soft-item::before{
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent);
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+/* dark mode */
+body.dark .soft-item{
+  color: #e6e6f0;
+}
+
+body.dark .soft-item::before{
+  color: #9aa6ff;
+}
+
+
+/* Layout */
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:80px 20px;
+}
+
+/* Header */
+.blog-header{
+  text-align:center;
+  margin-bottom:60px;
+  animation:fadeUp 1s ease;
+}
+
+.blog-header h1{
+  font-size:2.5rem;
+  margin-bottom:15px;
+}
+
+.meta{
+  color:var(--sub);
+  font-size:0.9rem;
+}
+
+/* Sections */
+.section{
+  margin-bottom:50px;
+  animation:fadeUp 1s ease;
+}
+
+.section h2{
+  font-size:1.6rem;
+  margin-bottom:15px;
+  border-left:5px solid var(--accent);
+  padding-left:15px;
+}
+
+.section h3{
+  font-size:1.3rem;
+  margin-bottom:10px;
+  color:#4a4a4a;
+}
+
+.section p{
+  margin-bottom:15px;
+  color:#333;
+}
+
+/* Divider */
+.divider{
+  height:1px;
+  background:var(--line);
+  margin:60px 0;
+}
+  /* Anti copy & select */
+body{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow selection only for inputs if needed */
+input, textarea{
+  user-select: text;
+}
+/* Inline narrative quote (tanpa garis, tanpa box) */
+.inline-quote{
+  margin-top: 6px;        /* jarak kecil dari teks atas */
+  margin-bottom: 22px;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* soft highlight inline */
+.inline-quote em{
+  background: linear-gradient(transparent 70%, rgba(154,166,255,0.22) 70%);
+  padding: 0 4px;
+  border-radius: 3px;
+}
+
+/* dark mode */
+body.dark .inline-quote{
+  color: #e6e6f0;
+}
+
+body.dark .inline-quote em{
+  background: linear-gradient(transparent 70%, rgba(154,166,255,0.35) 70%);
+}
+
+
+/* Quote highlight */
+.quote{
+  background:var(--quote);
+  border-left:6px solid var(--accent);
+  padding:20px;
+  margin:25px 0;
+  font-style:italic;
+  border-radius:8px;
+}
+.direct-quote{
+  background: linear-gradient(135deg, #eef1ff, #f6f7ff);
+  border-left: 6px solid var(--accent);
+  padding: 22px 24px;
+  margin: 30px 0;
+  border-radius: 10px;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #2f2f3a;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.04);
+}
+
+/* Dark mode version */
+body.dark .direct-quote{
+  background: linear-gradient(135deg, #1b1c28, #222336);
+  border-left: 6px solid #9aa6ff;
+  color: #e8e8f0;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+/* Important highlight */
+.highlight{
+  background:#fff7d6;
+  padding:2px 6px;
+  border-radius:4px;
+}
+
+/* Important emphasis highlight */
+.key-line{
+  display: inline;
+  background: linear-gradient(transparent 70%, rgba(255,180,190,0.20) 70%);
+  padding: 2px 6px;
+  border-radius: 4px;
+   font-size: 1.05rem;
+   font-weight: normal; 
+  color: var(--text);
+}
+
+/* block important line (kalimat penting satu baris penuh) */
+key-line{
+  display: inline-block;
+  margin: 14px 0;
+  padding: 2px 6px;
+  background: linear-gradient(transparent 68%, rgba(255,180,190,0.20) 68%);
+  border-radius: 4px;
+  font-size: 1.05rem;
+  font-weight: normal;   /* <- ini penting: bukan bold */
+  color: var(--text);
+}
+
+/* Dark mode */
+body.dark .key-line{
+  background: linear-gradient(transparent 68%, rgba(255,180,190,0.20) 68%);
+  color: #e6e6f0;
+}
+
+body.dark .key-block{
+  background: linear-gradient(90deg, rgba(154,166,255,0.18), rgba(154,166,255,0.05));
+  border-left: 4px solid #9aa6ff;
+  color: #f0f0f5;
+}
+
+
+
+/* Footnote */
+.footnote{
+  font-size:0.9rem;
+  color:#555;
+  background:#f0f2ff;
+  padding:15px;
+  border-radius:8px;
+  margin-top:40px;
+}
+
+/* Footer */
+.footer{
+  text-align:center;
+  margin-top:80px;
+  font-size:0.9rem;
+  color:#777;
+}
+
+/* Animations */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* Mobile */
+@media(max-width:600px){
+  .blog-header h1{
+    font-size:2rem;
+  }
+}
+
+</style>
+</head>
+
+<body>
+  <div id="progress"></div>
+
+<button id="darkToggle" class="mode-btn">🌙</button>
+
+
+<div class="container">
+<!-- HEADER -->
+<header class="blog-header">
+<h1>#MeToo</h1>
+<div class="meta">Published on: April 19th, 2026</div>
+</header>
+
+<!-- INTRO -->
+<section class="section">
+<p><b>Do you know about the <span class="highlight">#MeToo movement?</span></b></p>
+<p>If not, you should read this!</p>
+</section>
+
+<!-- HOW #METOO BEGAN -->
+<section class="section">
+<h2>How #MeToo Began</h2>
+
+<p>In 2006, in the United States, an activist named <span class="key-line"><b>Tarana Burke</b></span> began using the phrase <em>“Me Too.”</em></p>
+
+<p>Tarana worked with young women, especially survivors of sexual violence from vulnerable communities. She realized that the issue was not only the number of cases, but also how these survivors felt <span class="key-line">alone</span>, as if their experiences were isolated, not part of a bigger problem.</p>
+
+<p><span class="highlight"><em>“Me Too” was born as a form of empathy and solidarity</em></span>, a way of saying <em>“I’ve been through that too, and you are not alone.”</em></p>
+
+<p>At that stage, the movement was not widely known, not viral, and not yet a global conversation. It existed only in small spaces, as a form of support between individuals trying to understand each other’s experiences.</p>
+
+<p>However, more than a decade later, with the same social conditions, a culture of silence, unequal power relations, and the normalization of inappropriate behavior, it finally reached a breaking point.</p>
+</section>
+
+<!-- 2017 -->
+<section class="section">
+<h2>Turning Point in 2017</h2>
+
+<p>In 2017, in the Hollywood entertainment industry, the case of <span class="key-line"><b>Harvey Weinstein</b></span>, an influential film producer, was exposed to the public.</p>
+
+<p>Journalistic investigations revealed that for years, he allegedly used his position to commit sexual harassment and violence against many women.</p>
+
+<p><span class="highlight">Dozens of victims began to speak out, showing that this was not an isolated case, but a systematic pattern.</span></p>
+
+<p>This case became a symbol of long-standing injustice. The perpetrator was protected by power, while the victims were silenced by fear and by a system that did not stand with them.</p>
+
+<p>In that moment, an actress named <span class="key-line"><b>Alyssa Milano</b></span> encouraged people through social media to share their experiences using the hashtag <span class="highlight"><b>#MeToo</b></span>.</p>
+
+<p><span class="key-line">The invitation was simple, but the impact was extraordinary.</span></p>
+
+<p>In a short time, millions of people from different countries, backgrounds, and professions began using the hashtag to tell their stories.</p>
+
+<p>From there, <em>“Me Too”</em>, which was originally an expression of empathy, transformed into a global social movement.</p>
+</section>
+
+<!-- MEANING -->
+<section class="section">
+<h2>What #MeToo Represents</h2>
+
+<p>The movement then evolved into a collective space to reveal what had long been hidden.</p>
+
+<p>It does not only talk about extreme forms of sexual violence, but also opens discussions about a wider spectrum, including degrading comments, inappropriate jokes, and situations that make someone feel unsafe.</p>
+
+<p><span class="key-line">#MeToo shows that injustice does not only lie in individual actions, but also in the system that supports them.</span></p>
+
+<p>Such as victim-blaming culture, unequal power relations, and the normalization of behaviors that should never be considered acceptable.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- MY METOO -->
+<section class="section">
+<h2>My #Metoo</h2>
+
+<p>Understanding #MeToo often makes us think that these stories only happen somewhere <em>“far away,”</em> in big industries, among people with high power.</p>
+
+<p><span class="key-line">As if it is not part of everyday life.</span></p>
+
+<p>Until we realize, the story might not be that far.</p>
+
+<p><span class="highlight">It could even be something we have experienced ourselves, without realizing it.</span></p>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section">
+<h2>What I Saw and What I Felt</h2>
+
+<p>If someone says that childhood is always associated with innocence, maybe you need to read about my experience in my environment.</p>
+
+<p>Honestly, my earliest memory of elementary school is not about learning to read or playing during breaks, but about the shock of seeing how children that age, especially boys, were already talking about things far beyond their age.</p>
+
+<p><span class="key-line">Not just vaguely knowing, but reaching a level that was clearly inappropriate, both in words and actions.</span></p>
+
+<p>Meanwhile, I was only equipped with basic education about body boundaries and self-protection, which felt very different from what I saw around me.</p>
+
+<p>Because my friends were not just talking, they were imitating, trying, acting in ways that were not even supposed to be understood at that age.</p>
+
+<p><span class="highlight">The question is, where did they learn all of that from?</span></p>
+
+<p>We are often too quick to blame <em>“the children,”</em> as if they suddenly appeared with that kind of behavior.</p>
+
+<p><span class="key-line">But if we look deeper, this is not just about individuals, but about an environment that allows it and even contributes to it.</span></p>
+</section>
+
+<!-- TEACHERS -->
+<section class="section">
+<h2>Environment and Authority</h2>
+
+<p>Because at the same time, I also saw some teachers, figures who should be the last boundary between children and a world they are not ready for.</p>
+
+<p><span class="key-line">Joking about sexual things, sometimes between male and female teachers, sometimes in front of students.</span></p>
+
+<p>As if it was something light, as if there were no consequences.</p>
+
+<p><span class="highlight">As if the children in front of them were not absorbing everything without any filter.</span></p>
+
+<p>At that point, the line between what is <em>“acceptable”</em> and <em>“not acceptable”</em> was not just blurred, it was completely erased.</p>
+</section>
+
+<!-- NEXT LEVEL -->
+<section class="section">
+<h2>Education Levels</h2>
+
+<p>Moving to the next level of education, my expectations were slightly higher, especially because the school I chose carried a <em>“religiously integrated”</em> label.</p>
+
+<p><span class="key-line">Which logically should have stronger values, clearer boundaries, and more awareness of what is appropriate and not.</span></p>
+
+<p>However, the reality felt like a more explicit version of what I had already seen before.</p>
+
+<p>Where the language became more vulgar, the illustrations more explicit.</p>
+
+<p><span class="highlight">And what was most disturbing was not only the behavior of the students, but also some educators were involved.</span></p>
+
+<p>Strangely, this was never truly questioned.</p>
+
+<p><span class="key-line">It was often considered normal.</span></p>
+</section>
+
+<!-- PATTERN -->
+<section class="section">
+<h2>A Repeating Pattern</h2>
+
+<p>Then, moving to the next level of education, I might not have had much space to observe because of the COVID-19 pandemic.</p>
+
+<p>But even within those limitations, the same pattern still appeared.</p>
+
+<p><span class="key-line">There were still individuals involved, the behavior kept repeating.</span></p>
+
+<p>Mostly dominated by males, as if this was no longer a coincidence.</p>
+
+<p><span class="highlight">But a pattern that continues without ever truly being broken.</span></p>
+</section>
+
+<!-- CRITICAL MOMENT -->
+<section class="section">
+<h2>A Critical Moment</h2>
+
+<p>There was one moment that perhaps best illustrates how broken this system is.</p>
+
+<p>It happened when I was not even 12 years old yet.</p>
+
+<p>At a school promotion event in a religious-based school.</p>
+
+<p><span class="key-line">Which confidently invited a religious figure.</span></p>
+
+<p>Someone who symbolically should be a guardian of values.</p>
+
+<p><span class="highlight">But what happened was the opposite.</span></p>
+
+<p>He made jokes about adult relationships in front of children.</p>
+
+<p><span class="key-line">Children who were not even old enough to understand the context.</span></p>
+
+<p>What was even more shocking was not only what he said.</p>
+
+<p><span class="highlight">But the reaction around him.</span></p>
+
+<p>Parents laughed.</p>
+<p>Teachers stayed silent.</p>
+
+<p><span class="key-line">No one stopped him.</span></p>
+
+<p>No one corrected him.</p>
+
+<p>As if everyone agreed that it was <em>“normal,”</em> <em>“funny,”</em> and <em>“not a problem.”</em></p>
+</section>
+
+<!-- FEELING -->
+<section class="section">
+<h2>What I Felt</h2>
+
+<p>At that point, what I felt was not just disagreement, but deep discomfort.</p>
+
+<p><span class="key-line">As a child, I was placed in a space where boundaries were collectively violated.</span></p>
+
+<p><span class="highlight">And there was not a single adult acting as protection.</span></p>
+
+<p>If this had only happened once, maybe it could be called an <em>“isolated case.”</em></p>
+
+<p><span class="key-line">But the reality is, it kept happening.</span></p>
+
+<p>At school, in the environment, even in some religious discussions or events.</p>
+
+<p><span class="highlight">Where inappropriate jokes continued to appear and continued to be laughed at.</span></p>
+</section>
+
+<div class="divider"></div>
+
+<!-- SYSTEM -->
+<section class="section">
+<h2>A Broken System</h2>
+
+<p>So the problem is not just one or two individuals, but something deeper and more complex.</p>
+
+<p><span class="key-line">A social system that has been flawed from the beginning.</span></p>
+
+<p>Where the environment allows it, authority figures set the wrong example.</p>
+
+<p><span class="highlight">And society chooses to normalize instead of correcting it.</span></p>
+
+<p>We talk about morality, but in practice, we contradict it.</p>
+
+<p><span class="key-line">We claim to uphold values, but in everyday life, we slowly destroy them.</span></p>
+
+<p>Something that is clearly inappropriate, clearly uncomfortable, clearly beyond age boundaries.</p>
+
+<p><span class="highlight">Can continue to exist and repeat itself.</span></p>
+
+<p>Not because people don’t know.</p>
+
+<p><span class="key-line">But because too many choose to treat it as normal.</span></p>
+</section>
+
+<!-- CAMPUS -->
+<section class="section">
+<h2>Sexual Violence on Indonesian Campuses</h2>
+
+<p>Then I continued my education to the next level…</p>
+
+<p>In recent times, educational spaces in Indonesia, which should be the safest place to learn and grow.</p>
+
+<p><span class="key-line">Have once again been highlighted due to cases that show the same pattern.</span></p>
+
+<p>Sexual violence, power relations, and normalization that is difficult to break.</p>
+
+<p>At <span class="highlight">Universitas Indonesia</span>, for example, the public was shocked by a case of alleged verbal sexual harassment involving several students in the Faculty of Law.</p>
+
+<p>The case began in a digital space, something often considered trivial.</p>
+
+<p><span class="key-line">But later developed into a serious issue handled by a special task force.</span></p>
+
+<p>Sixteen students were examined in an ongoing investigation.</p>
+
+<p><span class="highlight">With an approach that emphasizes victim protection and fairness for all parties.</span></p>
+
+<p>What is interesting is that this case shows that violence does not always come in physical form.</p>
+
+<p><span class="key-line">It can appear in words, in conversations, in spaces considered “normal.”</span></p>
+
+<p>But the impact remains real.</p>
+
+<p>On the other hand, at <span class="highlight">IPB University</span>, a similar case emerged from conversations in a student WhatsApp group.</p>
+
+<p>It initially circulated as <em>“batch news,”</em> but gradually unfolded into alleged sexual harassment involving many parties.</p>
+
+<p><span class="key-line">Even student organization officials.</span></p>
+
+<p>More than just the content of the conversation.</p>
+
+<p><span class="highlight">What became the focus was how the case dragged on without clarity.</span></p>
+
+<p>Triggering anger among students who then organized and demanded transparency.</p>
+
+<p>Here, the issue is not only the act itself.</p>
+
+<p><span class="key-line">But also the system.</span></p>
+
+<p>How slow and unclear responses prolong the sense of insecurity for victims.</p>
+
+<p>A similar situation occurred at <span class="highlight">Institut Teknologi Bandung</span>.</p>
+
+<p>When an old song performed in a student activity received criticism.</p>
+
+<p><span class="key-line">For containing elements of verbal sexual harassment.</span></p>
+
+<p>The song was considered a <em>“tradition.”</em></p>
+
+<p><span class="highlight">Something that had existed for a long time and was continuously maintained without being questioned.</span></p>
+
+<p>Until finally, people began to ask.</p>
+
+<p><span class="key-line">Since when did something degrading become a tradition?</span></p>
+
+<p>This case reveals an important point.</p>
+
+<p><span class="highlight">Normalization often comes from habits that are never evaluated.</span></p>
+
+<p>Even at <span class="highlight">Universitas Padjadjaran</span>, alleged sexual harassment involved someone in a high academic position.</p>
+
+<p><span class="key-line">Showing that power relations do not only occur among students.</span></p>
+
+<p>But also within formal structures.</p>
+
+<p><span class="highlight">When the perpetrator is in a position of authority, the space for victims to speak becomes even more limited.</span></p>
+
+<p>At first glance, these cases may seem different.</p>
+
+<p><span class="key-line">Some happen in digital spaces, some within organizational culture, some involve individuals with high positions.</span></p>
+
+<p>But if we look deeper.</p>
+
+<p><span class="highlight">They are all connected by the same pattern.</span></p>
+
+<p>Unequal power, slow institutional response, and a culture that often considers these issues as something not worth making a big deal of.</p>
+
+<p>The irony is that all of this happens in spaces that are supposed to teach values, ethics, and awareness.</p>
+</section>
+
+<!-- PERSONAL NOTE -->
+<section class="section">
+<h2>A Personal Note</h2>
+
+<p>As an important note, I want to make this clear to avoid misunderstanding.</p>
+
+<p><span class="key-line">Everything I have shared above is not an attempt to discredit the institutions where I studied.</span></p>
+
+<p>On the contrary, these schools have played a significant role in shaping who I am today.</p>
+
+<p><span class="highlight">Both academically and personally.</span></p>
+
+<p>I am truly grateful to everyone involved.</p>
+
+<p>The dedicated teachers, the environment that allowed me to grow.</p>
+
+<p><span class="key-line">And the many meaningful experiences I gained.</span></p>
+
+<p>These pieces of reality happened from around 2009 to 2026.</p>
+
+<p><span class="highlight">Reflecting the social conditions I experienced during those years.</span></p>
+
+<p>In the early years, around 2009.</p>
+
+<p><span class="key-line">Society might not have had enough awareness regarding boundaries, ethics, and sensitivity.</span></p>
+
+<p>Especially in educational environments.</p>
+
+<p>So this is not about blaming one side or generalizing.</p>
+
+<p><span class="highlight">But about acknowledging that there were gaps that were once considered normal.</span></p>
+
+<p>Now, awareness of this issue is increasingly being raised everywhere.</p>
+
+<p><span class="key-line">Whether about child protection, educator ethics, or communication boundaries.</span></p>
+
+<p>The hope is not to bring up the past for its own sake.</p>
+
+<p><span class="highlight">But so that all educational institutions can become better, wiser, and more firm.</span></p>
+</section>
+
+<!-- REFERENCES -->
+<section class="section">
+<h2>References</h2>
+
+<p>Holland, M. K., & Hewett, H. (Eds.). (2021). #MeToo and Literary Studies: Reading, Writing, and Teaching about Sexual Violence and Rape Culture. New York: Bloomsbury Academic.</p>
+
+<p>Ernowo, P. Y. (2026, April 15). UI Periksa 16 Mahasiswa dalam Kasus Dugaan Kekerasan Verbal di FH. InfoPublik.</p>
+
+<p>Redaksi Koran Kampus. (2026, April 17). IPB Darurat KS: Melihat Realita Penanganan Kasus Kekerasan Seksual Melalui Konsolidasi BEM KM. Korpus IPB.</p>
+
+<p>Tim detikJabar. (2026, April 16). Ringkasan Kasus Mahasiswa ITB Nyanyikan Lagu Bernuansa Pelecehan. detikJabar.</p>
+
+<p>CNN Indonesia. (2026, April 16). Guru Besar Unpad Dinonaktifkan Usai Diduga Lecehkan Mahasiswi.</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  © 2026 • Dear April Blog
+</footer>
+
+</div>
+
+<script>
+// Progress bar
+window.addEventListener('scroll',()=>{
+  const scrollTop=document.documentElement.scrollTop;
+  const height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+  const progress=(scrollTop/height)*100;
+  document.getElementById('progress').style.width=progress+'%';
+});
+
+// Date
+document.getElementById("date").innerText = new Date().toLocaleDateString("en-GB",{
+  day:"numeric",
+  month:"long",
+  year:"numeric"
+});
+</script>
+<script>
+/* Disable right click */
+document.addEventListener('contextmenu', function(e){
+  e.preventDefault();
+});
+
+/* Disable copy */
+document.addEventListener('copy', function(e){
+  e.preventDefault();
+});
+
+/* Disable cut */
+document.addEventListener('cut', function(e){
+  e.preventDefault();
+});
+
+/* Disable drag */
+document.addEventListener('dragstart', function(e){
+  e.preventDefault();
+});
+</script>
+
+
+ <script>
+const toggleBtn = document.getElementById('darkToggle');
+
+/* Load mode from localStorage */
+if(localStorage.getItem('theme') === 'dark'){
+  document.body.classList.add('dark');
+  toggleBtn.innerText = '☀️';
+}else{
+  toggleBtn.innerText = '🌙';
+}
+
+/* Toggle mode */
+toggleBtn.onclick = function(){
+  document.body.classList.toggle('dark');
+
+  if(document.body.classList.contains('dark')){
+    localStorage.setItem('theme','dark');
+    toggleBtn.innerText = '☀️';
+  }else{
+    localStorage.setItem('theme','light');
+    toggleBtn.innerText = '🌙';
+  }
+};
+</script>
+
+
+</body>
+</html>
+
