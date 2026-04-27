@@ -7,34 +7,226 @@
 <title>Gratitude – Dear April</title>
 
 <style>
-  body {
-    margin: 0;
-    font-family: 'Georgia', serif;
-    background: linear-gradient(180deg, #fffaf6, #fef6f1);
-    color: #3e3e3e;
-    line-height: 1.8;
-  }
 
-  .container {
-    max-width: 720px;
-    margin: auto;
-    padding: 40px 24px;
-  }
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: linear-gradient(180deg, #fffaf6, #f7efe8);
+  color: #4a403a;
+  line-height: 1.9;
+  overflow-x: hidden;
+}
 
-  .blog-header {
-    text-align: center;
-    margin-bottom: 40px;
-  }
+/* floating hearts & glow */
+body::before {
+  content: "";
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 200, 180, 0.3), transparent);
+  top: 10%;
+  left: -100px;
+  animation: floatGlow 8s ease-in-out infinite;
+}
 
-  .blog-header h1 {
-    font-size: 28px;
-    font-weight: 500;
-    color: #5a4a42;
-    margin-bottom: 8px;
-  }
+body::after {
+  content: "";
+  position: fixed;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(255, 220, 200, 0.25), transparent);
+  bottom: 5%;
+  right: -80px;
+  animation: floatGlow 10s ease-in-out infinite;
+}
 
-  .meta {
-    font-size: 14px;
+@keyframes floatGlow {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-30px); }
+}
+
+.container {
+  max-width: 720px;
+  margin: auto;
+  padding: 50px 24px;
+}
+
+/* header */
+.blog-header {
+  text-align: center;
+  margin-bottom: 40px;
+  animation: fadeDown 1.2s ease;
+}
+
+.blog-header h1 {
+  font-size: 28px;
+  font-weight: 500;
+  color: #6b5b52;
+}
+
+.meta {
+  font-size: 14px;
+  color: #a89a90;
+}
+
+/* card */
+.card {
+  background: rgba(255,255,255,0.65);
+  padding: 36px;
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.05);
+  animation: fadeUp 1.4s ease;
+}
+
+/* text */
+p {
+  margin: 0 0 14px 0;
+  white-space: pre-line; /* penting biar line break sama */
+}
+
+/* opening */
+.opening {
+  text-align: center;
+  font-style: italic;
+  color: #7a6a60;
+  margin-bottom: 28px;
+}
+
+/* highlight */
+.highlight {
+  color: #8c6f5e;
+  font-weight: 500;
+}
+
+/* divider */
+.divider {
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(to right, #e8d8cc, transparent);
+  margin: 30px auto;
+}
+
+/* closing */
+.closing {
+  text-align: center;
+  font-style: italic;
+  margin-top: 30px;
+  color: #7a6a60;
+}
+
+/* subtle floating icons */
+.floating {
+  position: absolute;
+  font-size: 18px;
+  opacity: 0.4;
+  animation: floatIcon 6s infinite ease-in-out;
+}
+
+.f1 { top: 20%; left: 10%; }
+.f2 { top: 50%; right: 12%; animation-delay: 2s; }
+.f3 { bottom: 20%; left: 15%; animation-delay: 4s; }
+
+@keyframes floatIcon {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(25px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- floating symbols -->
+<div class="floating f1">🤍</div>
+<div class="floating f2">✨</div>
+<div class="floating f3">🕊️</div>
+
+<div class="container">
+
+<header class="blog-header">
+  <h1>A Quiet Gratitude</h1>
+  <div class="meta">A birthday reflection</div>
+</header>
+
+<div class="card">
+
+<p class="opening">With all respect and humility,</p>
+
+<p>
+I would like to express my gratitude to Allah SWT,
+who has always been with me through my most difficult and fragile moments.
+</p>
+
+<div class="divider"></div>
+
+<p>
+Thank You for all the good things You have given me,
+my parents, my family, my friends,
+and those whose presence brings love into my life.
+</p>
+
+<p>
+There is one thing I know for sure
+I am not perfect.
+There are times when I feel lost,
+and I know I cannot do this life on my own.
+And so, as a form of Your help,
+You placed these people in my life.
+</p>
+
+<div class="divider"></div>
+
+<p>
+Through them,
+I have learned what love truly means,
+and what it means to sacrifice.
+</p>
+
+<p>
+I am deeply grateful to be surrounded by kind-hearted people,
+who stay, even when I feel insecure, anxious, unsure, and like I have failed.
+</p>
+
+<div class="divider"></div>
+
+<p>
+In those moments,
+You always guide me back to the right path,
+gently reminding me to keep moving forward,
+even when my heart is still full of doubt.
+</p>
+
+<div class="divider"></div>
+
+<p>
+For all of this,
+I will keep learning
+to become a better person,
+to be more empathetic,
+and to have a bigger heart,
+so I can continue to love and give to those around me.
+</p>
+
+<p class="closing">— Thank you for everything 🤍</p>
+
+</div>
+
+</div>
+
+</body>
+</html>    font-size: 14px;
     color: #a08f85;
   }
 
