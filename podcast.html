@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>My Writings • Dear April</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#fff7fb;
+  --text:#3a2a3f;
+  --sub:#7a5b7f;
+  --accent:#ff9acb;
+  --accent2:#b8a4ff;
+  --card:#ffffff;
+  --soft:#fceeff;
+}
+
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Comic Neue','Comic Sans MS',cursive;
+  background: linear-gradient(180deg,#fff7fb,#fdf2ff);
+  color:var(--text);
+  line-height:1.8;
+}
+
+/* NAVBAR */
+.navbar{
+  background: linear-gradient(to right,#ffe4f3,#f1e9ff);
+  padding:14px 20px;
+  position: sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 6px 18px rgba(0,0,0,0.05);
+  backdrop-filter: blur(8px);
+}
+
+.nav-container{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  font-weight:700;
+  font-size:20px;
+  color:#8a3d88;
+}
+
+.logo img{
+  width:28px;
+  height:28px;
+  margin-right:10px;
+}
+
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:18px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  font-weight:600;
+  color:#7a3b7b;
+  padding:6px 12px;
+  border-radius:10px;
+  transition:0.3s;
+}
+
+.nav-links a:hover{
+  background:#ffd9f0;
+  color:#b84ba7;
+}
+
+/* HEADER */
+.header{
+  text-align:center;
+  padding:60px 20px 40px;
+  animation:fadeUp 1s ease;
+}
+
+.header h1{
+  font-size:2.8rem;
+  background: linear-gradient(90deg,#ff7bbf,#b89cff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.header p{
+  margin-top:10px;
+  color:var(--sub);
+  font-size:1.05rem;
+}
+
+/* TOOLS */
+.tools{
+  text-align:center;
+  margin-top:18px;
+  font-size:0.95rem;
+  color:#a06aa8;
+}
+
+/* CONTAINER */
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:30px 20px 80px;
+}
+
+/* CARD */
+.blog-card{
+  background:var(--card);
+  border-radius:22px;
+  padding:35px 28px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.08);
+  animation:fadeUp 1.2s ease;
+}
+
+/* BISMILLAH */
+.bismillah{
+  text-align:center;
+  font-size:1.9rem;
+  color:#b060c2;
+  margin-bottom:14px;
+}
+
+/* QUOTE */
+.top-quote{
+  text-align:center;
+  font-style:italic;
+  color:#b26bb5;
+  margin-bottom:22px;
+}
+
+/* TIME */
+.time-date{
+  text-align:center;
+  font-size:0.95rem;
+  color:#a07ca6;
+  margin-bottom:30px;
+}
+
+/* BLOG LIST */
+.blog-list{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.blog-item{
+  background: linear-gradient(135deg,#fff0fa,#f5f0ff);
+  border-radius:14px;
+  padding:16px 18px;
+  transition:0.35s;
+  box-shadow:0 6px 14px rgba(0,0,0,0.04);
+}
+
+.blog-item:hover{
+  transform:translateY(-4px) scale(1.01);
+  box-shadow:0 12px 26px rgba(0,0,0,0.08);
+}
+
+.blog-item a{
+  text-decoration:none;
+  font-size:1.05rem;
+  font-weight:600;
+  color:#7b2f7f;
+}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  margin-top:60px;
+  font-size:0.9rem;
+  color:#a48aa9;
+}
+
+/* DARK MODE BUTTON */
+.dark-toggle{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  z-index:9999;
+  background:linear-gradient(135deg,#ff7bbf,#b89cff);
+  color:white;
+  border:none;
+  padding:12px 14px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:16px;
+  box-shadow:0 10px 24px rgba(0,0,0,0.25);
+  transition:0.3s;
+}
+
+.dark-toggle:hover{
+  transform:scale(1.08);
+}
+
+/* DARK MODE */
+body.dark{
+  background: linear-gradient(180deg,#0e0f1a,#151728);
+  color:#e8e8f0;
+}
+
+body.dark .navbar{
+  background: rgba(25,26,45,0.75);
+}
+
+body.dark .logo,
+body.dark .nav-links a{
+  color:#d6d9ff;
+}
+
+body.dark .nav-links a:hover{
+  background: rgba(184,164,255,0.18);
+}
+
+body.dark .blog-card{
+  background: rgba(22,24,45,0.95);
+  box-shadow:0 18px 45px rgba(0,0,0,0.45);
+}
+
+body.dark .blog-item{
+  background: linear-gradient(135deg,#1c1f3a,#262a52);
+}
+
+body.dark .blog-item a{
+  color:#f1f1ff;
+}
+
+body.dark .header p,
+body.dark .time-date,
+body.dark .top-quote,
+body.dark .footer{
+  color:#b8baf0;
+}
+
+/* ANIMATION */
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(25px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .header h1{font-size:2.1rem;}
+  .blog-card{padding:28px 20px;}
+  .blog-item a{font-size:1rem;}
+  .nav-links{flex-direction:column; gap:10px; width:100%;}
+  .nav-links a{display:block;}
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo">
+       <img src="logonya.png" alt="Flower Icon"/>
+      <span>Dear April</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="list.html">Blog</a></li>
+    </ul>
+  </div>
+</nav>
+
+<button id="darkToggle" class="dark-toggle">🌙</button>
+
+<header class="header">
+  <h1>My English Writings 🌸</h1>
+  <p>A soft space for stories, healing, and growth</p>
+  <div class="tools">📖 Dear April Collection</div>
+</header>
+
+<div class="container">
+  <div class="blog-card">
+
+    <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+    <div class="top-quote">“Words are a reflection of our soul — let them shine.” ✨</div>
+    <div class="time-date" id="time-date"></div>
+
+    <div class="blog-list">
+       
+         <div class="blog-item">
+        <a href="23yo.html">✿ When Humans Lose Everything, What Is Still Left?</a>
+         </div>
+      <div class="blog-item">
+        <a href="kedelapan.html">✿ It's Just a Joke, Right?</a>
+      </div>
+        <div class="blog-item">
+        <a href="ketujuh.html">✿ #MeToo Movement</a>
+      </div>
+     <div class="blog-item">
+        <a href="keenam.html">✿ Who am I without my family’s narrative?</a>
+      </div>
+       <div class="blog-item">
+        <a href="kelima.html">✿ You Finally Understand Your Worth</a>
+      </div>
+        <div class="blog-item">
+        <a href="keempat.html">✿ Hurt Doesn’t Justify Hurt</a>
+      </div>
+      <div class="blog-item">
+        <a href="ketiga.html">✿ KKN in Pekalongan</a>
+      </div>
+        <div class="blog-item">
+        <a href="Kedua.html">✿ From Chaos to Confidence: My Third Booth Experience</a>
+      </div>
+      <div class="blog-item">
+        <a href="Blog.html">✿ Hey There, Welcome to <em>Dear April</em></a>
+      </div>
+    </div>
+<div class="section-divider">
+  🎙️ Dear April Podcast
+</div>
+
+<div class="podcast-list">
+
+  <div class="podcast-item">
+    <a href="#">✿ Learning How to Be Alone</a>
+    <div class="podcast-desc">
+      reflections about loneliness, healing, and becoming emotionally independent.
+    </div>
+  </div>
+
+  <div class="podcast-item">
+    <a href="#">✿ Why Do We Crave Validation?</a>
+    <div class="podcast-desc">
+      a soft conversation about insecurity, self-worth, and emotional dependency.
+    </div>
+  </div>
+
+  <div class="podcast-item">
+    <a href="#">✿ Soft Thoughts at 2 A.M.</a>
+    <div class="podcast-desc">
+      late-night thoughts, overthinking, and the quiet side of being human.
+    </div>
+  </div>
+
+  <div class="podcast-item">
+    <a href="#">✿ Financial Check-Up for Your 20s</a>
+    <div class="podcast-desc">
+      gentle financial conversations for students and young adults trying to survive adulthood.
+    </div>
+  </div>
+
+</div>
+  </div>
+
+  <footer class="footer">
+    © 2026 • Dear April Blog
+  </footer>
+</div>
+
+<script>
+/* TIME */
+function updateTime() {
+  const now = new Date();
+  const jakartaTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Jakarta" }));
+
+  let h = jakartaTime.getHours();
+  let m = jakartaTime.getMinutes();
+  let s = jakartaTime.getSeconds();
+  let d = jakartaTime.getDate();
+  let mo = jakartaTime.getMonth()+1;
+  let y = jakartaTime.getFullYear();
+
+  h=h<10?'0'+h:h;
+  m=m<10?'0'+m:m;
+  s=s<10?'0'+s:s;
+  d=d<10?'0'+d:d;
+  mo=mo<10?'0'+mo:mo;
+
+  document.getElementById("time-date").innerHTML = `🕰️ ${h}:${m}:${s} WIB | 📅 ${d}/${mo}/${y}`;
+}
+setInterval(updateTime,1000);
+updateTime();
+
+/* DARK MODE */
+const toggle = document.getElementById('darkToggle');
+
+if(localStorage.getItem('theme')==='dark'){
+  document.body.classList.add('dark');
+  toggle.innerText="☀️";
+}
+
+toggle.addEventListener('click',()=>{
+  document.body.classList.toggle('dark');
+  if(document.body.classList.contains('dark')){
+    localStorage.setItem('theme','dark');
+    toggle.innerText="☀️";
+  }else{
+    localStorage.setItem('theme','light');
+    toggle.innerText="🌙";
+  }
+});
+</script>
+
+</body>
+</html>
