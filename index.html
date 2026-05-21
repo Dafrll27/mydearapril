@@ -65,6 +65,8 @@ body{
   align-items:center;
   justify-content:center;
 
+    transform:translateY(-60px);
+
   position:relative;
 
   overflow:hidden;
@@ -320,6 +322,13 @@ margin-bottom:40px;
   .currently{
     padding:24px;
   }
+  .currently-glow{
+  width:160px;
+  height:160px;
+
+  top:-40px;
+  right:-40px;
+}
 
   /* CLOCK */
   .analog-clock{
@@ -484,10 +493,34 @@ body.dark .calendar-days div:hover{
   50%{transform:translateY(15px);}
   100%{transform:translateY(0px);}
 }
-  @keyframes floatLogo{
+
+@keyframes floatLogo{
   0%{transform:translateY(0px);}
   50%{transform:translateY(-10px);}
   100%{transform:translateY(0px);}
+}
+
+@keyframes floatCurrent{
+  0%{transform:translateY(0px);}
+  50%{transform:translateY(12px);}
+  100%{transform:translateY(0px);}
+}
+
+@keyframes fadeFloat{
+  0%{
+    opacity:0.7;
+    transform:translateY(0px);
+  }
+
+  50%{
+    opacity:1;
+    transform:translateY(-2px);
+  }
+
+  100%{
+    opacity:0.7;
+    transform:translateY(0px);
+  }
 }
 
 .glow1{
@@ -497,7 +530,36 @@ body.dark .calendar-days div:hover{
 .glow2{
   animation:floating 10s ease-in-out infinite;
 }
-  
+/* LIVE CURRENTLY SECTION */
+.currently{
+  position:relative;
+}
+
+.currently-content{
+  position:relative;
+  z-index:2;
+}
+
+.currently-glow{
+  position:absolute;
+
+  width:220px;
+  height:220px;
+
+  background:
+    radial-gradient(circle,
+    rgba(255,183,213,0.35),
+    rgba(200,182,255,0));
+
+  border-radius:50%;
+
+  top:-80px;
+  right:-60px;
+
+  filter:blur(25px);
+
+  animation:floatCurrent 7s ease-in-out infinite;
+}  
 .currently h2{
   margin-bottom:15px;
   color:#8a3d88;
@@ -505,8 +567,11 @@ body.dark .calendar-days div:hover{
 }
 
 .currently p{
-  margin:10px 0;
+  margin:14px 0;
+
   color:#6d5674;
+
+  animation:fadeFloat 5s ease-in-out infinite;
 }
 
 body.dark .currently h2,
@@ -625,6 +690,10 @@ body.dark .currently{
 
 <div class="container">
 <section class="currently">
+
+  <div class="currently-glow"></div>
+
+  <div class="currently-content">
   <h2>currently</h2>
 
   <p>
@@ -638,6 +707,7 @@ body.dark .currently{
   <p>
     feeling — a little lost but hopeful
   </p>
+    </div> 
 </section>
 
   <div class="info-grid">
