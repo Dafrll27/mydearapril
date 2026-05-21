@@ -203,11 +203,6 @@ body.dark .logo, body.dark .nav-links a{color:#d6d9ff;}
 
 body.dark .nav-links a:hover{background: rgba(184,164,255,0.18);}
 
-body.dark .clock, body.dark .calendar{
-  background: rgba(22,24,45,0.95);
-  box-shadow:0 18px 45px rgba(0,0,0,0.45);
-}
-
 body.dark .hero-tagline{color:#cfd2ff;}
 body.dark .hero-text p{color:#e8e8f0;}
 
@@ -344,10 +339,6 @@ body.dark .calendar-days div:hover{
   animation:floating 10s ease-in-out infinite;
 }
   
-body.dark .currently{
-  background:rgba(22,24,45,0.9);
-}
-
 .currently h2{
   margin-bottom:15px;
   color:#8a3d88;
@@ -359,12 +350,23 @@ body.dark .currently{
   color:#6d5674;
 }
 
-body.dark .currently{
-  background:rgba(22,24,45,0.9);
-}
-
+body.dark .currently h2,
 body.dark .currently p{
   color:#e6dff0;
+}
+
+/* DARK GLASS EFFECT */
+body.dark .clock,
+body.dark .calendar,
+body.dark .currently{
+
+  background:rgba(25,26,45,0.45);
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  box-shadow:
+    0 15px 40px rgba(0,0,0,0.35),
+    inset 0 0 12px rgba(255,255,255,0.03);
 }
 .clock:hover,
 .calendar:hover,
