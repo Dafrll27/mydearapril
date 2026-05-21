@@ -1169,24 +1169,21 @@ function animateMood(element){
 
 }
 </script>
-  <script>
+ <script>
 
-/* FULLSCREEN INTRO */
-window.addEventListener("load", ()=>{
+/* FULLSCREEN MODE */
+document.addEventListener("click", function(){
 
-  const intro = document.querySelector(".intro-logo");
+  if(!document.fullscreenElement){
 
-  intro.addEventListener("click", ()=>{
+    document.documentElement.requestFullscreen()
+    .catch(err=>{
+      console.log("Fullscreen gagal:", err);
+    });
 
-    if(!document.fullscreenElement){
+  }
 
-      document.documentElement.requestFullscreen();
-
-    }
-
-  });
-
-});
+},{ once:true });
 
 </script>
 </body>
