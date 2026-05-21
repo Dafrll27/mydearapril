@@ -141,13 +141,33 @@ body.dark .hero-quote{
 
 .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;}
 
-.clock,.calendar{
-  background:var(--card);
-  border-radius:22px;
-  padding:28px;
-  box-shadow:0 18px 45px rgba(0,0,0,0.08);
+.clock,
+.calendar,
+.currently{
+
+  background:rgba(255,255,255,0.12);
+
+  backdrop-filter:blur(18px);
+
+  -webkit-backdrop-filter:blur(18px);
+
+  border:1px solid rgba(255,255,255,0.2);
+
+  border-radius:28px;
+
+  padding:32px;
+
+  box-shadow:
+    0 8px 32px rgba(255,154,203,0.12),
+    inset 0 0 12px rgba(255,255,255,0.08);
+
   text-align:center;
-  animation:fadeUp 1.3s ease;
+
+  position:relative;
+
+  overflow:hidden;
+
+  transition:all 0.4s ease;
 }
 
 .clock-time{font-size:2.8rem;font-weight:700;background: linear-gradient(90deg,#ff7bbf,#b89cff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
@@ -351,6 +371,36 @@ body.dark .currently{
 
 body.dark .currently p{
   color:#e6dff0;
+}
+.clock:hover,
+.calendar:hover,
+.currently:hover{
+
+  transform:translateY(-6px);
+
+  box-shadow:
+    0 14px 40px rgba(255,154,203,0.2),
+    inset 0 0 12px rgba(255,255,255,0.1);
+}
+  .clock::before,
+.calendar::before,
+.currently::before{
+
+  content:'';
+
+  position:absolute;
+
+  width:180px;
+  height:180px;
+
+  background:rgba(255,255,255,0.08);
+
+  border-radius:50%;
+
+  top:-60px;
+  right:-60px;
+
+  filter:blur(10px);
 }
 </style>
 </head>
