@@ -873,6 +873,76 @@ body.dark .currently{
 
   filter:blur(10px);
 }
+  /* CUSTOM SCROLLBAR */
+
+::-webkit-scrollbar{
+  width:14px;
+}
+
+::-webkit-scrollbar-track{
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,240,250,0.7),
+      rgba(240,230,255,0.7)
+    );
+
+  border-radius:999px;
+}
+
+::-webkit-scrollbar-thumb{
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffb7d5,
+      #c8b6ff
+    );
+
+  border-radius:999px;
+
+  border:3px solid rgba(255,255,255,0.4);
+
+  box-shadow:
+    0 0 12px rgba(255,183,213,0.5);
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+  background:
+    linear-gradient(
+      180deg,
+      #ff9acb,
+      #b89cff
+    );
+
+  box-shadow:
+    0 0 18px rgba(255,183,213,0.8);
+}
+
+/* DARK MODE */
+body.dark ::-webkit-scrollbar-track{
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(35,36,60,0.8),
+      rgba(20,20,35,0.8)
+    );
+}
+
+body.dark ::-webkit-scrollbar-thumb{
+
+  background:
+    linear-gradient(
+      180deg,
+      #ff9acb,
+      #9d8dff
+    );
+
+  border:3px solid rgba(255,255,255,0.05);
+}
 </style>
 </head>
 
@@ -1176,14 +1246,28 @@ document.addEventListener("click", function(){
 
   if(!document.fullscreenElement){
 
-    document.documentElement.requestFullscreen()
-    .catch(err=>{
+ <script>
+
+/* FULLSCREEN MODE */
+document.addEventListener("click", async function(){
+
+  if(!document.fullscreenElement){
+
+    try{
+
+      await document.documentElement.requestFullscreen();
+
+    }catch(err){
+
       console.log("Fullscreen gagal:", err);
-    });
+
+    }
 
   }
 
-},{ once:true });
+});
+
+</script>
 
 </script>
 </body>
