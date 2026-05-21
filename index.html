@@ -73,7 +73,27 @@ body{
 
   text-align:center;
 }
+.intro-video{
 
+  position:absolute;
+
+  top:0;
+  left:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  opacity:0.35;
+
+  z-index:0;
+
+  filter:
+    blur(1px)
+    brightness(0.8)
+    saturate(1.1);
+}
 .main-logo{
   width:420px;
 
@@ -974,7 +994,11 @@ body.dark::-webkit-scrollbar-thumb{
 
 <!-- INTRO LOGO SECTION -->
 <section class="intro-logo">
+<video class="intro-video" autoplay muted loop playsinline>
 
+  <source src="intro.mp4" type="video/mp4">
+
+</video>
   <div class="intro-glow"></div>
 
   <img src="logonya.png" alt="Dear April Logo" class="main-logo">
@@ -1284,6 +1308,5 @@ document.addEventListener("dblclick", () => {
 
 </script>
 
-</script>
 </body>
 </html>
