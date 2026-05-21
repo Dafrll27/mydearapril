@@ -193,15 +193,100 @@ body.dark .hero-text p{color:#e8e8f0;}
 
 /* AESTHETIC CLOCK */
 .clock{
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(12px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
 }
-.clock-time{
-  font-size:3.2rem;
-  letter-spacing:2px;
+
+.analog-clock{
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  position:relative;
+
+  background:
+    radial-gradient(circle at top,#ffe3f3,#f7ecff);
+
+  border:4px solid rgba(255,255,255,0.5);
+
+  box-shadow:
+    0 10px 30px rgba(255,154,203,0.25),
+    inset 0 0 20px rgba(255,255,255,0.45);
+
+  margin-bottom:20px;
+
+  animation:floatClock 6s ease-in-out infinite;
 }
+
+body.dark .analog-clock{
+  background:
+    radial-gradient(circle at top,#2c2340,#1b1d31);
+}
+
+.hand{
+  position:absolute;
+  bottom:50%;
+  left:50%;
+  transform-origin:bottom;
+  transform:translateX(-50%);
+  border-radius:20px;
+}
+
+.hour{
+  width:6px;
+  height:55px;
+  background:#b06ab3;
+}
+
+.minute{
+  width:4px;
+  height:75px;
+  background:#ff8fc7;
+}
+
+.second{
+  width:2px;
+  height:90px;
+  background:#ffffff;
+}
+
+.center-dot{
+  width:16px;
+  height:16px;
+  background:#ff9acb;
+  border-radius:50%;
+
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+
+  box-shadow:0 0 15px rgba(255,154,203,0.7);
+}
+
+.number{
+  position:absolute;
+  font-weight:bold;
+  color:#9b6ca8;
+  font-size:1rem;
+}
+
+.number12{top:12px;left:50%;transform:translateX(-50%);}
+.number3{right:14px;top:50%;transform:translateY(-50%);}
+.number6{bottom:12px;left:50%;transform:translateX(-50%);}
+.number9{left:14px;top:50%;transform:translateY(-50%);}
+
 .clock-date{
-  font-size:0.95rem;
   margin-top:10px;
+  color:#9a6ca0;
+}
+
+@keyframes floatClock{
+  0%{transform:translateY(0px);}
+  50%{transform:translateY(-8px);}
+  100%{transform:translateY(0px);}
 }
 
 /* AESTHETIC CALENDAR */
@@ -326,11 +411,26 @@ body.dark .currently p{
 
   <div class="info-grid">
 
-    <div class="clock">
-      <div class="clock-time" id="time"></div>
-      <div class="clock-date" id="date"></div>
-      <span>WIB (Jakarta Time)</span>
-    </div>
+ <div class="clock">
+
+  <div class="analog-clock">
+
+    <div class="hand hour" id="hour-hand"></div>
+    <div class="hand minute" id="minute-hand"></div>
+    <div class="hand second" id="second-hand"></div>
+
+    <div class="center-dot"></div>
+
+    <div class="number number12">12</div>
+    <div class="number number3">3</div>
+    <div class="number number6">6</div>
+    <div class="number number9">9</div>
+
+  </div>
+    <div class="clock-date" id="date"></div>
+  <span>WIB (Jakarta Time)</span>
+
+</div>
 
     <div class="calendar">
       <div class="calendar-header">
@@ -358,16 +458,43 @@ body.dark .currently p{
 <script>
 /* CLOCK */
 function updateClock(){
-  const now=new Date();
-  const jakartaTime=new Date(now.toLocaleString("en-US",{timeZone:"Asia/Jakarta"}));
-  let h=jakartaTime.getHours(), m=jakartaTime.getMinutes(), s=jakartaTime.getSeconds();
-  let d=jakartaTime.getDate(), mo=jakartaTime.getMonth()+1, y=jakartaTime.getFullYear();
-  h=h<10?'0'+h:h; m=m<10?'0'+m:m; s=s<10?'0'+s:s;
-  d=d<10?'0'+d:d; mo=mo<10?'0'+mo:mo;
-  document.getElementById("time").textContent=`${h}:${m}:${s}`;
-  document.getElementById("date").textContent=`${d}/${mo}/${y}`;
+
+  const now = new Date();
+
+  const jakartaTime = new Date(
+    now.toLocaleString("en-US",{timeZone:"Asia/Jakarta"})
+  );
+
+  const hours = jakartaTime.getHours();
+  const minutes = jakartaTime.getMinutes();
+  const seconds = jakartaTime.getSeconds();
+
+  const hourDeg = (hours % 12) * 30 + minutes * 0.5;
+  const minuteDeg = minutes * 6;
+  const secondDeg = seconds * 6;
+
+  document.getElementById("hour-hand").style.transform =
+    `translateX(-50%) rotate(${hourDeg}deg)`;
+
+  document.getElementById("minute-hand").style.transform =
+    `translateX(-50%) rotate(${minuteDeg}deg)`;
+
+  document.getElementById("second-hand").style.transform =
+    `translateX(-50%) rotate(${secondDeg}deg)`;
+
+  let d = jakartaTime.getDate();
+  let mo = jakartaTime.getMonth()+1;
+  let y = jakartaTime.getFullYear();
+
+  d=d<10?'0'+d:d;
+  mo=mo<10?'0'+mo:mo;
+
+  document.getElementById("date").textContent =
+    `${d}/${mo}/${y}`;
 }
-setInterval(updateClock,1000); updateClock();
+
+setInterval(updateClock,1000);
+updateClock();
 
 /* CALENDAR */
 const monthNames=["January","February","March","April","May","June","July","August","September","October","November","December"];
