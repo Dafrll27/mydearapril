@@ -28,13 +28,24 @@ body{
 
 /* NAVBAR */
 .navbar{
-  background: linear-gradient(to right,#ffe4f3,#f1e9ff);
+
+  background:rgba(255,255,255,0.08);
+
+  backdrop-filter:blur(18px);
+
+  -webkit-backdrop-filter:blur(18px);
+
+  border-bottom:1px solid rgba(255,255,255,0.08);
+
   padding:14px 20px;
-  position: sticky;
+
+  position:sticky;
+
   top:0;
+
   z-index:1000;
-  box-shadow:0 6px 18px rgba(0,0,0,0.05);
-  backdrop-filter: blur(8px);
+
+  box-shadow:none;
 }
 
 .nav-container{
@@ -424,7 +435,14 @@ body.dark{
 }
 
 body.dark .navbar{
-  background: rgba(25,26,45,0.75);
+
+  background:rgba(10,10,20,0.25);
+
+  backdrop-filter:blur(20px);
+
+  -webkit-backdrop-filter:blur(20px);
+
+  border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 body.dark .logo, body.dark .nav-links a{color:#d6d9ff;}
@@ -1270,16 +1288,10 @@ function animateMood(element){
 
 }
 </script>
- <script>
+<script>
 
-/* FULLSCREEN MODE */
-document.addEventListener("click", function(){
+/* FULLSCREEN INTRO */
 
-  if(!document.fullscreenElement){
-
- <script>
-
-/* FULLSCREEN */
 const introSection = document.querySelector(".intro-logo");
 
 introSection.addEventListener("click", () => {
@@ -1296,6 +1308,7 @@ introSection.addEventListener("click", () => {
 });
 
 /* DOUBLE CLICK TO EXIT */
+
 document.addEventListener("dblclick", () => {
 
   if(document.fullscreenElement){
@@ -1307,6 +1320,5 @@ document.addEventListener("dblclick", () => {
 });
 
 </script>
-
 </body>
 </html>
