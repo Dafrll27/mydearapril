@@ -107,6 +107,23 @@ body{
   z-index:2;
 }
 
+.fullscreen-hint{
+
+  margin-top:14px;
+
+  font-size:0.75rem;
+
+  letter-spacing:2px;
+
+  color:#c7a9d4;
+
+  opacity:0.65;
+
+  position:relative;
+  z-index:2;
+
+  animation:fadeFloat 4s ease-in-out infinite;
+}
 .intro-glow{
   position:absolute;
 
@@ -888,6 +905,9 @@ body.dark .currently{
   <p class="intro-text">
     welcome to dear april
   </p>
+  <p class="fullscreen-hint">
+  press ESC to exit fullscreen
+</p>
 
 </section>
 
@@ -1148,6 +1168,26 @@ function animateMood(element){
   element.classList.add("active");
 
 }
+</script>
+  <script>
+
+/* FULLSCREEN INTRO */
+window.addEventListener("load", ()=>{
+
+  const intro = document.querySelector(".intro-logo");
+
+  intro.addEventListener("click", ()=>{
+
+    if(!document.fullscreenElement){
+
+      document.documentElement.requestFullscreen();
+
+    }
+
+  });
+
+});
+
 </script>
 </body>
 </html>
