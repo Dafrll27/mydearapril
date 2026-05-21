@@ -55,7 +55,73 @@ body{
   color:#b84ba7;
   transform:translateY(-2px);
   box-shadow:0 6px 15px rgba(255,154,203,0.25);}
+/* INTRO LOGO SECTION */
+.intro-logo{
+  min-height:100vh;
 
+  display:flex;
+  flex-direction:column;
+
+  align-items:center;
+  justify-content:center;
+
+  position:relative;
+
+  overflow:hidden;
+
+  text-align:center;
+}
+
+.main-logo{
+  width:420px;
+
+  max-width:80%;
+
+  object-fit:contain;
+
+  position:relative;
+  z-index:2;
+
+  animation:floatLogo 6s ease-in-out infinite;
+
+  filter:
+    drop-shadow(0 0 35px rgba(255,154,203,0.35));
+}
+
+.intro-text{
+  margin-top:20px;
+
+  color:#cba9d8;
+
+  letter-spacing:4px;
+
+  text-transform:uppercase;
+
+  font-size:0.85rem;
+
+  opacity:0.85;
+
+  position:relative;
+  z-index:2;
+}
+
+.intro-glow{
+  position:absolute;
+
+  width:500px;
+  height:500px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(circle,#ffb7d5,#c8b6ff);
+
+  filter:blur(140px);
+
+  opacity:0.25;
+
+  animation:floating 10s ease-in-out infinite;
+}
 /* HERO */
 .hero{
   min-height:85vh;
@@ -210,7 +276,9 @@ margin-bottom:40px;
 @keyframes fadeUp{from{opacity:0;transform:translateY(25px);}to{opacity:1;transform:translateY(0);}}
 
 @media(max-width:600px){
-
+.main-logo{
+  width:260px;
+}
   /* HERO */
   .hero-title{
     font-size:2.3rem;
@@ -497,7 +565,7 @@ body.dark .currently{
 <nav class="navbar">
   <div class="nav-container">
     <div class="logo">
-     <img src="logonya.png" alt="Flower Icon"/>
+     <img src="" alt="Flower Icon"/>
       <span>Dear April</span>
     </div>
     <ul class="nav-links">
@@ -511,7 +579,16 @@ body.dark .currently{
 
 <button id="darkToggle" class="dark-toggle">🌙</button>
 
-<!-- HERO SECTION -->
+<!-- HERO SECTION --
+  <section class="intro-logo">
+
+  <div class="intro-glow"></div>
+
+  <img src="logonya.png" alt="Dear April Logo" class="main-logo">
+
+  <p class="intro-text">
+    welcome to dear april
+  </p>
 <section class="hero">
     <div class="hero-glow glow1"></div>
   <div class="hero-glow glow2"></div>
