@@ -533,6 +533,57 @@ body.dark .calendar-days div:hover{
   50%{transform:translateY(-10px);}
   100%{transform:translateY(0px);}
 }
+  @keyframes moodFloat{
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-10px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+}
+
+@keyframes moodPop{
+
+  0%{
+    transform:scale(1) rotate(0deg);
+  }
+
+  20%{
+    transform:scale(1.4) rotate(-8deg);
+  }
+
+  40%{
+    transform:scale(1.2) rotate(8deg);
+  }
+
+  60%{
+    transform:scale(1.3) rotate(-5deg);
+  }
+
+  100%{
+    transform:scale(1) rotate(0deg);
+  }
+}
+
+@keyframes sparkleGlow{
+
+  0%{
+    filter:drop-shadow(0 0 0px rgba(255,182,193,0));
+  }
+
+  50%{
+    filter:drop-shadow(0 0 22px rgba(255,182,193,0.95));
+  }
+
+  100%{
+    filter:drop-shadow(0 0 0px rgba(255,182,193,0));
+  }
+}
 
 @keyframes floatCurrent{
   0%{transform:translateY(0px);}
@@ -672,8 +723,33 @@ body.dark .calendar-days div:hover{
   font-size:4rem;
 
   margin:12px 0;
+
+  cursor:pointer;
+
+  display:inline-block;
+
+  transition:0.4s ease;
+
+  animation:moodFloat 5s ease-in-out infinite;
+}
+.mood-emoji:hover{
+
+  transform:
+    scale(1.2)
+    rotate(10deg);
+
+  filter:
+    drop-shadow(0 0 18px rgba(255,182,193,0.8));
+
 }
 
+.mood-emoji.active{
+
+  animation:
+    moodPop 0.8s ease,
+    sparkleGlow 1s ease;
+
+}
 /* DARK MODE */
 body.dark .mini-card{
   background:rgba(255,255,255,0.04);
@@ -870,7 +946,7 @@ body.dark .currently{
 
         <p>Ariana Grande</p>
 
-        <a https://open.spotify.com/track/0T3gCq5ZQvGq9jqZmaAff1?si=7e02e18e594e49c1" target="_blank" class="spotify-btn">
+       <a href="https://open.spotify.com/track/0T3gCq5ZQvGq9jqZmaAff1?si=7e02e18e594e49c1" target="_blank" class="spotify-btn">
          🎧 Open Spotify
         </a>
 
@@ -898,9 +974,9 @@ body.dark .currently{
           ☁️ feeling
         </div>
 
-        <div class="mood-emoji">
-          🥺
-        </div>
+<div class="mood-emoji" onclick="animateMood(this)">
+  🌸
+</div>
 
         <h3>a little lost</h3>
 
@@ -1062,6 +1138,16 @@ toggle.addEventListener('click',()=>{
   }
 });
 </script>
+<script>
+function animateMood(element){
 
+  element.classList.remove("active");
+
+  void element.offsetWidth;
+
+  element.classList.add("active");
+
+}
+</script>
 </body>
 </html>
