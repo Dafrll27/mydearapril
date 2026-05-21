@@ -71,6 +71,20 @@ body{
 }
 
 .hero-content{max-width:820px;}
+.hero-logo{
+  width:220px;
+
+  aspect-ratio:1/1;
+
+  object-fit:contain;
+
+  margin-bottom:20px;
+
+  filter:
+    drop-shadow(0 0 20px rgba(255,154,203,0.35));
+
+  animation:floatLogo 5s ease-in-out infinite;
+}
 .hero-glow{
   position:absolute;
   width:350px;
@@ -201,7 +215,9 @@ margin-bottom:40px;
   .hero-title{
     font-size:2.3rem;
   }
-
+.hero-logo{
+  width:160px;
+}
   .hero-text p{
     font-size:1rem;
     line-height:1.8;
@@ -400,6 +416,11 @@ body.dark .calendar-days div:hover{
   50%{transform:translateY(15px);}
   100%{transform:translateY(0px);}
 }
+  @keyframes floatLogo{
+  0%{transform:translateY(0px);}
+  50%{transform:translateY(-10px);}
+  100%{transform:translateY(0px);}
+}
 
 .glow1{
   animation:floating 8s ease-in-out infinite;
@@ -495,7 +516,7 @@ body.dark .currently{
     <div class="hero-glow glow1"></div>
   <div class="hero-glow glow2"></div>
   <div class="hero-content">
-    <h1 class="hero-title">Dear April</h1>
+    <img src="logonya.png" alt="Dear April Logo" class="hero-logo">
     <p class="hero-tagline">A Collection of Thoughts, Voices, Memories and Midnight Reflections.</p>
     <p class="hero-quote">
   “this is my little space to share whatever catches my attention...”
