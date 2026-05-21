@@ -319,6 +319,40 @@ margin-bottom:40px;
   }
 
   /* CURRENTLY */
+  .currently-grid{
+  gap:10px;
+}
+
+.mini-card{
+  padding:14px;
+}
+
+.mini-cover{
+  width:70px;
+  height:70px;
+}
+
+.mini-card h3{
+  font-size:0.8rem;
+}
+
+.mini-card p{
+  font-size:0.7rem;
+}
+
+.mini-top{
+  font-size:0.75rem;
+}
+
+.spotify-btn{
+  font-size:0.65rem;
+
+  padding:6px 10px;
+}
+
+.mood-emoji{
+  font-size:2.5rem;
+}
   .currently{
     padding:24px;
   }
@@ -531,6 +565,130 @@ body.dark .calendar-days div:hover{
   animation:floating 10s ease-in-out infinite;
 }
 /* LIVE CURRENTLY SECTION */
+  .currently-grid{
+  display:flex;
+
+  justify-content:center;
+
+  gap:25px;
+
+  margin-top:35px;
+
+  flex-wrap:nowrap;
+}
+
+.mini-card{
+  flex:1;
+
+  min-width:0;
+
+  background:rgba(255,255,255,0.15);
+
+  border:1px solid rgba(255,255,255,0.2);
+
+  border-radius:24px;
+
+  padding:24px;
+
+  backdrop-filter:blur(15px);
+
+  transition:0.4s ease;
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+.mini-card:hover{
+  transform:translateY(-8px) scale(1.02);
+
+  box-shadow:
+    0 12px 30px rgba(255,154,203,0.18);
+}
+
+.mini-top{
+  color:#a04fa6;
+
+  font-weight:700;
+
+  margin-bottom:18px;
+
+  font-size:1rem;
+}
+
+.mini-cover{
+  width:100px;
+  height:100px;
+
+  object-fit:cover;
+
+  border-radius:18px;
+
+  margin-bottom:18px;
+
+  box-shadow:
+    0 10px 20px rgba(0,0,0,0.12);
+}
+
+.mini-card h3{
+  color:#6d2b73;
+
+  font-size:1.15rem;
+
+  margin-bottom:5px;
+}
+
+.mini-card p{
+  color:#7f6a86;
+
+  font-size:0.95rem;
+}
+
+.spotify-btn{
+  display:inline-block;
+
+  margin-top:15px;
+
+  padding:8px 16px;
+
+  border-radius:999px;
+
+  background:linear-gradient(135deg,#ff9acb,#c8b6ff);
+
+  color:white;
+
+  text-decoration:none;
+
+  font-size:0.9rem;
+
+  transition:0.3s ease;
+}
+
+.spotify-btn:hover{
+  transform:scale(1.05);
+}
+
+.mood-emoji{
+  font-size:4rem;
+
+  margin:12px 0;
+}
+
+/* DARK MODE */
+body.dark .mini-card{
+  background:rgba(255,255,255,0.04);
+
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+body.dark .mini-card h3{
+  color:#f3ddff;
+}
+
+body.dark .mini-card p,
+body.dark .mini-top{
+  color:#d7c4e4;
+}
 .currently{
   position:relative;
 }
@@ -694,20 +852,66 @@ body.dark .currently{
   <div class="currently-glow"></div>
 
   <div class="currently-content">
-  <h2>currently</h2>
 
-  <p>
-    listening to — Hampstead (Ariana Grande)
-  </p>
+    <h2>currently</h2>
 
-  <p>
-    reading — The Mountain Is You (Brianna Wiest)
-  </p>
+    <div class="currently-grid">
 
-  <p>
-    feeling — a little lost but hopeful
-  </p>
-    </div> 
+      <!-- MUSIC -->
+      <div class="mini-card music-card">
+
+        <div class="mini-top">
+          🎵 listening
+        </div>
+
+        <img src="hampstead.jpg" class="mini-cover">
+
+        <h3>Hampstead</h3>
+
+        <p>Ariana Grande</p>
+
+        <a https://open.spotify.com/track/6Vq4cCkPJO7xLhCnLZo8Pu" target="_blank" class="spotify-btn">
+         🎧 Open Spotify
+        </a>
+
+      </div>
+
+      <!-- BOOK -->
+      <div class="mini-card book-card">
+
+        <div class="mini-top">
+          📖 reading
+        </div>
+
+        <img src="mountain.jpg" class="mini-cover">
+
+        <h3>The Mountain Is You</h3>
+
+        <p>Brianna Wiest</p>
+
+      </div>
+
+      <!-- FEELING -->
+      <div class="mini-card feeling-card">
+
+        <div class="mini-top">
+          ☁️ feeling
+        </div>
+
+        <div class="mood-emoji">
+          🥺
+        </div>
+
+        <h3>a little lost</h3>
+
+        <p>but hopeful</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 
   <div class="info-grid">
