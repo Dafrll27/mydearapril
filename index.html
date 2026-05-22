@@ -1177,128 +1177,13 @@ body.dark::-webkit-scrollbar-thumb{
 
   position:absolute;
 
-  perspective:1200px;
-
   z-index:2;
 
   height:180px;
 
+  animation:floating 10s ease-in-out infinite;
 }
 
-.memory-inner{
-
-  position:relative;
-
-  width:100%;
-  height:100%;
-
-  transform-style:preserve-3d;
-
-  transition:transform 0.9s ease;
-
-  transform:rotate(var(--r));
-}
-
-.memory-card:hover .memory-inner{
-
-  transform:
-    rotate(var(--r))
-    rotateY(180deg);
-
-  filter:
-    drop-shadow(0 0 20px rgba(200,182,255,0.35));
-}
-
-.memory-front,
-.memory-back{
-
-  position:absolute;
-  width:100%;
-  height:100%;
-top:0;
-left:0;
-  
-  width:100%;
-  height:100%;
-
-  backface-visibility:hidden;
-
-  border-radius:20px;
-
-  overflow:hidden;
-   backface-visibility:hidden;
-
-  -webkit-backface-visibility:hidden;
-}
-  .memory-front{
-
-  z-index:2;
-
-  transform:rotateY(0deg);
-}
-
-.memory-back{
-
-   background:
-    rgba(120,95,170,0.88);
-
-  backdrop-filter:blur(18px);
-
-  -webkit-backdrop-filter:blur(18px);
-
-  border:1px solid rgba(255,255,255,0.08);
-
-  color:#f8f4ff;
-
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  text-align:center;
-
-  padding:18px;
-
-  font-size:0.92rem;
-
-  line-height:1.8;
-
-  transform:rotateY(180deg);
-
-  box-shadow:
-    0 0 25px rgba(180,160,255,0.18),
-    0 10px 35px rgba(0,0,0,0.3);
-}
-  body.dark .memory-back{
-
-  background:
-    rgba(48,40,78,0.92);
-
-  color:#f4eeff;
-
-  border:1px solid rgba(255,255,255,0.06);
-
-  box-shadow:
-    0 0 25px rgba(180,160,255,0.18),
-    0 10px 35px rgba(0,0,0,0.45);
-}
-  body.dark .memory-back::before{
-
-  content:'';
-
-  position:absolute;
-
-  inset:0;
-
-  background:
-    radial-gradient(
-      circle at top,
-      rgba(255,255,255,0.08),
-      transparent 60%
-    );
-
-  pointer-events:none;
-}
 /* RANDOM POSITIONS */
 
 .m1{
@@ -1428,18 +1313,33 @@ left:0;
 
 .memory{
 
-  opacity:0.12;
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+  border-radius:20px;
+
+  opacity:0.16;
+
+  transition:0.5s ease;
+
+  filter:
+    saturate(0.9)
+    brightness(0.95);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.12);
 }
 
-.memory-card:nth-child(n+9){
-  display:none;
-}
+.memory:hover{
 
-.m1,.m3,.m5,.m7,.m9{
+  opacity:0.32;
 
-  width:110px;
-}
-
+  transform:
+    scale(1.03)
+    rotate(2deg);
 }
   /* STARS */
 
@@ -1540,168 +1440,63 @@ body.dark .stars{
    <!-- MEMORY PHOTOS -->
 
 <div class="memory-card m1">
-  <div class="memory-inner">
-    <div class="memory-front">
-      <img src="foto1.jpg" class="memory">
-    </div>
-    <div class="memory-back">
-      Have you been gentle with yourself lately?
-    </div>
-  </div>
+  <img src="foto1.jpg" class="memory">
 </div>
 
 <div class="memory-card m2">
-  <div class="memory-inner">
-    <div class="memory-front">
-      <img src="foto2.jpg" class="memory">
-    </div>
-    <div class="memory-back">
-      What kind of place feels like home to your heart?
-    </div>
-  </div>
+  <img src="foto2.jpg" class="memory">
 </div>
 
 <div class="memory-card m3">
-  <div class="memory-inner">
-    <div class="memory-front">
-      <img src="foto3.jpg" class="memory">
-    </div>
-    <div class="memory-back">
-      When was the last time you truly felt at peace?
-    </div>
-  </div>
+  <img src="foto3.jpg" class="memory">
 </div>
 
 <div class="memory-card m4">
-  <div class="memory-inner">
-    <div class="memory-front">
-      <img src="foto4.jpg" class="memory">
-    </div>
-    <div class="memory-back">
-      Is there something you never said but still carry inside?
-    </div>
-  </div>
+  <img src="foto4.jpg" class="memory">
 </div>
 
 <div class="memory-card m5">
-  <div class="memory-inner">
-    <div class="memory-front">
-      <img src="foto5.jpg" class="memory">
-    </div>
-    <div class="memory-back">
-      What keeps you going on your hardest days?
-    </div>
-  </div>
+  <img src="foto5.jpg" class="memory">
 </div>
 
 <div class="memory-card m6">
-  <div class="memory-inner">
-    <div class="memory-front">
-      <img src="foto6.jpg" class="memory">
-    </div>
-    <div class="memory-back">
-      Do you ever miss an old version of yourself?
-    </div>
-  </div>
+  <img src="foto6.jpg" class="memory">
 </div>
 
 <div class="memory-card m7">
-  <div class="memory-inner">
-    <div class="memory-front">
-      <img src="foto7.jpg" class="memory">
-    </div>
-    <div class="memory-back">
-      What kind of love makes you feel safe?
-    </div>
-  </div>
+  <img src="foto7.jpg" class="memory">
 </div>
 
 <div class="memory-card m8">
-  <div class="memory-inner">
-    <div class="memory-front">
-      <img src="foto8.jpg" class="memory">
-    </div>
-    <div class="memory-back">
-      If your heart could speak honestly right now, what would it say?
-    </div>
-  </div>
+  <img src="foto8.jpg" class="memory">
 </div>
 
 <div class="memory-card m9">
-  <div class="memory-inner">
-    <div class="memory-front">
-      <img src="foto9.jpg" class="memory">
-    </div>
-    <div class="memory-back">
-      What memory still feels warm no matter how much time passes?
-    </div>
-  </div>
+  <img src="foto9.jpg" class="memory">
 </div>
 
 <div class="memory-card m10">
-  <div class="memory-inner">
-    <div class="memory-front">
-      <img src="foto10.jpg" class="memory">
-    </div>
-    <div class="memory-back">
-      Have you ever stayed strong just because no one noticed you were hurting?
-    </div>
-  </div>
+  <img src="foto10.jpg" class="memory">
 </div>
 
 <div class="memory-card m11">
-  <div class="memory-inner">
-    <div class="memory-front">
-      <img src="foto11.jpg" class="memory">
-    </div>
-    <div class="memory-back">
-      What does healing look like for you these days?
-    </div>
-  </div>
+  <img src="foto11.jpg" class="memory">
 </div>
 
 <div class="memory-card m12">
-  <div class="memory-inner">
-    <div class="memory-front">
-      <img src="foto12.jpg" class="memory">
-    </div>
-    <div class="memory-back">
-      Do you think people can outgrow their sadness?
-    </div>
-  </div>
+  <img src="foto12.jpg" class="memory">
 </div>
 
 <div class="memory-card m13">
-  <div class="memory-inner">
-    <div class="memory-front">
-      <img src="foto13.jpg" class="memory">
-    </div>
-    <div class="memory-back">
-      What is something soft about you that the world rarely sees?
-    </div>
-  </div>
+  <img src="foto13.jpg" class="memory">
 </div>
 
 <div class="memory-card m14">
-  <div class="memory-inner">
-    <div class="memory-front">
-      <img src="foto14.jpg" class="memory">
-    </div>
-    <div class="memory-back">
-      If you could pause one moment forever, which moment would it be?
-    </div>
-  </div>
+  <img src="foto14.jpg" class="memory">
 </div>
 
 <div class="memory-card m15">
-  <div class="memory-inner">
-    <div class="memory-front">
-      <img src="foto15.jpg" class="memory">
-    </div>
-    <div class="memory-back">
-      Are you becoming the person your younger self needed?
-    </div>
-  </div>
+  <img src="foto15.jpg" class="memory">
 </div>
 
   <div class="hero-glow glow1"></div>
