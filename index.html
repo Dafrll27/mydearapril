@@ -597,8 +597,10 @@ body.dark .hero-tagline{
   box-shadow:none;
 
   text-shadow:
-    0 0 15px rgba(255,255,255,0.25),
-    0 0 35px rgba(180,160,255,0.45);
+     0 0 8px rgba(255,255,255,0.2),
+    0 0 18px rgba(210,190,255,0.45),
+    0 0 35px rgba(180,160,255,0.35),
+    0 0 55px rgba(140,120,255,0.25);
 }
 
 body.dark .hero-text p{
@@ -1171,15 +1173,11 @@ body.dark::-webkit-scrollbar-thumb{
     0 10px 30px rgba(0,0,0,0.15);
 }
 
-.memory:hover{
-
-  opacity:0.35;
-}
 .memory-card{
 
   position:absolute;
 
-  perspective:1000px;
+  perspective:1200px;
 
   z-index:2;
 
@@ -1194,9 +1192,9 @@ body.dark::-webkit-scrollbar-thumb{
   width:100%;
   height:100%;
 
-  transition:transform 0.8s;
-
   transform-style:preserve-3d;
+
+  transition:transform 0.9s ease;
 }
 
 .memory-card:hover .memory-inner{
@@ -1209,7 +1207,8 @@ filter:
 .memory-back{
 
   position:absolute;
-  
+  width:100%;
+  height:100%;
 top:0;
 left:0;
   
@@ -1221,6 +1220,15 @@ left:0;
   border-radius:20px;
 
   overflow:hidden;
+   backface-visibility:hidden;
+
+  -webkit-backface-visibility:hidden;
+}
+  .memory-front{
+
+  z-index:2;
+
+  transform:rotateY(0deg);
 }
 
 .memory-back{
@@ -1252,7 +1260,8 @@ left:0;
   transform:rotateY(180deg);
 
   box-shadow:
-    0 10px 30px rgba(0,0,0,0.25);
+    0 0 25px rgba(180,160,255,0.18),
+    0 10px 35px rgba(0,0,0,0.3);
 }
   body.dark .memory-back{
 
