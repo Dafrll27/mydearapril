@@ -8,6 +8,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
+  html,body{
+
+  margin:0;
+  padding:0;
+
+  overflow-x:hidden;
+}
 :root{
   --bg:#fff7fb;
   --text:#3a2a3f;
@@ -36,7 +43,7 @@ body{
 
   width:100%;
 
-  padding:28px 40px;
+  padding:16px 40px;
 
   z-index:1000;
 
@@ -116,14 +123,12 @@ body{
 /* INTRO LOGO SECTION */
 .intro-logo{
   min-height:100vh;
-
+height:100vh;
   display:flex;
   flex-direction:column;
 
   align-items:center;
   justify-content:center;
-
-    transform:translateY(-60px);
 
   position:relative;
 
@@ -172,7 +177,7 @@ body{
 
   margin-top:24px;
 
-  color:#f7d8ff;
+  color:#8e5a9d;
 
   letter-spacing:6px;
 
@@ -301,7 +306,7 @@ body{
 
   letter-spacing:1px;
 
-  color:#f6e4ff;
+  color:#7b4b86;
 
   text-shadow:
     0 0 18px rgba(255,183,213,0.35);
@@ -396,6 +401,42 @@ margin-bottom:40px;
 @media(max-width:600px){
 .main-logo{
   width:260px;
+}
+  .intro-logo{
+
+  padding:0 20px;
+}
+
+.navbar{
+
+  padding:12px 20px;
+}
+
+.nav-links{
+
+  gap:5px;
+}
+
+.nav-links a{
+
+  font-size:0.85rem;
+}
+
+.main-logo{
+
+  width:280px;
+}
+
+.intro-text{
+
+  font-size:0.8rem;
+
+  letter-spacing:4px;
+}
+
+.fullscreen-hint{
+
+  font-size:0.65rem;
 }
   /* HERO */
   .hero-title{
@@ -993,7 +1034,7 @@ body.dark .currently{
   /* CUSTOM SCROLLBAR */
 
 ::-webkit-scrollbar{
-  width:14px;
+  width:8px;
 }
 
 ::-webkit-scrollbar-track{
