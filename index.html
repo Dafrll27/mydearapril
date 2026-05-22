@@ -47,6 +47,21 @@ body{
 
   box-shadow:none;
 }
+  .navbar.scrolled{
+
+  background:
+    rgba(255,247,251,0.78);
+
+  backdrop-filter:blur(16px);
+
+  box-shadow:
+    0 6px 20px rgba(0,0,0,0.06);
+}
+  body.dark .navbar.scrolled{
+
+  background:
+    rgba(20,22,35,0.72);
+}
 
 .nav-container{
   max-width:1100px;
@@ -58,6 +73,31 @@ body{
 
 .logo{display:flex;align-items:center;font-weight:700;font-size:20px;color:#8a3d88;}
 .logo img{width:28px;height:28px;margin-right:10px;}
+.navbar-brand{
+
+  opacity:0;
+
+  visibility:hidden;
+
+  width:0;
+
+  overflow:hidden;
+
+  transform:translateY(-10px);
+
+  transition:0.5s ease;
+}
+
+.navbar.show-brand .navbar-brand{
+
+  opacity:1;
+
+  visibility:visible;
+
+  width:auto;
+
+  transform:translateY(0);
+}
 
 .nav-links{list-style:none;display:flex;gap:18px;}
 .nav-links a{text-decoration:none;font-weight:600;color:#7a3b7b;padding:6px 12px;border-radius:10px;transition:0.3s;}
@@ -436,7 +476,9 @@ body.dark{
 
 body.dark .navbar{
 
-  background:rgba(10,10,20,0.25);
+  background:transparent;
+
+  box-shadow:none;
 
   backdrop-filter:blur(20px);
 
@@ -995,7 +1037,7 @@ body.dark::-webkit-scrollbar-thumb{
 
 <nav class="navbar">
   <div class="nav-container">
-    <div class="logo">
+  <div class="logo navbar-brand">
      <img src="logonya.png" alt="Flower Icon"/>
       <span>Dear April</span>
     </div>
@@ -1314,6 +1356,27 @@ document.addEventListener("dblclick", () => {
   if(document.fullscreenElement){
 
     document.exitFullscreen();
+
+  }
+
+});
+
+</script>
+  <script>
+
+const navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll",()=>{
+
+  if(window.scrollY > 350){
+
+    navbar.classList.add("show-brand");
+    navbar.classList.add("scrolled");
+
+  }else{
+
+    navbar.classList.remove("show-brand");
+    navbar.classList.remove("scrolled");
 
   }
 
