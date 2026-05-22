@@ -29,33 +29,40 @@ body{
 /* NAVBAR */
 .navbar{
 
-  background:rgba(255,255,255,0.08);
+  position:fixed;
+
+  top:0;
+  left:0;
+
+  width:100%;
+
+  padding:28px 40px;
+
+  z-index:1000;
+
+  background:transparent;
+
+  border:none;
+
+  box-shadow:none;
+
+  backdrop-filter:none;
+
+  -webkit-backdrop-filter:none;
+
+  transition:0.4s ease;
+}
+.navbar.scrolled{
+
+  background:
+    rgba(255,247,251,0.18);
 
   backdrop-filter:blur(18px);
 
   -webkit-backdrop-filter:blur(18px);
 
-  border-bottom:1px solid rgba(255,255,255,0.08);
-
-  padding:14px 20px;
-
-  position:sticky;
-
-  top:0;
-
-  z-index:1000;
-
-  box-shadow:none;
-}
-  .navbar.scrolled{
-
-  background:
-    rgba(255,247,251,0.78);
-
-  backdrop-filter:blur(16px);
-
-  box-shadow:
-    0 6px 20px rgba(0,0,0,0.06);
+  border-bottom:
+    1px solid rgba(255,255,255,0.08);
 }
   body.dark .navbar.scrolled{
 
@@ -162,22 +169,29 @@ body{
 }
 
 .intro-text{
-  margin-top:20px;
 
-  color:#cba9d8;
+  margin-top:24px;
 
-  letter-spacing:4px;
+  color:#f7d8ff;
+
+  letter-spacing:6px;
 
   text-transform:uppercase;
 
-  font-size:0.85rem;
+  font-size:1rem;
 
-  opacity:0.85;
+  font-weight:700;
+
+  opacity:1;
+
+  text-shadow:
+    0 0 12px rgba(255,255,255,0.35),
+    0 0 25px rgba(255,183,213,0.55);
 
   position:relative;
+
   z-index:2;
 }
-
 .fullscreen-hint{
 
   margin-top:14px;
@@ -278,9 +292,23 @@ body{
 }
 
 .hero-tagline{
-  font-size:1.15rem;
-  color:var(--sub);
-  margin-bottom:42px;
+
+  font-size:1.4rem;
+
+  font-weight:700;
+
+  line-height:1.8;
+
+  letter-spacing:1px;
+
+  color:#f6e4ff;
+
+  text-shadow:
+    0 0 18px rgba(255,183,213,0.35);
+
+  margin-bottom:30px;
+
+  animation:fadeFloat 6s ease-in-out infinite;
 }
   .hero-quote{
   font-style:italic;
@@ -480,11 +508,20 @@ body.dark .navbar{
 
   box-shadow:none;
 
+  border:none;
+
+  backdrop-filter:none;
+
+  -webkit-backdrop-filter:none;
+}
+  body.dark .navbar.scrolled{
+
+  background:
+    rgba(15,16,30,0.35);
+
   backdrop-filter:blur(20px);
 
   -webkit-backdrop-filter:blur(20px);
-
-  border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 body.dark .logo, body.dark .nav-links a{color:#d6d9ff;}
@@ -1087,19 +1124,6 @@ body.dark::-webkit-scrollbar-thumb{
     <p class="hero-quote">
       “this is my little space to share whatever catches my attention...”
     </p>
-    <div class="hero-text">
-      <p>
-        I write about the quiet parts of life,<br>
-        the complicated layers of relationships<br>
-        and the questions that shape who we become.
-      </p>
-
-      <p class="hero-emphasis">
-        This space is not about answers —<br>
-        it’s about learning how to ask better questions<br>
-        and learning how to listen to ourselves more honestly.
-      </p>
-    </div>
   </div>
 </section>
 
