@@ -297,20 +297,20 @@ height:100vh;
 }
 
 .hero-tagline{
-  background:
-  rgba(255,255,255,0.08);
 
-backdrop-filter:blur(12px);
+  background:none;
 
--webkit-backdrop-filter:blur(12px);
+  backdrop-filter:none;
 
-padding:18px 30px;
+  -webkit-backdrop-filter:none;
 
-border-radius:28px;
+  padding:0;
 
-display:inline-block;
+  border-radius:0;
 
-  font-size:1.5rem;
+  display:inline-block;
+
+  font-size:1.6rem;
 
   font-weight:700;
 
@@ -590,21 +590,15 @@ body.dark .nav-links a:hover{background: rgba(184,164,255,0.18);}
 
 body.dark .hero-tagline{
 
-  color:#cfd2ff;
+  color:#f3eaff;
 
-  background:
-    rgba(25,25,40,0.28);
+  background:none;
 
-  padding:14px 24px;
+  box-shadow:none;
 
-  border-radius:20px;
-
-  backdrop-filter:blur(10px);
-
-  -webkit-backdrop-filter:blur(10px);
-
-  box-shadow:
-    0 0 30px rgba(180,160,255,0.12);
+  text-shadow:
+    0 0 15px rgba(255,255,255,0.25),
+    0 0 35px rgba(180,160,255,0.45);
 }
 
 body.dark .hero-text p{
@@ -1180,9 +1174,6 @@ body.dark::-webkit-scrollbar-thumb{
 .memory:hover{
 
   opacity:0.35;
-
-  transform:
-    scale(1.04);
 }
 .memory-card{
 
