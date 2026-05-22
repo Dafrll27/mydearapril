@@ -1108,6 +1108,199 @@ body.dark::-webkit-scrollbar-thumb{
   box-shadow:
     0 0 15px rgba(184,164,255,0.35);
 }
+  /* MEMORY PHOTOS */
+
+.memory{
+
+  position:absolute;
+
+  object-fit:cover;
+
+  border-radius:20px;
+
+  opacity:0.18;
+
+  filter:
+    blur(0.5px);
+
+  transition:0.5s ease;
+
+  z-index:1;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.15);
+}
+
+.memory:hover{
+
+  opacity:0.35;
+
+  transform:
+    scale(1.04);
+}
+
+/* RANDOM POSITIONS */
+
+.m1{
+  width:160px;
+  top:10%;
+  left:8%;
+  transform:rotate(-8deg);
+}
+
+.m2{
+  width:120px;
+  top:12%;
+  right:10%;
+  transform:rotate(7deg);
+}
+
+.m3{
+  width:190px;
+  top:22%;
+  left:20%;
+  transform:rotate(5deg);
+}
+
+.m4{
+  width:140px;
+  top:28%;
+  right:18%;
+  transform:rotate(-6deg);
+}
+
+.m5{
+  width:170px;
+  top:38%;
+  left:6%;
+  transform:rotate(8deg);
+}
+
+.m6{
+  width:120px;
+  top:44%;
+  right:7%;
+  transform:rotate(-4deg);
+}
+
+.m7{
+  width:150px;
+  top:52%;
+  left:18%;
+  transform:rotate(6deg);
+}
+
+.m8{
+  width:180px;
+  top:58%;
+  right:20%;
+  transform:rotate(-7deg);
+}
+
+.m9{
+  width:120px;
+  top:70%;
+  left:10%;
+  transform:rotate(9deg);
+}
+
+.m10{
+  width:170px;
+  top:75%;
+  right:8%;
+  transform:rotate(-5deg);
+}
+
+.m11{
+  width:130px;
+  top:15%;
+  left:40%;
+  transform:rotate(6deg);
+}
+
+.m12{
+  width:160px;
+  top:30%;
+  right:35%;
+  transform:rotate(-8deg);
+}
+
+.m13{
+  width:120px;
+  top:45%;
+  left:35%;
+  transform:rotate(5deg);
+}
+
+.m14{
+  width:190px;
+  top:65%;
+  right:32%;
+  transform:rotate(-4deg);
+}
+
+.m15{
+  width:150px;
+  top:80%;
+  left:30%;
+  transform:rotate(8deg);
+}
+
+.m16{
+  width:120px;
+  top:18%;
+  right:50%;
+  transform:rotate(-6deg);
+}
+
+.m17{
+  width:180px;
+  top:40%;
+  left:48%;
+  transform:rotate(7deg);
+}
+
+.m18{
+  width:130px;
+  top:60%;
+  right:48%;
+  transform:rotate(-9deg);
+}
+
+.m19{
+  width:170px;
+  top:78%;
+  left:52%;
+  transform:rotate(5deg);
+}
+
+.m20{
+  width:140px;
+  top:85%;
+  right:22%;
+  transform:rotate(-7deg);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.memory{
+
+  opacity:0.12;
+}
+
+.memory:nth-child(n+11){
+
+  display:none;
+}
+
+.m1,.m3,.m5,.m7,.m9{
+
+  width:110px;
+}
+
+}
 </style>
 </head>
 
@@ -1152,6 +1345,29 @@ body.dark::-webkit-scrollbar-thumb{
 
 <!-- HERO SECTION -->
 <section class="hero">
+   <!-- MEMORY PHOTOS -->
+
+  <img src="foto1.jpg" class="memory m1">
+  <img src="foto2.jpg" class="memory m2">
+  <img src="foto3.jpg" class="memory m3">
+  <img src="foto4.jpg" class="memory m4">
+  <img src="foto5.jpg" class="memory m5">
+  <img src="foto6.jpg" class="memory m6">
+  <img src="foto7.jpg" class="memory m7">
+  <img src="foto8.jpg" class="memory m8">
+  <img src="foto9.jpg" class="memory m9">
+  <img src="foto10.jpg" class="memory m10">
+
+  <img src="foto11.jpg" class="memory m11">
+  <img src="foto12.jpg" class="memory m12">
+  <img src="foto13.jpg" class="memory m13">
+  <img src="foto14.jpg" class="memory m14">
+  <img src="foto15.jpg" class="memory m15">
+  <img src="foto16.jpg" class="memory m16">
+  <img src="foto17.jpg" class="memory m17">
+  <img src="foto18.jpg" class="memory m18">
+  <img src="foto19.jpg" class="memory m19">
+  <img src="foto20.jpg" class="memory m20">
 
   <div class="hero-glow glow1"></div>
   <div class="hero-glow glow2"></div>
