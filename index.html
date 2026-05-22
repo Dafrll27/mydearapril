@@ -298,7 +298,7 @@ height:100vh;
 
 .hero-tagline{
 
-  font-size:1.4rem;
+  font-size:1.5rem;
 
   font-weight:700;
 
@@ -306,23 +306,30 @@ height:100vh;
 
   letter-spacing:1px;
 
-  color:#7b4b86;
+  color:#7a4588;
 
   text-shadow:
-    0 0 18px rgba(255,183,213,0.35);
+    0 0 18px rgba(255,255,255,0.95),
+    0 0 35px rgba(255,183,213,0.75);
 
-  margin-bottom:30px;
+  margin-bottom:28px;
 
-  animation:fadeFloat 6s ease-in-out infinite;
+  position:relative;
+  z-index:5;
 }
-  .hero-quote{
+.hero-quote{
+
   font-style:italic;
-  color:#9d7ca6;
-  margin-top:-15px;
-  margin-bottom:35px;
-  font-size:1rem;
-  opacity:0.9;
-  letter-spacing:0.5px;
+
+  color:#9c6aa7;
+
+  font-size:1.05rem;
+
+  text-shadow:
+    0 0 12px rgba(255,255,255,0.9);
+
+  position:relative;
+  z-index:5;
 }
 
 body.dark .hero-quote{
@@ -1118,7 +1125,10 @@ body.dark::-webkit-scrollbar-thumb{
 
   border-radius:20px;
 
-  opacity:0.18;
+ opacity:0.12;
+  backface-visibility:hidden;
+transform-style:preserve-3d;
+cursor:pointer;
 
   filter:
     blur(0.5px);
@@ -1137,6 +1147,76 @@ body.dark::-webkit-scrollbar-thumb{
 
   transform:
     scale(1.04);
+}
+  .memory-card{
+
+  position:absolute;
+
+  perspective:1000px;
+
+  z-index:2;
+}
+
+.memory-inner{
+
+  position:relative;
+
+  width:100%;
+  height:100%;
+
+  transition:transform 0.8s;
+
+  transform-style:preserve-3d;
+}
+
+.memory-card:hover .memory-inner{
+
+  transform:rotateY(180deg);
+}
+
+.memory-front,
+.memory-back{
+
+  position:absolute;
+
+  width:100%;
+  height:100%;
+
+  backface-visibility:hidden;
+
+  border-radius:20px;
+
+  overflow:hidden;
+}
+
+.memory-back{
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,183,213,0.95),
+      rgba(200,182,255,0.95)
+    );
+
+  color:white;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+
+  padding:18px;
+
+  font-size:0.9rem;
+
+  line-height:1.7;
+
+  transform:rotateY(180deg);
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.18);
 }
 
 /* RANDOM POSITIONS */
@@ -1275,6 +1355,58 @@ body.dark::-webkit-scrollbar-thumb{
 }
 
 }
+  /* STARS */
+
+.stars{
+
+  position:fixed;
+
+  top:0;
+  left:0;
+
+  width:100%;
+  height:100%;
+
+  pointer-events:none;
+
+  opacity:0;
+
+  transition:0.5s ease;
+
+  z-index:0;
+
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, white, transparent),
+    radial-gradient(2px 2px at 70% 20%, white, transparent),
+    radial-gradient(1.5px 1.5px at 40% 70%, white, transparent),
+    radial-gradient(2px 2px at 80% 60%, white, transparent),
+    radial-gradient(1.5px 1.5px at 55% 40%, white, transparent);
+
+  animation:twinkle 6s linear infinite;
+}
+
+body.dark .stars{
+
+  opacity:0.55;
+}
+
+@keyframes twinkle{
+
+  0%{
+    transform:translateY(0px);
+    opacity:0.4;
+  }
+
+  50%{
+    transform:translateY(-6px);
+    opacity:0.9;
+  }
+
+  100%{
+    transform:translateY(0px);
+    opacity:0.4;
+  }
+}
 </style>
 </head>
 
@@ -1321,27 +1453,285 @@ body.dark::-webkit-scrollbar-thumb{
 <section class="hero">
    <!-- MEMORY PHOTOS -->
 
-  <img src="foto1.jpg" class="memory m1">
-  <img src="foto2.jpg" class="memory m2">
-  <img src="foto3.jpg" class="memory m3">
-  <img src="foto4.jpg" class="memory m4">
-  <img src="foto5.jpg" class="memory m5">
-  <img src="foto6.jpg" class="memory m6">
-  <img src="foto7.jpg" class="memory m7">
-  <img src="foto8.jpg" class="memory m8">
-  <img src="foto9.jpg" class="memory m9">
-  <img src="foto10.jpg" class="memory m10">
+<div class="memory-card m1">
+  <div class="memory-inner">
 
-  <img src="foto11.jpg" class="memory m11">
-  <img src="foto12.jpg" class="memory m12">
-  <img src="foto13.jpg" class="memory m13">
-  <img src="foto14.jpg" class="memory m14">
-  <img src="foto15.jpg" class="memory m15">
-  <img src="foto16.jpg" class="memory m16">
-  <img src="foto17.jpg" class="memory m17">
-  <img src="foto18.jpg" class="memory m18">
-  <img src="foto19.jpg" class="memory m19">
-  <img src="foto20.jpg" class="memory m20">
+    <div class="memory-front">
+      <img src="foto1.jpg" class="memory">
+    </div>
+
+    <div class="memory-back">
+      some memories still feel like home.
+    </div>
+
+  </div>
+</div>
+
+<div class="memory-card m2">
+  <div class="memory-inner">
+
+    <div class="memory-front">
+      <img src="foto2.jpg" class="memory">
+    </div>
+
+    <div class="memory-back">
+      you survived every version of yourself.
+    </div>
+
+  </div>
+</div>
+
+<div class="memory-card m3">
+  <div class="memory-inner">
+
+    <div class="memory-front">
+      <img src="foto3.jpg" class="memory">
+    </div>
+
+    <div class="memory-back">
+      soft hearts feel everything deeply.
+    </div>
+
+  </div>
+</div>
+
+<div class="memory-card m4">
+  <div class="memory-inner">
+
+    <div class="memory-front">
+      <img src="foto4.jpg" class="memory">
+    </div>
+
+    <div class="memory-back">
+      you were never hard to love.
+    </div>
+
+  </div>
+</div>
+
+<div class="memory-card m5">
+  <div class="memory-inner">
+
+    <div class="memory-front">
+      <img src="foto5.jpg" class="memory">
+    </div>
+
+    <div class="memory-back">
+      the moon understands lonely people.
+    </div>
+
+  </div>
+</div>
+
+<div class="memory-card m6">
+  <div class="memory-inner">
+
+    <div class="memory-front">
+      <img src="foto6.jpg" class="memory">
+    </div>
+
+    <div class="memory-back">
+      sometimes healing looks like disappearing quietly.
+    </div>
+
+  </div>
+</div>
+
+<div class="memory-card m7">
+  <div class="memory-inner">
+
+    <div class="memory-front">
+      <img src="foto7.jpg" class="memory">
+    </div>
+
+    <div class="memory-back">
+      little moments become entire lifetimes.
+    </div>
+
+  </div>
+</div>
+
+<div class="memory-card m8">
+  <div class="memory-inner">
+
+    <div class="memory-front">
+      <img src="foto8.jpg" class="memory">
+    </div>
+
+    <div class="memory-back">
+      there is beauty in becoming.
+    </div>
+
+  </div>
+</div>
+
+<div class="memory-card m9">
+  <div class="memory-inner">
+
+    <div class="memory-front">
+      <img src="foto9.jpg" class="memory">
+    </div>
+
+    <div class="memory-back">
+      you deserve gentle love.
+    </div>
+
+  </div>
+</div>
+
+<div class="memory-card m10">
+  <div class="memory-inner">
+
+    <div class="memory-front">
+      <img src="foto10.jpg" class="memory">
+    </div>
+
+    <div class="memory-back">
+      some feelings never fully leave.
+    </div>
+
+  </div>
+</div>
+
+<div class="memory-card m11">
+  <div class="memory-inner">
+
+    <div class="memory-front">
+      <img src="foto11.jpg" class="memory">
+    </div>
+
+    <div class="memory-back">
+      your softness is not weakness.
+    </div>
+
+  </div>
+</div>
+
+<div class="memory-card m12">
+  <div class="memory-inner">
+
+    <div class="memory-front">
+      <img src="foto12.jpg" class="memory">
+    </div>
+
+    <div class="memory-back">
+      certain sunsets stay forever.
+    </div>
+
+  </div>
+</div>
+
+<div class="memory-card m13">
+  <div class="memory-inner">
+
+    <div class="memory-front">
+      <img src="foto13.jpg" class="memory">
+    </div>
+
+    <div class="memory-back">
+      you are allowed to outgrow people.
+    </div>
+
+  </div>
+</div>
+
+<div class="memory-card m14">
+  <div class="memory-inner">
+
+    <div class="memory-front">
+      <img src="foto14.jpg" class="memory">
+    </div>
+
+    <div class="memory-back">
+      even silence can feel comforting.
+    </div>
+
+  </div>
+</div>
+
+<div class="memory-card m15">
+  <div class="memory-inner">
+
+    <div class="memory-front">
+      <img src="foto15.jpg" class="memory">
+    </div>
+
+    <div class="memory-back">
+      home is sometimes just a feeling.
+    </div>
+
+  </div>
+</div>
+
+<div class="memory-card m16">
+  <div class="memory-inner">
+
+    <div class="memory-front">
+      <img src="foto16.jpg" class="memory">
+    </div>
+
+    <div class="memory-back">
+      you are becoming someone beautiful.
+    </div>
+
+  </div>
+</div>
+
+<div class="memory-card m17">
+  <div class="memory-inner">
+
+    <div class="memory-front">
+      <img src="foto17.jpg" class="memory">
+    </div>
+
+    <div class="memory-back">
+      not every ending is tragic.
+    </div>
+
+  </div>
+</div>
+
+<div class="memory-card m18">
+  <div class="memory-inner">
+
+    <div class="memory-front">
+      <img src="foto18.jpg" class="memory">
+    </div>
+
+    <div class="memory-back">
+      romanticize your quiet life.
+    </div>
+
+  </div>
+</div>
+
+<div class="memory-card m19">
+  <div class="memory-inner">
+
+    <div class="memory-front">
+      <img src="foto19.jpg" class="memory">
+    </div>
+
+    <div class="memory-back">
+      there is peace in slowing down.
+    </div>
+
+  </div>
+</div>
+
+<div class="memory-card m20">
+  <div class="memory-inner">
+
+    <div class="memory-front">
+      <img src="foto20.jpg" class="memory">
+    </div>
+
+    <div class="memory-back">
+      some souls feel familiar instantly.
+    </div>
+
+  </div>
+</div>
 
   <div class="hero-glow glow1"></div>
   <div class="hero-glow glow2"></div>
@@ -1638,5 +2028,6 @@ window.addEventListener("scroll",()=>{
 });
 
 </script>
+<div class="stars"></div>
 </body>
 </html>
